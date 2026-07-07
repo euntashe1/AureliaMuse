@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Ceramic | Aurelia Muse</title>
+<link rel="icon" type="image/png" href="img/favicon-am.png">
+<link rel="shortcut icon" href="img/favicon-am.png">
+<link rel="apple-touch-icon" href="img/favicon-am.png"><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playball&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+</head>
+<body id="top" class="product-sub daily-page">
+  <!-- Header -->
+  <p class="notice">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+  <header class="site-header is-products-active">
+    <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false"><img src="img/bar.svg" alt=""></button>
+    <a class="logo" href="index.html"><img src="img/header.svg" alt="Aurelia Muse"></a>
+    <div class="header-icons">
+      <a href="login.html" aria-label="로그인"><img src="img/login.svg" alt=""></a>
+      <a class="header-cart-link" href="cart.html" aria-label="장바구니"><img src="img/cart.svg" alt=""><span class="cart-count">0</span></a>
+      <a class="header-wishlist-link" href="wishlist.html" aria-label="찜하기"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden>0</span></a>
+    </div>
+  </header>
+
+  <!-- Side menu -->
+  <div class="side-menu-overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="side-menu" aria-hidden="true">
+    <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
+    <nav class="side-menu__nav">
+      <section class="side-menu__group">
+        <h2>Products</h2>
+        <a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+        <a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+        <a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+        <a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+        <a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>Story</h2>
+        <a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>Workshop</h2>
+        <a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a>
+        <a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
+      </section>
+    </nav>
+    <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">Cart</a></div>
+  </aside>
+
+  <main class="product-sub-main">
+    <!-- Category buttons -->
+    <nav class="product-sub-categories" aria-label="상품 카테고리">
+      <a class="product-sub-category" href="all-collection.html"><span class="product-sub-category__image"><img src="img/allcollection.png" alt=""></span><span>All Collection</span></a>
+      <a class="product-sub-category is-active" href="daily-ceramic.html"><span class="product-sub-category__image"><img src="img/Daily Ceramic.png" alt=""></span><span>Daily Ceramic</span></a>
+      <a class="product-sub-category" href="artisan-edition.html"><span class="product-sub-category__image"><img src="img/artisan-edition-button.jpg" alt=""></span><span>Artisan Edition</span></a>
+      <a class="product-sub-category" href="collection.html"><span class="product-sub-category__image"><img src="img/collection-thumb.jpg" alt="Collection"></span><span>Collection</span></a>
+      <a class="product-sub-category" href="gift-set.html"><span class="product-sub-category__image"><img src="img/Gift Set.png" alt=""></span><span>Gift Set</span></a>
+    </nav>
+
+    <!-- Filter / sort -->
+    <section class="product-sub-toolbar" aria-label="상품 필터">
+      <div class="product-sub-filters">
+        <div class="product-filter" data-filter="priceRange">
+          <button class="product-filter__toggle" type="button" aria-expanded="false"><span>금액별</span></button>
+          <div class="product-filter__menu">
+            <button class="product-filter__option is-selected" type="button" data-value="all">전체</button>
+            <button class="product-filter__option" type="button" data-value="under30000">3만원 이하</button>
+            <button class="product-filter__option" type="button" data-value="30000-50000">3만원 ~ 5만원</button>
+            <button class="product-filter__option" type="button" data-value="50000-100000">5만원 ~ 10만원</button>
+            <button class="product-filter__option" type="button" data-value="over100000">10만원 이상</button>
+          </div>
+        </div>
+        <div class="product-filter" data-filter="type">
+          <button class="product-filter__toggle" type="button" aria-expanded="false"><span>제품 보기</span></button>
+          <div class="product-filter__menu">
+            <button class="product-filter__option is-selected" type="button" data-value="all">전체</button>
+            <button class="product-filter__option" type="button" data-value="접시">접시</button>
+            <button class="product-filter__option" type="button" data-value="컵/머그">컵/머그</button>
+            <button class="product-filter__option" type="button" data-value="볼/종지">볼/종지</button>
+            <button class="product-filter__option" type="button" data-value="티포트">티포트</button>
+            <button class="product-filter__option" type="button" data-value="오브제">오브제</button>
+          </div>
+        </div>
+      </div>
+      <h1 class="product-sub-title">DAILY CERAMIC</h1>
+      <div class="sort-dropdown">
+        <button class="sort-dropdown__toggle" type="button" aria-expanded="false"><span>추천순</span></button>
+        <div class="sort-dropdown__menu">
+          <button class="sort-dropdown__option is-selected" type="button" data-value="recommend">추천순</button>
+          <button class="sort-dropdown__option" type="button" data-value="newest">신상품순</button>
+          <button class="sort-dropdown__option" type="button" data-value="sales">판매순</button>
+          <button class="sort-dropdown__option" type="button" data-value="priceLow">낮은 가격순</button>
+          <button class="sort-dropdown__option" type="button" data-value="priceHigh">높은 가격순</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product list -->
+    <section class="product-grid" aria-label="데일리 세라믹 상품">
+      <article class="product-card is-daily-card" data-manual="true" data-type="볼/종지" data-price="21600" data-original-price="24000" data-discount="10" data-sales="96" data-date="2026-06-25" data-recommend="17" data-available="true"><div class="product-card__image"><img src="img/daily-pink-dog-double-sauce-bowl.png" alt="핑크 도그 더블 소스볼" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">핑크 도그 더블 소스볼</h2><div class="product-price"><span class="price-original">24,000원</span><span class="price-sale">21,600원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="볼/종지" data-price="26000" data-sales="82" data-date="2026-06-24" data-recommend="18" data-available="true"><div class="product-card__image"><img src="img/daily-dog-blue-double-tray-front.jpeg" alt="스카이 도그 더블 디저트 트레이" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">스카이 도그 더블 디저트 트레이</h2><div class="product-price"><span class="price-sale">26,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="접시" data-price="31000" data-sales="74" data-date="2026-06-23" data-recommend="7" data-available="true"><div class="product-card__image"><img src="img/daily-purple-stripe-dog-plate.jpeg" alt="퍼플 스트라이프 도그 플레이트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">퍼플 스트라이프 도그 플레이트</h2><div class="product-price"><span class="price-sale">31,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="볼/종지" data-price="43200" data-original-price="48000" data-discount="10" data-sales="101" data-date="2026-06-22" data-recommend="11" data-available="true"><div class="product-card__image"><img src="img/daily-apple-stripe-cereal-bowl-set.png" alt="애플 스트라이프 시리얼 볼 세트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">애플 스트라이프 시리얼 볼 세트</h2><div class="product-price"><span class="price-original">48,000원</span><span class="price-sale">43,200원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="컵/머그" data-price="28000" data-sales="88" data-date="2026-06-20" data-recommend="15" data-available="true"><div class="product-card__image"><img src="img/daily-navy-dog-mug.jpeg" alt="네이비 도그 데일리 머그" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">네이비 도그 데일리 머그</h2><div class="product-price"><span class="price-sale">28,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="접시" data-price="29000" data-sales="79" data-date="2026-06-18" data-recommend="8" data-available="true"><div class="product-card__image"><img src="img/daily-forest-dog-plate.jpeg" alt="포레스트 도그 플레이트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">포레스트 도그 플레이트</h2><div class="product-price"><span class="price-sale">29,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="접시" data-price="32000" data-sales="68" data-date="2026-06-17" data-recommend="6" data-available="true"><div class="product-card__image"><img src="img/daily-cherry-blue-line-plate.jpeg" alt="체리 블루 라인 플레이트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">체리 블루 라인 플레이트</h2><div class="product-price"><span class="price-sale">32,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="접시" data-price="33000" data-sales="111" data-date="2026-06-15" data-recommend="9" data-available="true"><div class="product-card__image"><img src="img/daily-lucky-clover-pasta-plate.jpeg" alt="럭키 클로버 파스타 플레이트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">럭키 클로버 파스타 플레이트</h2><div class="product-price"><span class="price-sale">33,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="접시" data-price="31000" data-sales="63" data-date="2026-06-14" data-recommend="10" data-available="true"><div class="product-card__image"><img src="img/daily-orange-stripe-dog-plate.jpeg" alt="오렌지 스트라이프 도그 플레이트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">오렌지 스트라이프 도그 플레이트</h2><div class="product-price"><span class="price-sale">31,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="접시" data-price="27000" data-sales="93" data-date="2026-06-13" data-recommend="5" data-available="true"><div class="product-card__image"><img src="img/daily-blue-ribbon-deep-plate.jpeg" alt="블루 리본 딥 플레이트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">블루 리본 딥 플레이트</h2><div class="product-price"><span class="price-sale">27,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="컵/머그" data-price="28000" data-sales="99" data-date="2026-06-12" data-recommend="13" data-available="true"><div class="product-card__image"><img src="img/daily-pink-dog-mug.jpeg" alt="핑크 도그 데일리 머그" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">핑크 도그 데일리 머그</h2><div class="product-price"><span class="price-sale">28,000원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="볼/종지" data-price="43200" data-original-price="48000" data-discount="10" data-sales="86" data-date="2026-06-11" data-recommend="12" data-available="true"><div class="product-card__image"><img src="img/daily-blueberry-stripe-bowl-set-new.png" alt="블루베리 스트라이프 볼 세트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">블루베리 스트라이프 볼 세트</h2><div class="product-price"><span class="price-original">48,000원</span><span class="price-sale">43,200원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="티포트" data-price="61200" data-sales="72" data-date="2026-06-10" data-recommend="1" data-available="true"><div class="product-card__image"><img src="img/daily-blue-flower-ribbon-teapot.jpeg" alt="블루 플라워 리본 티포트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">블루 플라워 리본 티포트</h2><div class="product-price"><span class="price-sale">61,200원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="컵/머그" data-price="37800" data-sales="115" data-date="2026-06-09" data-recommend="2" data-available="true"><div class="product-card__image"><img src="img/daily-blue-ribbon-teacup-set.jpeg" alt="블루 리본 티컵 세트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">블루 리본 티컵 세트</h2><div class="product-price"><span class="price-sale">37,800원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="오브제" data-price="55800" data-original-price="62000" data-discount="10" data-sales="58" data-date="2026-06-08" data-recommend="16" data-available="true"><div class="product-card__image"><img src="img/daily-flower-object-mini-lamp-set.png" alt="플라워 오브제 미니 램프 세트" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">플라워 오브제 미니 램프 세트</h2><div class="product-price"><span class="price-original">62,000원</span><span class="price-sale">55,800원</span><span class="price-discount">10% 할인</span></div></div></article>
+      <article class="product-card is-daily-card" data-manual="true" data-type="컵/머그" data-price="28800" data-original-price="32000" data-discount="10" data-sales="105" data-date="2026-06-07" data-recommend="14" data-available="true"><div class="product-card__image"><img src="img/heart-argyle-daily-mug-main.jpeg" alt="하트 아가일 데일리 머그" onerror="this.hidden=true"></div><div class="product-card__info"><h2 class="product-card__name">하트 아가일 데일리 머그</h2><div class="product-price"><span class="price-original">32,000원</span><span class="price-sale">28,800원</span><span class="price-discount">10% 할인</span></div></div></article>
+    </section>
+    <p class="product-empty-message" hidden>조건에 맞는 상품이 없습니다.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <a class="site-footer__logo" href="index.html">Aurelia Muse</a>
+    <div class="site-footer__company">
+      <p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">CS 정보</a><a href="#">회사 정보</a></p>
+      <p class="site-footer__menu-line"><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a><a href="custom-bulk-order.html">대량구매</a></p>
+      <p>㈜ 오렐리아뮤즈코리아 | 대표이사 박영은 | 서울특별시 성동구 성수이로 88</p>
+      <p>사업자등록번호: 211-86-75820 | 고객센터: 1577-1541 | 이메일: rmagml@cj.net</p>
+    </div>
+    <small>COPYRIGHT © AURELIA MUSE ALL RIGHTS RESERVED.</small>
+  </footer>
+  <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
+  <div class="cart-toast" role="status" aria-live="polite">장바구니에 담았습니다.</div>
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+  <script src="./product.js"></script>
+</body>
+</html>

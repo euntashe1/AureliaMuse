@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aurelia Muse 상품 상세 페이지">
+  <title>Product Detail | Aurelia Muse</title>
+<link rel="icon" type="image/png" href="img/favicon-am.png">
+<link rel="shortcut icon" href="img/favicon-am.png">
+<link rel="apple-touch-icon" href="img/favicon-am.png"><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product-detail.css">
+</head>
+<body id="top" class="product-detail-page">
+  <p class="notice">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+
+  <header class="site-header is-products-active">
+    <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
+      <img src="img/bar.svg" alt="">
+    </button>
+    <a class="logo" href="index.html"><img src="img/header.svg" alt="Aurelia Muse"></a>
+    <div class="header-icons">
+      <a href="login.html" aria-label="로그인"><img src="img/login.svg" alt=""></a>
+      <a class="header-cart-link" href="cart.html" aria-label="장바구니"><img src="img/cart.svg" alt=""><span class="cart-count">0</span></a>
+      <a class="header-wishlist-link" href="wishlist.html" aria-label="찜하기"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden>0</span></a>
+    </div>
+  </header>
+
+  <div class="side-menu-overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="side-menu" aria-hidden="true">
+    <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
+    <nav class="side-menu__nav">
+      <section class="side-menu__group">
+        <h2>Products</h2>
+        <a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+        <a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+        <a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+        <a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+        <a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+        <a href="event-promotion.html"><strong>Event &amp; Promotion</strong><span>이벤트</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>STORY</h2>
+        <a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>WORKSHOP</h2>
+        <a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a>
+        <a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
+      </section>
+    </nav>
+    <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">Cart</a></div>
+  </aside>
+
+  <main class="product-detail-main">
+    <section class="product-detail-top">
+      <div class="product-gallery product-gallery-layout">
+        <!-- 왼쪽 세로 썸네일 리스트
+             product-detail.js의 thumbs 배열에 들어간 이미지가 자동으로 표시됩니다. -->
+        <div class="product-thumbs product-thumb-list" id="productThumbList" aria-label="상품 이미지 선택"></div>
+
+        <!-- 오른쪽 메인 이미지 슬라이더
+             썸네일/이전/다음 버튼으로 대표 이미지가 교체됩니다. -->
+        <div class="product-main-slider">
+          <button type="button" class="product-slide-prev" aria-label="이전 이미지">‹</button>
+          <div class="product-main-image" id="mainImageBox">
+            <img id="mainProductImage" src="img/cream-bowl-main.jpg" alt="상품 대표 이미지">
+          </div>
+          <button type="button" class="product-slide-next" aria-label="다음 이미지">›</button>
+          <div class="product-slide-progress" aria-hidden="true">
+            <span class="product-slide-progress-bar"></span>
+          </div>
+        </div>
+      </div>
+
+      <section class="product-purchase-info" aria-labelledby="productName">
+        <div class="best-breadcrumb">Home / <strong>베스트</strong></div>
+        <p class="product-detail-eyebrow" id="productCategory">AURELIA MUSE TABLEWARE</p>
+        <h1 id="productName">상품 상세</h1>
+        <p class="product-detail-en" id="productEnName">Aurelia Muse</p>
+        <p class="product-detail-summary" id="productDescription">상품 정보를 불러오는 중입니다.</p>
+
+        <div class="product-price-box">
+          <div class="product-meta-row">
+            <span class="product-meta-label">판매가</span>
+            <div class="price-value">
+              <strong class="sale-price" id="salePrice">33,150원</strong>
+              <del class="original-price" id="originalPrice">39,000원</del>
+              <span class="discount-rate" id="discountRate">15%</span>
+            </div>
+          </div>
+          <div class="product-meta-row"><span class="product-meta-label">적립금</span><span id="pointText">990원 (3%)</span></div>
+          <div class="product-meta-row"><span class="product-meta-label">배송비</span><span id="deliveryText">3,000원 / 70,000원 이상 구매 시 무료배송</span></div>
+          <div class="product-meta-row"><span class="product-meta-label">구성</span><span id="compositionText">볼 1P</span></div>
+        </div>
+
+        <div class="product-option-area product-option-section" id="productOptionSection">
+          <h3>옵션 선택</h3>
+          <p>구매를 원하시는 구성을 선택해 주세요.</p>
+          <!-- 기존 선택 기능과 접근성을 유지하기 위한 보조 select입니다.
+               화면에는 옵션 이미지 카드가 보이고, JS에서 같은 데이터로 함께 관리합니다. -->
+          <label class="sr-only-option" for="productOption">옵션 선택</label>
+          <select id="productOption" class="sr-only-option">
+            <option value="">옵션을 선택해 주세요</option>
+          </select>
+          <div class="option-product-list" id="optionProductList"></div>
+
+          <!-- 선택한 옵션 표시 영역입니다.
+               옵션 선택 전에는 비어 있고, 선택 후에는 이미지 / 수량 / 삭제 버튼만 표시됩니다. -->
+          <div class="selected-options" id="selectedOptions" hidden></div>
+        </div>
+
+        <div class="selected-product" id="selectedProduct" hidden>
+          <div><strong id="selectedProductName"></strong><span id="selectedOptionText"></span></div>
+          <div class="quantity-control" aria-label="수량 선택">
+            <button class="qty-minus" type="button" aria-label="수량 줄이기">−</button>
+            <input id="productQuantity" type="number" value="1" min="1" readonly aria-label="상품 수량">
+            <button class="qty-plus" type="button" aria-label="수량 늘리기">+</button>
+          </div>
+        </div>
+
+        <div class="shipping-progress">
+          <div class="shipping-progress__text"><span id="shippingMessage">무료배송까지 남은 금액을 계산 중입니다.</span><strong id="shippingPercent">0%</strong></div>
+          <div class="shipping-progress__track"><span id="shippingBar"></span></div>
+        </div>
+
+        <div class="total-price product-total-box">
+          <span class="total-label">TOTAL <small id="totalQuantity">(1개)</small></span>
+          <strong id="totalPrice">33,150원</strong>
+        </div>
+
+        <div class="product-action-buttons">
+          <button type="button" class="btn-buy">구매하기</button>
+          <button type="button" class="btn-cart" aria-label="장바구니">
+            <img src="./img/cart-bag.svg" alt="" class="cart-icon-img">
+          </button>
+          <button type="button" class="btn-wish" aria-label="관심상품" aria-pressed="false">♡</button>
+          <button type="button" class="btn-naver-pay">
+            <span class="naver-pay-logo">N</span>
+            네이버 간편결제
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <section class="product-detail-content">
+      <div class="detail-tabs" role="tablist" aria-label="상품 상세 메뉴">
+        <button class="is-active" type="button" role="tab" aria-selected="true" data-tab="detail">상세정보</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="review">상품리뷰 <span>3</span></button>
+        <button type="button" role="tab" aria-selected="false" data-tab="qna">상품문의</button>
+      </div>
+
+      <section class="detail-tab-panel is-active" id="detailPanel" data-panel="detail">
+        <div class="detail-intro">
+          <p>AURELIA MUSE TABLEWARE</p>
+          <h2 id="detailTitle">Aurelia Muse</h2>
+          <span id="detailBody">상품 상세 정보를 불러오는 중입니다.</span>
+        </div>
+        <!-- 기존 Royal Blue Ribbon Tea Cup 하단 디테일 컷 섹션은 요청에 따라 JS에서 비울 수 있게 구성했습니다. -->
+        <div class="detail-image-stack" id="detailImageStack"></div>
+        <dl class="product-spec" id="productSpec"></dl>
+      </section>
+
+      <section class="detail-tab-panel" id="reviewPanel" data-panel="review" hidden>
+        <div class="review-summary">
+          <div><strong>5.0</strong><span>★★★★★</span><p>3개의 리뷰</p></div>
+          <button type="button" data-modal-message="리뷰 작성은 로그인 후 이용할 수 있습니다.">리뷰 작성하기</button>
+        </div>
+        <div class="review-list">
+          <article><div><strong>★★★★★</strong><span>muse*** · 2026.06.18</span></div><p>테이블 위에 올려두기만 해도 분위기가 부드러워져요. 컬러가 정말 예쁩니다.</p></article>
+          <article><div><strong>★★★★★</strong><span>pink*** · 2026.06.12</span></div><p>디저트와 티타임에 잘 어울리고, 무게도 적당해서 매일 사용하기 좋아요.</p></article>
+          <article><div><strong>★★★★★</strong><span>grace*** · 2026.06.04</span></div><p>사진보다 실물이 더 고급스럽고 선물용으로도 좋을 것 같아요.</p></article>
+        </div>
+      </section>
+
+      <section class="detail-tab-panel" id="qnaPanel" data-panel="qna" hidden>
+        <div class="qna-heading">
+          <div><h2>상품문의</h2><p>상품에 대한 궁금한 내용을 남겨주세요.</p></div>
+          <button type="button" data-modal-message="로그인 후 상품 문의를 작성할 수 있습니다.">문의하기</button>
+        </div>
+        <div class="qna-list">
+          <article><span>비밀글</span><strong>배송 기간이 얼마나 걸리나요?</strong><em>답변 대기</em></article>
+          <article><span>비밀글</span><strong>선물 포장 가능한가요?</strong><em class="is-complete">답변 완료</em></article>
+        </div>
+      </section>
+    </section>
+
+    <section class="recommend-products">
+      <div class="recommend-heading"><p>CURATED FOR YOU</p><h2>고객님을 위한 추천상품</h2></div>
+      <div class="recommend-grid">
+        <a href="product.html#rose-heart-teacup"><img src="img/set4.jpg" alt="로즈 하트 티컵 세트"><h3>로즈 하트 티컵 세트</h3><p>37,800원</p></a>
+        <a href="product.html#heart-cake-stand"><img src="img/productsub4.jpg" alt="하트 글라스 미니 케이크 스탠드"><h3>하트 글라스 미니 케이크 스탠드</h3><p>28,800원</p></a>
+        <a href="product.html#pink-heart-teapot"><img src="img/set2.jpg" alt="핑크 하트 티포트"><h3>핑크 하트 티포트</h3><p>61,200원</p></a>
+        <a href="product.html#ivy-green"><img src="img/classic-ivy-green-porcelain-main.jpeg" alt="클래식 아이비 그린 포슬린"><h3>클래식 아이비 그린 포슬린</h3><p>89,000원</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="site-footer__logo" href="#top">Aurelia Muse</a>
+    <div class="site-footer__company">
+      <p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">CS</a><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a></p>
+      <p>(주)오렐리아뮤즈코리아 | 대표 : Aurelia Muse | 주소 : 서울특별시 용산구 한강대로 88</p>
+      <p>고객센터 : 1577-1541 | 제휴/입점 문의 : muse@aureliamuse.kr</p>
+    </div>
+    <small>COPYRIGHT © AURELIA MUSE ALL RIGHTS RESERVED.</small>
+  </footer>
+
+  <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
+  <div class="product-modal" id="productModal" hidden>
+    <div class="product-modal__backdrop" data-modal-close></div>
+    <div class="product-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
+      <button type="button" class="product-modal__close" data-modal-close aria-label="닫기">×</button>
+      <p class="product-modal__logo">Aurelia Muse</p>
+      <h2 id="productModalTitle">안내</h2>
+      <p id="productModalMessage"></p>
+      <button type="button" class="product-modal__confirm" data-modal-close>확인</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+  <script src="product-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aurelia Muse 장바구니">
+  <title>CART | Aurelia Muse</title>
+<link rel="icon" type="image/png" href="img/favicon-am.png">
+<link rel="shortcut icon" href="img/favicon-am.png">
+<link rel="apple-touch-icon" href="img/favicon-am.png"><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body id="top" class="cart-page">
+  <p class="notice">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+
+  <header class="site-header">
+    <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
+      <img src="img/bar.svg" alt="">
+    </button>
+    <a class="logo" href="index.html"><img src="img/header.svg" alt="Aurelia Muse"></a>
+    <div class="header-icons">
+      <a href="login.html" aria-label="로그인"><img src="img/login.svg" alt=""></a>
+      <a class="header-cart-link" href="cart.html" aria-label="장바구니"><img src="img/cart.svg" alt=""><span class="cart-count">0</span></a>
+      <a class="header-wishlist-link" href="wishlist.html" aria-label="찜하기"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden>0</span></a>
+    </div>
+  </header>
+
+  <div class="side-menu-overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="side-menu" aria-hidden="true">
+    <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
+    <nav class="side-menu__nav">
+      <section class="side-menu__group">
+        <h2>Products</h2>
+        <a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+        <a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+        <a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+        <a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+        <a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+        <a href="event-promotion.html"><strong>Event &amp; Promotion</strong><span>이벤트</span></a>
+      </section>
+      <section class="side-menu__group"><h2>STORY</h2><a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a></section>
+      <section class="side-menu__group"><h2>WORKSHOP</h2><a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a><a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a></section>
+    </nav>
+    <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">Cart</a></div>
+  </aside>
+
+  <main class="cart-main">
+    <section class="cart-hero">
+      <p>CART</p>
+      <h1>장바구니</h1>
+      <span>담아둔 상품과 수량을 확인한 뒤 주문을 진행해 주세요.</span>
+    </section>
+
+    <section class="cart-page-layout">
+      <div class="cart-page-list-wrap">
+        <div class="cart-page-list-head">
+          <span>상품 정보</span>
+          <span>수량 / 금액</span>
+        </div>
+        <p class="cart-page-empty" id="cartPageEmpty" hidden>장바구니에 담긴 상품이 없습니다.</p>
+        <div class="cart-page-items" id="cartPageItems"></div>
+      </div>
+
+      <aside class="cart-page-summary" id="cartPageSummary">
+        <h2>결제 예정 금액</h2>
+        <p><span>총 상품금액</span><strong id="cartPageProductTotal">0원</strong></p>
+        <p><span>배송비</span><strong id="cartPageDelivery">0원</strong></p>
+        <p class="cart-page-final"><span>결제예정금액</span><strong id="cartPageFinalTotal">0원</strong></p>
+        <button type="button" id="cartPageOrderBtn">주문하기</button>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="site-footer__logo" href="#top">Aurelia Muse</a>
+    <div class="site-footer__company">
+      <p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">CS</a><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a></p>
+      <p>(주)오렐리아뮤즈코리아 | 대표 : Aurelia Muse | 주소 : 서울특별시 용산구 한강대로 88</p>
+      <p>고객센터 : 1577-1541 | 제휴/입점 문의 : muse@aureliamuse.kr</p>
+    </div>
+    <small>COPYRIGHT © AURELIA MUSE ALL RIGHTS RESERVED.</small>
+  </footer>
+
+  <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
+  <div class="cart-toast" role="status" aria-live="polite">장바구니에 담았습니다.</div>
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>

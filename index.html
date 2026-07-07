@@ -1,12 +1,666 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>깃허브에 올려보기</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="일상에 우아함을 더하는 프리미엄 테이블웨어, Aurelia Muse">
+  <title>Aurelia Muse</title>
+<link rel="icon" type="image/png" href="img/favicon-am.png">
+<link rel="shortcut icon" href="img/favicon-am.png">
+<link rel="apple-touch-icon" href="img/favicon-am.png"><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @media (min-width: 901px) {
+      .new-showcase {
+        gap: 6px;
+        --new-slider-button-offset: 64px;
+        --new-slider-next-offset: 8px;
+      }
+
+      .new-slider-area {
+        position: static;
+      }
+
+      .new-slider-prev,
+      .new-slider-next {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .new-slider-prev {
+        left: calc(var(--new-slider-button-offset) * -1);
+      }
+
+      .new-slider-next {
+        right: var(--new-slider-next-offset);
+      }
+
+      .new-slider-prev:hover {
+        transform: translateY(-50%) translateX(-3px);
+      }
+
+      .new-slider-next:hover {
+        transform: translateY(-50%) translateX(3px);
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1099px) {
+      .new-showcase {
+        --new-slider-next-offset: -6px;
+      }
+    }
+
+    #pottery .pottery-section__grid,
+    #pottery .pottery-section__small-cards {
+      gap: 20px;
+      column-gap: 20px;
+      row-gap: 20px;
+    }
+
+    #exclusive-offer .exclusive-offer__banners {
+      gap: 20px;
+      column-gap: 20px;
+      row-gap: 20px;
+    }
+
+    .side-menu {
+      scrollbar-width: thin;
+      scrollbar-color: #e8a6a6 #fff7f4;
+    }
+
+    .side-menu::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .side-menu::-webkit-scrollbar-track {
+      background: #fff7f4;
+      border-radius: 999px;
+    }
+
+    .side-menu::-webkit-scrollbar-thumb {
+      background: #e8a6a6;
+      border-radius: 999px;
+    }
+
+    .side-menu::-webkit-scrollbar-thumb:hover {
+      background: #d98f8f;
+    }
+
+    .new-collection-intro-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 4vw, 54px);
+      color: #fff;
+      text-align: center;
+      opacity: 1;
+    }
+
+    .new-collection-intro-overlay::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 48%;
+      background: linear-gradient(
+        0deg,
+        rgba(223, 135, 168, 0.62) 0%,
+        rgba(235, 157, 184, 0.34) 48%,
+        rgba(235, 157, 184, 0) 100%
+      );
+      z-index: -1;
+    }
+
+    .new-collection-intro-title {
+      margin: 0;
+      font-family: "Playball", cursive;
+      font-size: clamp(36px, 4.55vw, 76px);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      text-shadow:
+        0 4px 9px rgba(168, 69, 88, 0.86),
+        0 1px 2px #A84558;
+      transform: translateY(-14px);
+    }
+
+    .new-collection-intro-title span {
+      display: block;
+    }
+
+    .new-collection-intro-title .new-collection-intro-the {
+      display: inline-block;
+      margin-right: 0.14em;
+      font-size: 0.48em;
+      vertical-align: 0.08em;
+    }
+
+    .new-collection-intro-title .new-collection-intro-main {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .new-collection-intro-desc {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: clamp(34px, 6vw, 86px);
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: clamp(13px, 1.24vw, 22px);
+      font-weight: 400;
+      line-height: 1.62;
+      letter-spacing: 0.01em;
+      text-shadow: 0 3px 10px rgba(168, 69, 88, 0.46);
+      word-break: keep-all;
+    }
+
+    .hero {
+      height: calc(100vh - 117px);
+      min-height: 650px;
+    }
+
+    .hero > .hero-video {
+      width: 100%;
+      max-width: 100%;
+      height: 106%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    @media (max-width: 1099px) {
+      .hero > .hero-video {
+        height: 106%;
+      }
+
+      .new-collection-intro-title {
+        font-size: clamp(34px, 7vw, 64px);
+        transform: translateY(-10px);
+      }
+
+      .new-collection-intro-desc {
+        font-size: clamp(12px, 2.25vw, 20px);
+      }
+    }
+
+    @media (max-width: 599px) {
+      .hero {
+        height: calc(100vh - 80px);
+        min-height: 360px;
+        max-height: none;
+      }
+
+      .hero > .hero-video {
+        width: 100%;
+        max-width: 100%;
+        height: 106%;
+        object-fit: cover;
+        object-position: center bottom;
+      }
+
+      .header-wishlist-link .wishlist-count {
+        top: -2px;
+      }
+
+      .new-collection-intro-overlay {
+        padding: 22px;
+      }
+
+      .new-collection-intro-title {
+        font-size: clamp(28px, 8.8vw, 47px);
+        transform: translateY(-8px);
+      }
+
+      .new-collection-intro-desc {
+        left: 7%;
+        right: 7%;
+        bottom: 34px;
+        font-size: clamp(11px, 3.25vw, 15px);
+        line-height: 1.65;
+      }
+    }
+  </style>
 </head>
-<body>
-   <h1>깃허브에 파일 올리기</h1> 
-   <p>테스트</p>
+<body id="top">
+  <!-- 사이트 상단 안내 문구 -->
+  <p class="notice" style="font-size:14px">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+
+  <!-- header: 로고와 주요 메뉴 영역 -->
+  <header class="site-header">
+    <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
+      <img src="img/bar.svg" alt="">
+    </button>
+
+    <a class="logo" href="#top">
+      <img src="img/header.svg" alt="Aurelia Muse">
+    </a>
+
+    <div class="header-icons">
+      <a href="login.html" aria-label="로그인"><img src="img/login.svg" alt=""></a>
+      <a class="header-cart-link" href="cart.html" aria-label="장바구니"><img src="img/cart.svg" alt=""><span class="cart-count">0</span></a>
+      <a class="header-wishlist-link" href="wishlist.html" aria-label="찜하기"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden>0</span></a>
+    </div>
+  </header>
+
+  <!-- 햄버거 메뉴 시작: 왼쪽에서 열리는 전체 메뉴입니다. 메뉴 링크를 수정할 때는 이 영역을 확인하세요. -->
+  <div class="side-menu-overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="side-menu" aria-hidden="true">
+    <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
+    <nav class="side-menu__nav">
+      <section class="side-menu__group">
+        <h2>Products</h2>
+        <a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+        <a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+        <a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+        <a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+        <a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+        <a href="event-promotion.html"><strong>Event &amp; Promotion</strong><span>이벤트</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>STORY</h2>
+        <a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>WORKSHOP</h2>
+        <a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a>
+        <a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
+      </section>
+    </nav>
+    <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">cart</a></div>
+  </aside>
+  <!-- 햄버거 메뉴 끝 -->
+
+  <!-- main: 페이지의 핵심 콘텐츠 영역 -->
+  <main>
+    <!-- 메인 비주얼 -->
+    <section class="hero" id="brand">
+      <!-- muted 속성이 있어야 대부분의 브라우저에서 자동 재생됩니다. -->
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="video/main-hero-upscaled.mp4" type="video/mp4">
+        사용 중인 브라우저에서는 동영상을 재생할 수 없습니다.
+      </video>
+      <div class="hero-text">
+        <p class="eyebrow">a moment of grace</p>
+        <h1>Make Every Moment<br><em>Beautiful</em></h1>
+        <p>당신의 일상에 은은하게 머무는 우아한 순간</p>
+        <a class="button button-white" href="./collection.html?filter=heart-collection">컬렉션 만나보기</a>
+      </div>
+    </section>
+
+    <!-- 컬렉션 카테고리 -->
+    <section class="content-section" id="products">
+      <div class="section-title">
+        <h2>PRODUCTS</h2>
+        <p>사랑스러운 무드를 더하는 다양한 제품을 만나보세요.</p>
+      </div>
+
+      <div class="collection-list">
+        <a class="collection-item" href="./all-collection.html">
+          <img src="img/allcollection.png" alt="전체 컬렉션">
+          <h3>All Collection</h3>
+          <p>모든 컬렉션 보기</p>
+        </a>
+        <a class="collection-item" href="./daily-ceramic.html">
+          <img src="img/Daily Ceramic.png" alt="데일리 세라믹">
+          <h3>Daily Ceramic</h3>
+          <p>편안한 일상을 위한 도자기</p>
+        </a>
+        <a class="collection-item" href="./artisan-edition.html">
+          <img src="images/artisan-edition-pink-ribbon-teatime.jpg" alt="Artisan Edition">
+          <h3>Artisan Edition</h3>
+          <p>손끝에서 탄생한 특별함</p>
+        </a>
+        <a class="collection-item" href="collection.html">
+          <img src="img/products-collection-thumb.jpg" alt="Collection 컬렉션 보기">
+          <h3>Collection</h3>
+          <p>컬렉션 보기</p>
+        </a>
+        <a class="collection-item" href="gift-set.html">
+          <img src="img/Gift Set.png" alt="기프트 세트">
+          <h3>Gift Set</h3>
+          <p>마음을 담은 선물</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEW 섹션 시작: 왼쪽 컬렉션 이미지와 오른쪽 신상품 슬라이더 영역입니다. -->
+    <section class="content-section bestsellers" id="best-sellers">
+      <div class="new-title section-heading">
+        <h2>NEW</h2>
+        <span></span>
+        <p>새로운 신상품을 만나보세요</p>
+      </div>
+
+      <div class="new-showcase">
+        <button class="new-slider-prev" type="button" aria-label="이전 신상품 보기">‹</button>
+        <!-- NEW 왼쪽 큰 이미지: HTML 텍스트를 올리지 않고 이미지 자체만 보여줍니다. -->
+        <div class="new-collection-visual" aria-label="The Pink Blossom Collection">
+          <video class="new-collection-video" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block;">
+            <source src="video/main-left-video.mp4" type="video/mp4">
+            사용 중인 브라우저에서는 동영상을 재생할 수 없습니다.
+          </video>
+          <div class="new-collection-intro-overlay" aria-hidden="true">
+            <h3 class="new-collection-intro-title"><span class="new-collection-intro-main"><span class="new-collection-intro-the">The</span>Pink Blossom</span><span>Collection</span></h3>
+            <p class="new-collection-intro-desc">핑크빛으로 물든 특별한 오후,<br>따뜻한 차 한 잔에 꽃잎처럼 피어나는 찬란한 순간</p>
+          </div>
+        </div>
+
+        <!-- NEW 오른쪽 슬라이더: 대표 이미지 1개와 상품 카드 3개가 한 세트로 움직입니다. -->
+        <div class="new-slider-area">
+          <div class="swiper new-product-slider">
+            <div class="swiper-wrapper">
+              <!-- NEW 슬라이드 1: Pink Blossom 신상품 세트 -->
+              <article class="swiper-slide new-slide">
+                <div class="new-featured">
+                  <img src="img/newmainbig.png" alt="핑크 티 세트 대표 이미지">
+                </div>
+                <div class="new-card-list">
+                  <article class="new-product-card product-item" data-id="heart-butter-dish" data-name="미니 하트 도자기 버터 디쉬" data-image="img/productsub3.jpg" data-price="32300">
+                    <div class="product-image"><img src="img/productsub3.jpg" alt="미니 하트 도자기 버터 디쉬"></div>
+                    <div class="product-actions"><button class="product-action product-like favorite-button" type="button" aria-label="찜하기"><span class="heart-icon">♡</span></button><button class="product-action product-cart cart-button" type="button" aria-label="장바구니 담기"><img src="img/bagune.svg" alt=""></button></div>
+                    <div class="product-info">
+                      <h3>미니 하트 도자기 버터 디쉬</h3>
+                      <p class="product-description">사랑스러운 핑크 하트 손잡이가 포인트인 다용도 디저트·버터 보관함</p>
+                      <div class="new-product-price new-product-price--sale">
+                        <span class="new-product-price__old">38,000원</span>
+                        <span class="new-product-price__badge">15% OFF</span>
+                        <strong class="new-product-price__sale">32,300원</strong>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="new-product-card product-item" data-id="heart-cake-stand" data-name="하트 글라스 미니 케이크 스탠드" data-image="img/productsub4.jpg" data-price="28800">
+                    <div class="product-image"><img src="img/productsub4.jpg" alt="하트 글라스 미니 케이크 스탠드"></div>
+                    <div class="product-actions"><button class="product-action product-like favorite-button" type="button" aria-label="찜하기"><span class="heart-icon">♡</span></button><button class="product-action product-cart cart-button" type="button" aria-label="장바구니 담기"><img src="img/bagune.svg" alt=""></button></div>
+                    <div class="product-info">
+                      <h3>하트 글라스 미니 케이크 스탠드</h3>
+                      <p class="product-description">하트 손잡이 유리 돔과 핑크 페디스털이 어우러진 미니 디저트 스탠드</p>
+                      <div class="new-product-price new-product-price--sale">
+                        <span class="new-product-price__old">32,000원</span>
+                        <span class="new-product-price__badge">10% OFF</span>
+                        <strong class="new-product-price__sale">28,800원</strong>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="new-product-card product-item" data-id="romantic-pink-teapot" data-name="로맨틱 핑크 그라데이션 티팟" data-image="img/productsub1.jpg" data-price="57800">
+                    <div class="product-image"><img src="img/productsub1.jpg" alt="로맨틱 핑크 그라데이션 티팟"></div>
+                    <div class="product-actions"><button class="product-action product-like favorite-button" type="button" aria-label="찜하기"><span class="heart-icon">♡</span></button><button class="product-action product-cart cart-button" type="button" aria-label="장바구니 담기"><img src="img/bagune.svg" alt=""></button></div>
+                    <div class="product-info">
+                      <h3>로맨틱 핑크 그라데이션 티팟</h3>
+                      <p class="product-description">골드 림 포인트와 부드러운 핑크 음영이 돋보이는 프리미엄 티팟</p>
+                      <div class="new-product-price new-product-price--sale">
+                        <span class="new-product-price__old">68,000원</span>
+                        <span class="new-product-price__badge">15% OFF</span>
+                        <strong class="new-product-price__sale">57,800원</strong>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </article>
+
+              <!-- NEW 슬라이드 2: Heart Tea 신상품 세트 -->
+              <article class="swiper-slide new-slide">
+                <div class="new-featured">
+                  <img src="img/set1.jpg" alt="러브 하트 티 세트">
+                </div>
+                <div class="new-card-list">
+                  <article class="new-product-card product-item" data-id="love-heart-teacup-set" data-name="러브 하트 티컵 세트" data-image="img/set3.jpg" data-price="33150">
+                    <div class="product-image"><img src="img/set3.jpg" alt="러브 하트 티컵 세트"></div>
+                    <div class="product-actions"><button class="product-action product-like favorite-button" type="button" aria-label="찜하기"><span class="heart-icon">♡</span></button><button class="product-action product-cart cart-button" type="button" aria-label="장바구니 담기"><img src="img/bagune.svg" alt=""></button></div>
+                    <div class="product-info">
+                      <h3>러브 하트 티컵 세트</h3>
+                      <p class="product-description">사랑스러운 하트 패턴과 골드 림이 어우러진 로맨틱 티컵 세트</p>
+                      <div class="new-product-price new-product-price--sale">
+                        <span class="new-product-price__old">39,000원</span>
+                        <span class="new-product-price__badge">15% OFF</span>
+                        <strong class="new-product-price__sale">33,150원</strong>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="new-product-card product-item" data-id="rose-heart-teacup-set" data-name="로즈 하트 티컵 세트" data-image="img/set4.jpg" data-price="37800">
+                    <div class="product-image"><img src="img/set4.jpg" alt="로즈 하트 티컵 세트"></div>
+                    <div class="product-actions"><button class="product-action product-like favorite-button" type="button" aria-label="찜하기"><span class="heart-icon">♡</span></button><button class="product-action product-cart cart-button" type="button" aria-label="장바구니 담기"><img src="img/bagune.svg" alt=""></button></div>
+                    <div class="product-info">
+                      <h3>로즈 하트 티컵 세트</h3>
+                      <p class="product-description">선명한 하트 포인트와 부드러운 핑크 톤이 돋보이는 티컵 세트</p>
+                      <div class="new-product-price new-product-price--sale">
+                        <span class="new-product-price__old">42,000원</span>
+                        <span class="new-product-price__badge">10% OFF</span>
+                        <strong class="new-product-price__sale">37,800원</strong>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="new-product-card product-item" data-id="pink-heart-teapot" data-name="핑크 하트 티포트" data-image="img/set2.jpg" data-price="61200">
+                    <div class="product-image"><img src="img/set2.jpg" alt="핑크 하트 티포트"></div>
+                    <div class="product-actions"><button class="product-action product-like favorite-button" type="button" aria-label="찜하기"><span class="heart-icon">♡</span></button><button class="product-action product-cart cart-button" type="button" aria-label="장바구니 담기"><img src="img/bagune.svg" alt=""></button></div>
+                    <div class="product-info">
+                      <h3>핑크 하트 티포트</h3>
+                      <p class="product-description">하트 패턴과 핑크 포인트가 사랑스럽게 어우러진 프리미엄 티포트</p>
+                      <div class="new-product-price new-product-price--sale">
+                        <span class="new-product-price__old">72,000원</span>
+                        <span class="new-product-price__badge">15% OFF</span>
+                        <strong class="new-product-price__sale">61,200원</strong>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button class="new-slider-next" type="button" aria-label="다음 신상품 보기">›</button>
+        </div>
+      </div>
+    </section>
+    <!-- NEW 섹션 끝 -->
+
+    <!-- 추천 컬렉션 -->
+    <section class="content-section" id="curated">
+      <a class="section-title collection-section-link" href="collection.html">
+        <h2>COLLECTION</h2>
+        <p>함께할 때 더욱 아름다운 컬렉션을 만나보세요</p>
+      </a>
+
+      <div class="collection-showcase">
+        <a class="showcase-card romantic-card" href="collection.html?collection=heart" aria-label="Collection 페이지 보기">
+          <img class="showcase-default" src="img/Romantic Pink2.png" alt="로맨틱 핑크">
+          <img class="showcase-hover" src="img/Romantic Pink.png" alt="로맨틱 핑크 컬렉션">
+        </a>
+        <a class="showcase-card heritage-card" href="collection.html?collection=pink-toile" aria-label="Collection 페이지 보기">
+          <img class="showcase-default" src="img/Heritage Classic2.png" alt="헤리티지 클래식">
+          <img class="showcase-hover" src="img/Heritage Classic.png" alt="헤리티지 클래식 컬렉션">
+        </a>
+        <a class="showcase-card pastel-card" href="collection.html?collection=sage" aria-label="Collection 페이지 보기">
+          <img class="showcase-default" src="img/Pastel Fluted3.png" alt="파스텔 플루티드">
+          <img class="showcase-hover" src="img/Pastel Fluted.png" alt="파스텔 플루티드 컬렉션">
+        </a>
+      </div>
+    </section>
+
+    <!-- 베스트셀러 영상 카드 -->
+    <section class="content-section" id="studio">
+      <div class="section-title">
+        <h2>BEST SELLERS</h2>
+        <p>가장 잘 팔린 상품들을 만나보세요</p>
+      </div>
+
+      <div class="best-sellers-more-row">
+        <a class="section-more-link" href="all-collection.html">더보기 +</a>
+      </div>
+
+      <div class="best-video-list">
+        <article class="best-video-card">
+          <div class="video-box">
+            <video autoplay muted loop playsinline><source src="img/best-video-1.mp4" type="video/mp4"></video>
+            <button class="video-toggle" type="button" aria-label="첫 번째 영상 일시정지"><img src="img/playbt.png" alt=""></button>
+          </div>
+          <div class="video-product-info">
+            <a href="product.html#royal-blue-ribbon-cup"><img src="img/bestsub1-1.png" alt="로열 블루 리본 티 찻잔"></a>
+            <p><strong>로열 블루 리본 티 찻잔</strong><span><del>52,000원</del> 42,000원</span></p>
+          </div>
+        </article>
+        <article class="best-video-card">
+          <div class="video-box">
+            <video autoplay muted loop playsinline><source src="img/best-video-2.mp4" type="video/mp4"></video>
+            <button class="video-toggle" type="button" aria-label="두 번째 영상 일시정지"><img src="img/playbt.png" alt=""></button>
+          </div>
+          <div class="video-product-info">
+            <a href="product.html#botanical-clover-plate"><img src="img/botanical-clover-brunch-plate-main.jpeg" alt="보태니컬 클로버 브런치 접시"></a>
+            <p><strong>보태니컬 클로버 브런치 접시</strong><span><del>36,000원</del> 29,000원</span></p>
+          </div>
+        </article>
+        <article class="best-video-card">
+          <div class="video-box">
+            <video autoplay muted loop playsinline><source src="img/best-video-3.mp4" type="video/mp4"></video>
+            <button class="video-toggle" type="button" aria-label="세 번째 영상 일시정지"><img src="img/playbt.png" alt=""></button>
+          </div>
+          <div class="video-product-info">
+            <a href="product.html#ivy-green"><img src="img/classic-ivy-green-porcelain-main.jpeg" alt="클래식 아이비 그린 포슬린"></a>
+            <p><strong>클래식 아이비 그린 포슬린</strong><span><del>112,000원</del> 89,000원</span></p>
+          </div>
+        </article>
+        <article class="best-video-card">
+          <div class="video-box">
+            <video autoplay muted loop playsinline><source src="img/best-video-4.mp4" type="video/mp4"></video>
+            <button class="video-toggle" type="button" aria-label="네 번째 영상 일시정지"><img src="img/playbt.png" alt=""></button>
+          </div>
+          <div class="video-product-info">
+            <a href="product.html#sweet-pink-romantic-ribbon-tea-set"><img src="images/best-gold-ribbon-teatime-set.jpg" alt="골드 리본 티타임 세트"></a>
+            <p><strong>골드 리본 티타임 세트</strong><span><del>128,000원</del> 108,800원</span></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 공식몰 단독 이벤트 배너 -->
+    <section class="exclusive-offer" id="exclusive-offer">
+      <div class="exclusive-offer__inner">
+        <div class="exclusive-offer__heading section-heading">
+          <h2>EVENT &amp; PROMOTION</h2>
+          <span></span>
+          <p>공식몰 단독 혜택</p>
+        </div>
+
+        <div class="exclusive-offer__banners">
+          <a href="event-promotion.html" class="exclusive-offer__banner">
+            <img src="img/banner1.png" alt="Aurelia Muse 구매 금액별 사은품 이벤트">
+          </a>
+          <a href="event-promotion.html" class="exclusive-offer__banner">
+            <img src="img/banner2.png" alt="Aurelia Muse 첫 구매 할인 쿠폰 이벤트">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURATED FOR YOU 섹션 시작: 특별한 에디션 상품을 Swiper 슬라이더로 보여주는 영역입니다. -->
+    <section class="curated-section">
+      <div class="curated-section__inner">
+        <div class="curated-section__header">
+          <div class="curated-section__heading section-heading">
+            <h2>CURATED FOR YOU</h2>
+            <span></span>
+            <p>특별한 에디션을 제안합니다. 일상 속 작은 예술을 경험해 보세요.</p>
+          </div>
+
+          <div class="curated-section__controls">
+            <button class="curated-section__prev" type="button" aria-label="이전 상품">‹</button>
+            <button class="curated-section__next" type="button" aria-label="다음 상품">›</button>
+          </div>
+        </div>
+
+        <div class="swiper curated-swiper">
+          <div class="swiper-wrapper">
+            <article class="swiper-slide curated-product" data-id="curated-gold" data-name="프렌치 클래식 리본 티 세트 - 골드 리치" data-image="img/curated-gold.png">
+              <span class="curated-product__badge">ARTISAN EDITION</span>
+              <img src="img/curated-gold.png" alt="프렌치 클래식 리본 티 세트 골드 리치">
+              <h3>프렌치 클래식 리본 티 세트 - 골드 리치</h3>
+            </article>
+            <article class="swiper-slide curated-product" data-id="curated-blue" data-name="프렌치 클래식 리본 티 세트 - 페일 블루" data-image="img/curated-blue.png">
+              <span class="curated-product__badge">ARTISAN EDITION</span>
+              <img src="img/curated-blue.png" alt="프렌치 클래식 리본 티 세트 페일 블루">
+              <h3>프렌치 클래식 리본 티 세트 - 페일 블루</h3>
+            </article>
+            <article class="swiper-slide curated-product" data-id="curated-pink" data-name="프렌치 로맨틱 리본 티 세트 - 앤틱 핑크" data-image="img/curated-pink.png">
+              <span class="curated-product__badge">ARTISAN EDITION</span>
+              <img src="img/curated-pink.png" alt="프렌치 로맨틱 리본 티 세트 앤틱 핑크">
+              <h3>프렌치 로맨틱 리본 티 세트 - 앤틱 핑크</h3>
+            </article>
+            <article class="swiper-slide curated-product" data-id="curated-romantic" data-name="로맨틱 핑크 컬렉션" data-image="images/curated-romantic-pink.jpg">
+              <span class="curated-product__badge">CURATED COLLECTION</span>
+              <img src="images/curated-romantic-pink.jpg" alt="로맨틱 핑크 컬렉션">
+              <h3>로맨틱 핑크 컬렉션</h3>
+            </article>
+            <article class="swiper-slide curated-product" data-id="curated-heritage" data-name="헤리티지 클래식 컬렉션" data-image="images/curated-heritage-classic.jpg">
+              <span class="curated-product__badge">CURATED COLLECTION</span>
+              <img src="images/curated-heritage-classic.jpg" alt="헤리티지 클래식 컬렉션">
+              <h3>헤리티지 클래식 컬렉션</h3>
+            </article>
+            <article class="swiper-slide curated-product" data-id="curated-pastel" data-name="파스텔 플루티드 컬렉션" data-image="images/curated-pastel-fluted.jpg">
+              <span class="curated-product__badge">CURATED COLLECTION</span>
+              <img src="images/curated-pastel-fluted.jpg" alt="파스텔 플루티드 컬렉션">
+              <h3>파스텔 플루티드 컬렉션</h3>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CURATED FOR YOU 섹션 끝 -->
+
+    <!-- 도자기 선물과 원데이 클래스 -->
+    <section class="pottery-section" id="pottery">
+      <div class="pottery-section__inner">
+        <div class="pottery-section__heading section-heading">
+          <h2>POTTERY GIFTS &amp; CLASSES</h2>
+          <span></span>
+          <p>정성스럽게 빚은 도자기와 특별한 원데이 클래스</p>
+        </div>
+
+        <div class="pottery-section__grid">
+          <a class="pottery-card pottery-card--large" href="visit.html">
+            <img src="img/pottery-visit.png" alt="Aurelia Muse 도자기 스튜디오 방문">
+            <div class="pottery-card__overlay"><h3>오렐리아 매장 방문</h3><span>방문 안내</span></div>
+          </a>
+          <div class="pottery-section__small-cards">
+            <a class="pottery-card" href="class-reservation.html">
+              <img src="img/pottery-class-room.jpg" alt="Aurelia Muse 원데이 도자기 클래스">
+              <div class="pottery-card__overlay"><h3>원데이 도예 클래스 실시간 예약하기</h3><span>예약하기</span></div>
+            </a>
+            <a class="pottery-card" href="./custom-bulk-order.html">
+              <img src="img/pottery-gift.png" alt="Aurelia Muse 도자기 선물 서비스">
+              <div class="pottery-card__overlay"><h3>답례품 대량 주문 및 온라인 상담 접수</h3><span>상담하기</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 푸터 시작: 정책 메뉴, 고객센터 메뉴, 회사 정보와 저작권 문구를 관리하는 영역입니다. -->
+  <footer class="site-footer home-site-footer">
+    <a class="site-footer__logo" href="#top">Aurelia Muse</a>
+
+    <div class="site-footer__company">
+      <p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">법적고지</a><a href="#">영상정보처리기기</a><a href="#">운영/관리</a><a href="#">방침</a></p>
+      <p class="site-footer__menu-line"><a href="#">CS</a><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a><a href="custom-bulk-order.html">대량구매</a></p>
+      <p>(주)오렐리아뮤즈코리아 | 대표이사 : 박영은 | 주소 : 04377 서울 용산구 한강대로23길 88 용산역 8층(한강로3가, 아이파크몰) | 사업자등록번호 : 211-86-75820</p>
+      <p>통신판매업신고 : 제 2022-서울용산-1708호 [사업자정보확인] | 개인정보보호책임자 : 박영은 | 대표번호 : 1577-1541 | 제휴/협찬/입점 : rmagml@cj.net | 호스팅 제공자 : 카페24(주)</p>
+    </div>
+
+    <small>COPYRIGHT © BRANDWORKSKOREA ALL RIGHTS RESERVED.</small>
+  </footer>
+  <!-- 푸터 끝 -->
+
+  <!-- 상단 이동 링크 -->
+  <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
+  <div class="cart-toast" role="status" aria-live="polite">장바구니에 담았습니다.</div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
 </body>
 </html>
