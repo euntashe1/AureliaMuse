@@ -1163,7 +1163,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ========================================
   $(".btn-cart")?.addEventListener("click", () => requireOption(() => {
     buildOrderItems().forEach((item) => window.AureliaCart?.addItem(item));
-    openModal("장바구니에 담았습니다.");
+    window.AureliaCart?.open();
   }));
 
   $(".btn-buy")?.addEventListener("click", () => requireOption(() => {
