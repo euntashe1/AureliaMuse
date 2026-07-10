@@ -95,6 +95,11 @@
       word-break: keep-all;
     }
 
+
+    .contact-page .site-header.header--estimate-visible,
+    .contact-page .site-header.is-products-active.header--estimate-visible {
+      background-color: rgba(255, 244, 244, 0.5);
+    }
     @media (max-width: 1099px) {
       .contact-page .contact-main-visual {
         height: calc(100vh - 117px);
@@ -158,12 +163,13 @@
 <body id="top" class="event-page contact-page">
   <p class="notice" style="font-size:14px">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
 
+  <!-- header: 로고와 주요 메뉴 영역 -->
   <header class="site-header">
     <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
       <img src="img/bar.svg" alt="">
     </button>
 
-    <a class="logo" href="./index.html">
+    <a class="logo" href="index.html">
       <img src="img/header.svg" alt="Aurelia Muse">
     </a>
 
@@ -174,6 +180,7 @@
     </div>
   </header>
 
+  <!-- 햄버거 메뉴 시작: 왼쪽에서 열리는 전체 메뉴입니다. 메뉴 링크를 수정할 때는 이 영역을 확인하세요. -->
   <div class="side-menu-overlay" aria-hidden="true"></div>
   <aside class="side-menu" id="side-menu" aria-hidden="true">
     <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
@@ -194,11 +201,12 @@
       <section class="side-menu__group">
         <h2>WORKSHOP</h2>
         <a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a>
-        <a href="./contact.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
+        <a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
       </section>
     </nav>
     <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">cart</a></div>
   </aside>
+  <!-- 햄버거 메뉴 끝 -->
 
   <main class="contact-bulk-page">
     <section class="contact-bulk-hero" aria-labelledby="contact-bulk-title">
@@ -355,5 +363,33 @@
   <script src="script.js"></script>
   <script src="cart.js"></script>
   <script src="contact.js"></script>
+  <script>
+    (() => {
+      const header = document.querySelector(".site-header");
+      const estimator = document.querySelector(".contact-estimator");
+      if (!header || !estimator) return;
+
+      const setEstimateHeader = (visible) => {
+        header.classList.toggle("header--estimate-visible", visible);
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          setEstimateHeader(entries.some((entry) => entry.isIntersecting));
+        }, { threshold: 0.01 });
+        observer.observe(estimator);
+        return;
+      }
+
+      const updateEstimateHeader = () => {
+        const rect = estimator.getBoundingClientRect();
+        setEstimateHeader(rect.top < window.innerHeight && rect.bottom > 0);
+      };
+
+      window.addEventListener("scroll", updateEstimateHeader, { passive: true });
+      window.addEventListener("resize", updateEstimateHeader);
+      updateEstimateHeader();
+    })();
+  </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿/* Aurelia Muse 상품 페이지 공통 필터 및 정렬 */
+/* Aurelia Muse 상품 페이지 공통 필터 및 정렬 */
 document.querySelectorAll(".product-sub").forEach((page) => {
   const grid = page.querySelector(".product-grid");
   if (!grid) return;
@@ -426,13 +426,19 @@ document.querySelectorAll(".product-sub").forEach((page) => {
     }
 
     if (cartButton) {
+      if (window.AureliaCart) {
+        window.AureliaCart.addItem({ ...product, qty: 1 });
+        window.AureliaCart.open();
+        return;
+      }
+
       const cart = getProductStorage("aureliaCart");
       const existing = cart.find((item) => item?.id === product.id);
       if (existing) {
         existing.quantity = Number(existing.quantity || existing.qty || 0) + 1;
-        delete existing.qty;
+        existing.qty = Number(existing.qty || existing.quantity || 0);
       } else {
-        cart.push({ ...product, quantity: 1 });
+        cart.push({ ...product, quantity: 1, qty: 1 });
       }
       setProductStorage("aureliaCart", cart);
       updateProductHeaderCounts();

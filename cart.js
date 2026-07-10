@@ -54,7 +54,7 @@
   }
 
   function normalizeCartItem(item = {}) {
-    const qty = Number(item.qty);
+    const qty = Number(item.qty || item.quantity);
     return {
       id: item.id,
       name: item.name,

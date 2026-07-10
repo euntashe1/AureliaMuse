@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="class-reservation.css">
   <style>
+
+    .class-reservation-page .site-header.header--course-visible,
+    .class-reservation-page .site-header.is-products-active.header--course-visible {
+      background-color: rgba(255, 244, 244, 0.5);
+    }
     @media (max-width: 767px) {
       .class-reservation-page .class-layout {
         display: grid;
@@ -80,12 +85,13 @@
 <body id="top" class="class-reservation-page">
   <p class="notice" style="font-size:14px">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
 
+  <!-- header: 로고와 주요 메뉴 영역 -->
   <header class="site-header">
     <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
       <img src="img/bar.svg" alt="">
     </button>
 
-    <a class="logo" href="index.html#top">
+    <a class="logo" href="index.html">
       <img src="img/header.svg" alt="Aurelia Muse">
     </a>
 
@@ -96,6 +102,7 @@
     </div>
   </header>
 
+  <!-- 햄버거 메뉴 시작: 왼쪽에서 열리는 전체 메뉴입니다. 메뉴 링크를 수정할 때는 이 영역을 확인하세요. -->
   <div class="side-menu-overlay" aria-hidden="true"></div>
   <aside class="side-menu" id="side-menu" aria-hidden="true">
     <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
@@ -121,6 +128,7 @@
     </nav>
     <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">cart</a></div>
   </aside>
+  <!-- 햄버거 메뉴 끝 -->
 
   <main class="class-main">
     <section class="class-hero reveal-soft" aria-labelledby="class-title">
@@ -164,7 +172,7 @@
     </section>
 
     <section class="class-layout" aria-label="클래스 예약 폼">
-      <article class="class-card class-course-card reveal-soft">
+      <article class="class-card class-course-card class-course-section reveal-soft">
         <div class="class-card-heading class-card-heading--center reveal-soft">
           <h2>클래스 코스 선택</h2>
           <p>원하는 코스를 선택하면 예약 금액이 자동으로 계산됩니다.</p>
@@ -286,5 +294,33 @@
   <script src="script.js"></script>
   <script src="cart.js"></script>
   <script src="class-reservation.js"></script>
+  <script>
+    (() => {
+      const header = document.querySelector(".site-header");
+      const courseSection = document.querySelector(".class-course-section");
+      if (!header || !courseSection) return;
+
+      const setCourseHeader = (visible) => {
+        header.classList.toggle("header--course-visible", visible);
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          setCourseHeader(entries.some((entry) => entry.isIntersecting));
+        }, { threshold: 0.01 });
+        observer.observe(courseSection);
+        return;
+      }
+
+      const updateCourseHeader = () => {
+        const rect = courseSection.getBoundingClientRect();
+        setCourseHeader(rect.top < window.innerHeight && rect.bottom > 0);
+      };
+
+      window.addEventListener("scroll", updateCourseHeader, { passive: true });
+      window.addEventListener("resize", updateCourseHeader);
+      updateCourseHeader();
+    })();
+  </script>
 </body>
 </html>

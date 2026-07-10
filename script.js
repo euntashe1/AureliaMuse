@@ -344,19 +344,30 @@ document.querySelectorAll(".product-item[data-id]").forEach((card) => {
     - 저장 위치는 localStorage의 aureliaMuseCart입니다.
     - 이미 담긴 상품이면 새 줄을 만들지 않고 수량만 1 증가합니다.
   ========================================================= */
-  cartButton.addEventListener("click", () => {
+  cartButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const product = {
+      id,
+      name: card.dataset.name,
+      image: card.dataset.image,
+      price: Number(card.dataset.price)
+    };
+
+    if (window.AureliaCart) {
+      window.AureliaCart.addItem({ ...product, qty: 1 });
+      window.AureliaCart.open();
+      return;
+    }
+
     const cart = readStorage(CART_KEY);
     const existing = cart.find((item) => item.id === id);
     if (existing) {
-      existing.quantity += 1;
+      existing.quantity = Number(existing.quantity || existing.qty || 0) + 1;
+      existing.qty = Number(existing.qty || existing.quantity || 0);
     } else {
-      cart.push({
-        id,
-        name: card.dataset.name,
-        image: card.dataset.image,
-        price: Number(card.dataset.price),
-        quantity: 1
-      });
+      cart.push({ ...product, quantity: 1, qty: 1 });
     }
     writeStorage(CART_KEY, cart);
     updateCartCount();
@@ -461,12 +472,18 @@ function renderWishlist() {
 }
 
 function addWishlistItemToCart(item) {
+  if (window.AureliaCart) {
+    window.AureliaCart.addItem({ ...item, qty: 1 });
+    window.AureliaCart.open();
+    return;
+  }
+
   const cart = readStorage(CART_KEY);
   const existing = cart.find((entry) => entry.id === item.id);
   if (existing) {
-    existing.quantity += 1;
+    existing.quantity = Number(existing.quantity || existing.qty || 0) + 1;
   } else {
-    cart.push({ ...item, quantity: 1 });
+    cart.push({ ...item, quantity: 1, qty: 1 });
   }
   writeStorage(CART_KEY, cart);
   updateCartCount();
@@ -517,6 +534,17 @@ document.querySelectorAll(".site-footer").forEach((footer) => {
     </div>
     <small>COPYRIGHT © BRANDWORKSKOREA ALL RIGHTS RESERVED.</small>
   `;
+});
+
+document.addEventListener("click", (event) => {
+  const target = event.target instanceof Element ? event.target : event.target.parentElement;
+  const link = target?.closest(".site-footer a");
+  if (!link) return;
+
+  const href = link.getAttribute("href");
+  if (href === null || href.trim() === "" || href.trim() === "#") {
+    event.preventDefault();
+  }
 });
 
 /* =========================================================
