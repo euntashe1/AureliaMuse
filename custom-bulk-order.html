@@ -9,6 +9,113 @@
 <link rel="shortcut icon" href="img/favicon-am.png">
 <link rel="apple-touch-icon" href="img/favicon-am.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><link rel="stylesheet" href="style.css">
+  <style>
+    .custom-bulk-order-page .workshop-hero::before {
+      background: linear-gradient(90deg, rgba(50, 28, 25, 0.48), rgba(168, 69, 88, 0.18) 46%, transparent 68%);
+    }
+
+    .custom-bulk-order-page .custom-bulk-hero-copy {
+      top: 67%;
+      left: 5%;
+      width: min(760px, 88vw);
+      max-width: min(760px, 88vw);
+      text-align: left;
+      text-shadow: none;
+      transform: translateY(-50%);
+    }
+
+    .custom-bulk-order-page .custom-bulk-kicker {
+      margin: 0 0 10px;
+      color: #fff;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.18em;
+      text-transform: none;
+      text-shadow: none;
+    }
+
+    .custom-bulk-order-page .custom-bulk-hero-copy h1 {
+      margin: 0;
+      color: #fff;
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(44px, 5.2vw, 80px);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: 0;
+      word-break: keep-all;
+      text-shadow: none;
+    }
+
+    .custom-bulk-order-page .custom-bulk-title-mobile-for {
+      display: none;
+    }
+
+    .custom-bulk-order-page .custom-bulk-description {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: #fff;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: 0;
+      word-break: keep-all;
+      text-shadow: none;
+    }
+
+    @media (max-width: 1099px) {
+      .custom-bulk-order-page .custom-bulk-hero-copy {
+        top: 64%;
+        left: 6%;
+        width: min(760px, 88vw);
+        max-width: 88vw;
+      }
+
+      .custom-bulk-order-page .custom-bulk-hero-copy h1 {
+        font-size: clamp(44px, 9vw, 72px);
+      }
+
+      .custom-bulk-order-page .custom-bulk-description {
+        max-width: 620px;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .custom-bulk-order-page .custom-bulk-hero-copy {
+        top: 64%;
+        left: 6%;
+        width: min(88vw, 620px);
+        max-width: 88vw;
+      }
+
+      .custom-bulk-order-page .custom-bulk-kicker {
+        font-size: 12px;
+        letter-spacing: 0.16em;
+      }
+
+      .custom-bulk-order-page .custom-bulk-hero-copy h1 {
+        font-size: clamp(40px, 14vw, 62px);
+      }
+
+      .custom-bulk-order-page .custom-bulk-title-desktop-for {
+        display: none;
+      }
+
+      .custom-bulk-order-page .custom-bulk-title-mobile-for {
+        display: inline;
+      }
+
+      .custom-bulk-order-page .custom-bulk-description {
+        max-width: 84vw;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.75;
+      }
+    }
+  </style>
 </head>
 <body id="top" class="workshop-page custom-bulk-order-page">
   <p class="notice">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
@@ -63,16 +170,16 @@
         사용 중인 브라우저에서는 동영상을 재생할 수 없습니다.
       </video>
       <div class="custom-bulk-hero-copy">
-        <p class="custom-bulk-kicker">CONTACT AURELIA MUSE</p>
-        <h1>당신의 이야기에 어울리는<br>가장 부드러운 세라믹을 제안합니다</h1>
-        <p class="custom-bulk-description">클래스 예약, 맞춤 답례품, 브랜드 협업 문의까지<br>오렐리아 뮤즈가 정성스럽게 답변드릴게요.</p>
+        <p class="custom-bulk-kicker" style="font-size: 16px;">custom order</p>
+        <h1>Ceramics Made<span class="custom-bulk-title-desktop-for"> For</span><br><span class="custom-bulk-title-mobile-for">For </span><span style="color: #f5b1b1; font: 400 clamp(44px, 5.2vw, 80px) / 0.98 &quot;DM Serif Display&quot;, serif;">Your Story</span></h1>
+        <p class="custom-bulk-description">대량 주문부터 맞춤 제작 상담까지 오렐리아 뮤즈가 정성스럽게 함께합니다.</p>
       </div>
     </section>
     <section class="workshop-content custom-gift-process" aria-labelledby="custom-gift-process-title">
       <div class="custom-gift-process__layout">
         <aside class="custom-gift-process__sticky gift-process-reveal">
           <p class="custom-gift-process__eyebrow">Custom Gift Process</p>
-          <h2 id="custom-gift-process-title">손끝의 온기로 완성되는<br>맞춤 답례품</h2>
+          <h2 id="custom-gift-process-title" style="font-size: 30px;">손끝의 온기로 완성되는<br>맞춤 답례품</h2>
           <p>상담부터 포장까지, 오렐리아 뮤즈의 답례품은 받는 사람의 순간까지 생각하며 하나씩 완성됩니다.</p>
         </aside>
 

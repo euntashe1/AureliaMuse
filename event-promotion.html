@@ -35,11 +35,115 @@
       object-position: center center;
     }
 
+    .event-page .event-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(50, 28, 25, 0.48), rgba(168, 69, 88, 0.18) 46%, transparent 68%);
+    }
+
+    .event-page .event-hero__inner {
+      position: absolute;
+      top: 67%;
+      left: 5%;
+      z-index: 1;
+      width: min(760px, 88vw);
+      color: #fff;
+      text-align: left;
+      text-shadow: none;
+      transform: translateY(-50%);
+    }
+
+    .event-page .event-hero__kicker {
+      display: block;
+      margin: 0 0 10px;
+      color: #fff;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.18em;
+      text-transform: none;
+      text-shadow: none;
+    }
+
+    .event-page .event-hero h1 {
+      margin: 0;
+      color: #fff;
+      font: 400 clamp(44px, 5.2vw, 80px) / 0.98 "DM Serif Display", serif;
+      letter-spacing: 0;
+      text-shadow: none;
+    }
+
+    .event-page .event-hero h1::after {
+      display: none;
+    }
+
+    .event-page .event-hero__description {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: #fff;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: 0.08em;
+      text-shadow: none;
+      word-break: keep-all;
+    }
+
+    .event-page .event-hero .event-hero__inner > .event-hero__description {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
     @media (max-width: 599px) {
       .event-page .event-hero {
         height: calc(100vh - 80px);
         min-height: 360px;
         max-height: none;
+      }
+
+      .event-page .event-hero__inner {
+        top: 64%;
+        left: 6%;
+        width: min(88vw, 620px);
+      }
+
+      .event-page .event-hero__kicker {
+        font-size: 12px;
+        letter-spacing: 0.16em;
+      }
+
+      .event-page .event-hero h1 {
+        font-size: clamp(40px, 14vw, 62px);
+      }
+
+      .event-page .event-hero__description {
+        max-width: 84vw;
+        font-size: 18px;
+        line-height: 1.75;
+        letter-spacing: 0.04em;
+      }
+    }
+
+    @media (min-width: 600px) and (max-width: 1099px) {
+      .event-page .event-hero__inner {
+        top: 64%;
+        left: 6%;
+        width: min(760px, 88vw);
+      }
+
+      .event-page .event-hero h1 {
+        font-size: clamp(44px, 9vw, 72px);
+      }
+
+      .event-page .event-hero__description {
+        max-width: 620px;
+        font-size: 18px;
       }
     }
   </style>
@@ -95,8 +199,9 @@
         <source src="video/event-promotion-main-video.mp4" type="video/mp4">
       </video>
       <div class="event-hero__inner">
-        <h1 id="event-page-title">EVENT</h1>
-        <p>오렐리아 뮤즈에서 준비한 특별한 혜택을 만나보세요.</p>
+        <p class="event-hero__kicker" style="font-size: 16px;">aurelia muse event</p>
+        <h1 id="event-page-title">Bloom Your Special <span style="color: #f5b1b1; font: 400 clamp(44px, 5.2vw, 80px) / 0.98 &quot;DM Serif Display&quot;, serif;">Moment</span></h1>
+        <p class="event-hero__description">꽃처럼 피어나는 특별한 혜택이 오렐리아 뮤즈의 하루에 부드럽게 머무릅니다.</p>
       </div>
     </section>
 
