@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const finalTotalEl = document.querySelector("#orderFinalTotal");
   const modal = document.querySelector("#orderModal");
   const modalMessage = document.querySelector("#orderModalMessage");
-  const orderComplete = document.querySelector("#orderComplete");
   const paymentMethods = document.querySelectorAll(".payment-method");
   const paymentDetailBox = document.querySelector("#paymentDetailBox");
 
@@ -124,16 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!validateRequired()) return;
 
     openModal("포트폴리오용 주문/결제 UI입니다.<br>실제 결제는 진행되지 않습니다.");
-  });
-
-  document.querySelector("#showOrderComplete").addEventListener("click", () => {
-    closeModal();
-    localStorage.removeItem(CART_KEY);
-    window.AureliaCart?.updateCounts();
-    if (orderComplete) {
-      orderComplete.hidden = false;
-      orderComplete.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
   });
 
   document.querySelectorAll("[data-order-close]").forEach((button) => {
