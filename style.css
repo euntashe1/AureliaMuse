@@ -27,28 +27,28 @@ body {
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
   font-weight: 300;
 }
-html.home-page-root,
-html.home-page-root * {
+html,
+body {
   scrollbar-width: thin;
   scrollbar-color: #e8a6a6 #fff7f4;
 }
 
-html.home-page-root::-webkit-scrollbar,
-html.home-page-root *::-webkit-scrollbar {
+html::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
 }
 
-html.home-page-root::-webkit-scrollbar-track,
-html.home-page-root *::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background: #fff7f4;
-  border-radius: 999px;
 }
 
-html.home-page-root::-webkit-scrollbar-thumb,
-html.home-page-root *::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: #e8a6a6;
   border-radius: 999px;
+  border: 2px solid #fff7f4;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #e8a6a6;
 }
 
 body,
@@ -4775,5 +4775,40 @@ body.event-page {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+@media (max-width: 599px) {
+  .pottery-card__overlay {
+    right: 16px;
+    bottom: 18px;
+    left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .pottery-card__overlay h3 {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    font-size: clamp(11px, 3.4vw, 13px);
+    line-height: 1.25;
+    letter-spacing: -0.05em;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
+  .pottery-card__overlay span {
+    align-self: flex-end;
+    min-width: 68px;
+    height: 30px;
+    padding: 0 13px;
+    font-size: 12px;
+    line-height: 30px;
+    white-space: nowrap;
   }
 }
