@@ -27,28 +27,28 @@ body {
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
   font-weight: 300;
 }
-html.home-page-root,
-html.home-page-root * {
+html,
+body {
   scrollbar-width: thin;
   scrollbar-color: #e8a6a6 #fff7f4;
 }
 
-html.home-page-root::-webkit-scrollbar,
-html.home-page-root *::-webkit-scrollbar {
+html::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
 }
 
-html.home-page-root::-webkit-scrollbar-track,
-html.home-page-root *::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track {
   background: #fff7f4;
-  border-radius: 999px;
 }
 
-html.home-page-root::-webkit-scrollbar-thumb,
-html.home-page-root *::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background: #e8a6a6;
   border-radius: 999px;
+  border: 2px solid #fff7f4;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #e8a6a6;
 }
 
 body,
