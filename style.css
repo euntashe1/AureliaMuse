@@ -4778,55 +4778,22 @@ body.event-page {
   }
 }
 
-@media (max-width: 599px) {
-  .pottery-card__overlay {
-    right: 16px;
-    bottom: 18px;
-    left: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-
-  .pottery-card__overlay h3 {
-    width: 100%;
-    max-width: none;
-    min-width: 0;
-    margin: 0;
-    font-size: clamp(11px, 3.4vw, 13px);
-    line-height: 1.25;
-    letter-spacing: -0.05em;
-    white-space: nowrap;
-    word-break: keep-all;
-  }
-
-  .pottery-card__overlay span {
-    align-self: flex-end;
-    min-width: 68px;
-    height: 30px;
-    padding: 0 13px;
-    font-size: 12px;
-    line-height: 30px;
-    white-space: nowrap;
-  }
-}
-
 @media (max-width: 767px) {
-  .pottery-card__overlay {
+  #pottery .pottery-section__small-cards > .pottery-card:nth-child(2) .pottery-card__overlay {
     min-width: 0;
   }
 
-  .pottery-card__overlay h3 {
+  #pottery .pottery-section__small-cards > .pottery-card:nth-child(2) .pottery-card__overlay h3 {
+    font-size: 17px !important;
     width: 100%;
     max-width: 100%;
-    padding: 0 16px;
+    min-width: 0;
+    padding-left: 12px;
+    padding-right: 12px;
     box-sizing: border-box;
     white-space: normal;
     word-break: keep-all;
     overflow-wrap: break-word;
-    line-height: 1.5;
     text-align: center;
   }
 }

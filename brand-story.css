@@ -1176,6 +1176,20 @@ body {
   }
 }
 
+@media (max-width: 767px) {
+  .brand-story__row--third .brand-story__content,
+  .brand-story__row--third .brand-story__content > span,
+  .brand-story__row--third .brand-story__content h3,
+  .brand-story__row--third .brand-story__content p {
+    text-align: center;
+  }
+
+  .brand-story__row--third .brand-story__content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (max-width: 599px) {
   .brand-values .brand-value__image {
     height: 260px;
