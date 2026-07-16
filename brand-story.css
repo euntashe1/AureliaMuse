@@ -1,0 +1,1399 @@
+﻿/* =========================================================
+   Aurelia Muse 브랜드 스토리 전용 스타일
+   - 메인 페이지의 헤더, 메뉴, 푸터 스타일을 그대로 활용합니다.
+   - 이 파일은 brand-story.html에만 연결되어 기존 페이지에 영향을 주지 않습니다.
+========================================================= */
+
+.brand-story-page {
+  margin: 0;
+  padding: 0;
+  background: #fffaf8;
+  color: #3f312c;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+}
+
+.brand-story-page .notice {
+  margin: 0;
+}
+
+.brand-story-page .site-header {
+  margin: 0;
+}
+
+.brand-story-page main {
+  overflow: hidden;
+}
+
+.brand-story-page img {
+  max-width: 100%;
+}
+
+.brand-section {
+  padding: 150px clamp(24px, 6vw, 110px);
+}
+
+.brand-heading {
+  margin: 0 auto 76px;
+  text-align: center;
+}
+
+.brand-section-title {
+  margin: 0;
+  color: #3f312c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.brand-heading > span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  margin: 16px auto;
+  background: #9c8f89;
+}
+
+.brand-section-desc {
+  margin: 0;
+  color: #6f625e;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.brand-kicker {
+  margin: 0 0 18px;
+  color: #ef9a9a;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.brand-image-frame {
+  overflow: hidden;
+  background: #cfcaca;
+}
+
+.brand-image-frame img,
+.brand-image-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.brand-image-frame:hover img,
+.brand-image-frame:hover video {
+  transform: scale(1.04);
+}
+
+/* HERO */
+.brand-hero {
+  position: relative;
+  width: 100%;
+  height: 720px;
+  min-height: 0;
+  overflow: hidden;
+  background: #c8928c;
+}
+
+.brand-hero > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.brand-hero__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(45, 28, 25, 0.25) 0%,
+    rgba(45, 28, 25, 0.12) 42%,
+    rgba(40, 28, 24, 0.34) 100%
+  );
+  pointer-events: none;
+}
+
+.brand-hero__text {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  z-index: 2;
+  width: min(90%, 900px);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 18px rgba(52, 28, 27, 0.25);
+  transform: translate(-50%, -50%);
+}
+
+.brand-hero__text > span {
+  display: block;
+  margin-bottom: 22px;
+  color: #fff;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: none;
+}
+
+.brand-hero__text h1 {
+  margin: 0;
+  color: #ef9a9a;
+  font-family: "Playball", cursive;
+  font-size: clamp(56px, 7vw, 104px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.brand-hero__text p {
+  margin: 26px 0 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.9;
+  word-break: keep-all;
+}
+
+.brand-hero__text .brand-hero__english {
+  margin-top: 26px;
+  color: #fff7ef;
+  font-family: "Playball", cursive;
+  font-size: clamp(22px, 2.1vw, 32px);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* BRAND INTRO */
+.brand-intro {
+  background: linear-gradient(135deg, #fffaf8 0%, #f9eeee 100%);
+}
+
+.brand-intro__inner {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(420px, 1.1fr);
+  align-items: center;
+  gap: clamp(60px, 9vw, 150px);
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.brand-intro__image {
+  height: 690px;
+  border-radius: 320px 320px 0 0;
+}
+
+.brand-intro__image img {
+  object-position: center center;
+}
+
+.brand-intro__content h2 {
+  margin: 0 0 38px;
+  color: #3f312c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.brand-intro__content > p:not(.brand-kicker) {
+  margin: 0 0 22px;
+  color: #6f625e;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+/* OUR STORY */
+.brand-story {
+  background: #fff;
+}
+
+.brand-story__rows {
+  max-width: 1420px;
+  margin: 0 auto;
+}
+
+.brand-story__row {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: clamp(55px, 8vw, 130px);
+}
+
+.brand-story__row + .brand-story__row {
+  margin-top: 130px;
+}
+
+.brand-story__row--reverse .brand-story__image {
+  order: 2;
+}
+
+.brand-story__row--reverse .brand-story__content {
+  order: 1;
+}
+
+.brand-story__image {
+  height: 610px;
+  border-radius: 4px 110px 4px 4px;
+}
+
+.brand-story__row--reverse .brand-story__image {
+  height: 510px;
+  border-radius: 110px 4px 4px 4px;
+}
+
+.brand-story__row--third .brand-story__image {
+  height: 460px;
+  border-radius: 4px 110px 4px 4px;
+}
+
+.brand-story__row--third .brand-story__image img {
+  object-position: center 35%;
+}
+
+.brand-story__row--third .brand-story__content {
+  text-align: center;
+}
+
+.brand-story__row--third .brand-story__content h3 {
+  font-size: 32px;
+}
+
+.brand-story__row:first-child .brand-story__image img {
+  object-position: center 57%;
+}
+
+.brand-story__row--reverse .brand-story__image img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.brand-story__content > span {
+  color: #ef9a9a;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.brand-story__content h3 {
+  margin: 15px 0 34px;
+  color: #3f312c;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.brand-story__content p {
+  margin: 0 0 20px;
+  color: #6f625e;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+/* MUSE MOMENTS */
+.muse-moments {
+  background: linear-gradient(to bottom, #fffaf8 0%, #f8eeee 100%);
+}
+
+.muse-moments__korean {
+  margin: 22px 0 0;
+  color: #6f625e;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.muse-moments .brand-section-desc {
+  font-size: 16px;
+}
+
+.muse-moments__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: clamp(24px, 3.2vw, 54px);
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.muse-moment {
+  margin: 0;
+}
+
+.muse-moment--lower {
+  padding-top: 100px;
+}
+
+.muse-moment .brand-image-frame {
+  height: 650px;
+  border-radius: 220px 220px 8px 8px;
+}
+
+.muse-moment img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.muse-moment:nth-child(2) img {
+  object-position: center center;
+}
+
+/* MUSE MOMENTS 이미지는 hover 시 움직이지 않습니다. */
+.muse-moment .brand-image-frame:hover img {
+  transform: none;
+}
+
+.muse-moment figcaption {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 24px 12px 0;
+}
+
+.muse-moment figcaption span {
+  color: #ef9a9a;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.muse-moment figcaption p {
+  margin: 0;
+  color: #6f625e;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* BRAND VALUE */
+.brand-values {
+  background: linear-gradient(135deg, #fff8f6 0%, #f5e4e5 52%, #f9efec 100%);
+}
+
+.brand-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.brand-value {
+  position: relative;
+  height: 560px;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(184, 132, 132, 0.2);
+  border-radius: 220px 220px 8px 8px;
+  background: #ead4d4;
+  box-shadow: 0 24px 55px rgba(94, 58, 54, 0.1);
+}
+
+.brand-value::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(46, 29, 28, 0.02) 28%,
+    rgba(46, 29, 28, 0.16) 58%,
+    rgba(46, 29, 28, 0.78) 100%
+  );
+  content: "";
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.brand-value__image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #cfcaca;
+}
+
+.brand-value__image img,
+.brand-value__image video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.7s ease, filter 0.5s ease;
+}
+
+.brand-value:hover .brand-value__image img,
+.brand-value:hover .brand-value__image video {
+  filter: saturate(1.04);
+  transform: scale(1.04);
+}
+
+.brand-value:hover::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(46, 29, 28, 0.04) 25%,
+    rgba(46, 29, 28, 0.24) 55%,
+    rgba(46, 29, 28, 0.84) 100%
+  );
+}
+
+.brand-value__content {
+  position: absolute;
+  right: 34px;
+  bottom: 38px;
+  left: 34px;
+  z-index: 2;
+  color: #fff;
+}
+
+.brand-value__content span {
+  color: #f6b8b8;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.brand-value__content h3 {
+  margin: 14px 0 0;
+  color: #fff;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+}
+
+.brand-value__content p {
+  max-width: 340px;
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+/* CLOSING CTA */
+.brand-closing {
+  position: relative;
+  height: 720px;
+  overflow: hidden;
+}
+
+.brand-closing > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.brand-closing__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(196, 118, 126, 0.56), rgba(238, 173, 177, 0.3));
+}
+
+.brand-closing__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(90%, 800px);
+  color: #fff;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.brand-closing__text > p {
+  margin: 0 0 20px;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+}
+
+.brand-closing__text h2 {
+  margin: 0;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: clamp(34px, 4vw, 56px);
+  font-weight: 500;
+  line-height: 1.45;
+  word-break: keep-all;
+  text-shadow: 0 3px 20px rgba(84, 39, 44, 0.22);
+}
+
+.brand-closing__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 42px;
+}
+
+.brand-closing__buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  color: #fff;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.brand-closing__buttons a:first-child,
+.brand-closing__buttons a:hover {
+  background: #fff;
+  color: #9d6667;
+}
+
+.brand-footer {
+  margin-top: 200px;
+}
+
+/* 스크롤 등장 효과: JavaScript가 is-visible 클래스를 추가합니다. */
+.fade-up {
+  opacity: 0;
+  transform: translateY(42px);
+  transition: opacity 1.1s ease, transform 1.1s ease;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-text {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1.25s ease, transform 1.25s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-text.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-photo,
+.reveal-number {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-photo.is-visible,
+.reveal-number.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.brand-story > .brand-heading .brand-section-title.reveal-text {
+  transition-delay: 0.1s;
+}
+
+.brand-story > .brand-heading .brand-section-desc.reveal-text,
+.brand-story__content h3.reveal-text {
+  transition-delay: 0.35s;
+}
+
+.brand-story__content p.reveal-text {
+  transition-delay: 0.5s;
+}
+
+.muse-moments .reveal-photo:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.muse-moments .reveal-photo:nth-child(2) {
+  transition-delay: 0.35s;
+}
+
+.muse-moments .reveal-photo:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.number-01 {
+  transition-delay: 0s;
+}
+
+.number-02 {
+  transition-delay: 2s;
+}
+
+.number-03 {
+  transition-delay: 4s;
+}
+
+/* 태블릿 */
+@media (max-width: 1099px) {
+  .brand-section {
+    padding: 120px 40px;
+  }
+
+  .brand-hero {
+    height: 560px;
+  }
+
+  .brand-hero > img {
+    object-position: center center;
+  }
+
+  .brand-intro__inner,
+  .brand-story__row {
+    gap: 60px;
+  }
+
+  .brand-intro__image {
+    height: 600px;
+  }
+
+  .brand-story__image {
+    height: 520px;
+  }
+
+  .muse-moment .brand-image-frame {
+    height: 530px;
+  }
+
+  .brand-value {
+    height: 500px;
+  }
+
+  .brand-kicker {
+    font-size: 15px;
+  }
+
+  .brand-hero__text > span {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 900px) {
+  .brand-intro__inner,
+  .brand-story__row {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-intro__image {
+    width: min(100%, 580px);
+    height: 680px;
+    margin: 0 auto;
+  }
+
+  .brand-intro__content {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .brand-story__row--reverse .brand-story__image,
+  .brand-story__row--reverse .brand-story__content {
+    order: initial;
+  }
+
+  .brand-story__image,
+  .brand-story__row--reverse .brand-story__image,
+  .brand-story__row--third .brand-story__image {
+    height: 560px;
+  }
+
+  .brand-story__row--third .brand-story__image {
+    height: 460px;
+  }
+
+  .brand-story__content {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .muse-moments__list {
+    grid-template-columns: 1fr;
+    max-width: 590px;
+    gap: 65px;
+  }
+
+  .muse-moment--lower {
+    padding-top: 0;
+  }
+
+  .muse-moment .brand-image-frame {
+    height: auto;
+    aspect-ratio: 628 / 839;
+  }
+
+  .brand-values__grid {
+    grid-template-columns: 1fr;
+    max-width: 620px;
+    gap: 28px;
+  }
+
+  .brand-value {
+    height: 720px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .brand-section {
+    padding: 88px 20px;
+  }
+
+  .brand-heading {
+    margin-bottom: 52px;
+  }
+
+  .brand-section-title {
+    font-size: 32px;
+  }
+
+  .brand-section-desc,
+  .muse-moments__korean {
+    font-size: 14px;
+  }
+
+  .brand-hero {
+    height: 500px;
+  }
+
+  .brand-hero > img {
+    object-position: center center;
+  }
+
+  .brand-hero__text {
+    top: 54%;
+    width: 86%;
+  }
+
+  .brand-hero__text h1 {
+    font-size: 46px;
+  }
+
+  .brand-hero__text p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .brand-hero__text .brand-hero__english {
+    font-size: 16px;
+  }
+
+  .brand-hero__text > span {
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .brand-intro__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 220px 220px 0 0;
+  }
+
+  .brand-intro__image img {
+    object-position: center center;
+  }
+
+  .brand-intro__content h2 {
+    margin-bottom: 28px;
+    font-size: 32px;
+  }
+
+  .brand-intro__content > p:not(.brand-kicker),
+  .brand-story__content p {
+    font-size: 14px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .brand-story__row + .brand-story__row {
+    margin-top: 90px;
+  }
+
+  .brand-story__image,
+  .brand-story__row--reverse .brand-story__image,
+  .brand-story__row--third .brand-story__image {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: 4px 70px 4px 4px;
+  }
+
+  .brand-story__row--third .brand-story__image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .brand-story__row--reverse .brand-story__image img {
+    object-fit: cover;
+  }
+
+  .brand-story__content h3 {
+    margin-bottom: 25px;
+    font-size: 32px;
+  }
+
+  .brand-story__content > span,
+  .muse-moment figcaption span,
+  .brand-value__content span {
+    font-size: 36px;
+  }
+
+  .brand-kicker {
+    font-size: 14px;
+    letter-spacing: 0.14em;
+  }
+
+  .muse-moments .brand-section-desc,
+  .muse-moments__korean,
+  .muse-moment figcaption p {
+    font-size: 15px;
+  }
+
+  .brand-closing__text > p {
+    font-size: 13px;
+  }
+
+  .muse-moment figcaption {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
+  .brand-value {
+    height: 570px;
+    border-radius: 160px 160px 8px 8px;
+  }
+
+  .brand-value__content {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+  }
+
+  .brand-value__content h3 {
+    font-size: 19px;
+  }
+
+  .brand-value__content p {
+    font-size: 13px;
+  }
+
+  .brand-closing {
+    height: 600px;
+  }
+
+  .brand-closing > img {
+    object-position: center 58%;
+  }
+
+  .brand-closing__text h2 {
+    font-size: 31px;
+  }
+
+  .brand-closing__buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .brand-closing__buttons a {
+    width: min(100%, 260px);
+  }
+}
+
+@media (max-width: 599px) {
+  .brand-hero {
+    height: 430px;
+  }
+
+  .brand-hero__text {
+    top: 56%;
+  }
+
+  .brand-story__row--third .brand-story__content h3 {
+    font-size: 28px;
+  }
+}
+
+/* =========================================================
+   요청 반영: OUR STORY 이미지, 히어로 높이, MUSE MOMENTS hover
+========================================================= */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.brand-story-page .notice,
+.brand-story-page .site-header,
+.brand-hero {
+  margin: 0;
+}
+
+.brand-hero {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 117px);
+  min-height: 650px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.brand-hero > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.brand-hero-video,
+.brand-hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.brand-story__image,
+.brand-story__row--reverse .brand-story__image,
+.brand-story__row--third .brand-story__image {
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+}
+
+.brand-story__image img,
+.brand-story__row--reverse .brand-story__image img,
+.brand-story__row--third .brand-story__image img,
+.brand-story__image video,
+.brand-story__row--reverse .brand-story__image video,
+.brand-story__row--third .brand-story__image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.brand-hero__text {
+  top: 50%;
+}
+
+.brand-image-frame img,
+.brand-image-frame video,
+.brand-story__image img,
+.brand-story__image video,
+.muse-moment img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.brand-story__row--third .brand-story__content p {
+  text-align: left;
+  line-height: 1.85;
+}
+
+.muse-moment .brand-image-frame {
+  overflow: hidden;
+}
+
+.muse-moment img {
+  transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.muse-moment:nth-child(1) .brand-image-frame:hover img,
+.muse-moment:nth-child(3) .brand-image-frame:hover img {
+  transform: translateY(12px) scale(1.03);
+  filter: brightness(1.04);
+}
+
+.muse-moment:nth-child(2) .brand-image-frame:hover img {
+  transform: translateY(-12px) scale(1.03);
+  filter: brightness(1.04);
+}
+
+@media (max-width: 1099px) {
+  .brand-hero {
+    height: calc(100vh - 117px);
+    min-height: 650px;
+  }
+
+  .brand-hero > img {
+    object-position: center center;
+  }
+
+  .brand-hero-video,
+  .brand-hero video {
+    object-position: center center;
+  }
+
+  .brand-story__image,
+  .brand-story__row--reverse .brand-story__image,
+  .brand-story__row--third .brand-story__image {
+    height: 460px;
+  }
+}
+
+@media (max-width: 599px) {
+  .brand-hero {
+    height: calc(100vh - 80px);
+    min-height: 360px;
+    max-height: none;
+  }
+
+  .brand-hero > img {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .brand-hero-video,
+  .brand-hero video {
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  .brand-story__image,
+  .brand-story__row--reverse .brand-story__image,
+  .brand-story__row--third .brand-story__image {
+    height: 320px;
+    aspect-ratio: auto;
+  }
+
+  .brand-story__row--third .brand-story__content p {
+    text-align: left;
+    line-height: 1.8;
+  }
+
+  .muse-moment:nth-child(1) .brand-image-frame:hover img,
+  .muse-moment:nth-child(2) .brand-image-frame:hover img,
+  .muse-moment:nth-child(3) .brand-image-frame:hover img {
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .reveal-text,
+  .reveal-photo,
+  .reveal-number {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .floating-motion,
+  .brand-image-frame img,
+  .brand-value__image img,
+  .brand-value__image video {
+    animation: none;
+    transition: none;
+  }
+
+}
+
+/* BRAND VALUE 이미지 모양 최종 보정: 아치형에서 둥근 사각형으로 변경 */
+.brand-values .brand-value {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  border-radius: 28px;
+}
+
+.brand-values .brand-value__image {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.brand-values .brand-value__image img,
+.brand-values .brand-value__image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.brand-values .brand-value::after {
+  border-radius: 28px;
+}
+
+.brand-values .brand-value__content {
+  right: 28px;
+  bottom: 28px;
+  left: 28px;
+}
+
+@media (max-width: 1099px) {
+  .brand-values .brand-value__image {
+    height: 320px;
+    border-radius: 24px;
+  }
+
+  .brand-values .brand-value,
+  .brand-values .brand-value::after {
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 599px) {
+  .brand-values .brand-value__image {
+    height: 260px;
+    border-radius: 20px;
+  }
+
+  .brand-values .brand-value,
+  .brand-values .brand-value::after {
+    border-radius: 20px;
+  }
+}
+
+/* Brand Story refinements */
+.brand-story > .brand-heading,
+.brand-story > .brand-heading .brand-section-title {
+  text-align: center;
+}
+
+.brand-story__row {
+  grid-template-columns: minmax(0, 1.24fr) minmax(0, 0.76fr);
+  gap: clamp(42px, 5vw, 84px);
+}
+
+.brand-story__row--reverse {
+  grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
+}
+
+.brand-story__image,
+.brand-story__row--reverse .brand-story__image,
+.brand-story__row--third .brand-story__image {
+  height: 650px;
+  border-radius: 16px;
+  max-width: 980px;
+  width: 100%;
+}
+
+.brand-story__row--reverse .brand-story__image {
+  justify-self: end;
+}
+
+.brand-story__image video,
+.brand-story__image img {
+  border-radius: 16px;
+}
+
+.brand-story__row--third .brand-story__content {
+  text-align: left;
+  justify-self: start;
+}
+
+.brand-story__row--third .brand-story__content > span,
+.brand-story__row--third .brand-story__content h3,
+.brand-story__row--third .brand-story__content p {
+  text-align: left;
+}
+
+.brand-values__intro {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1099px) {
+  .brand-story__image,
+  .brand-story__row--reverse .brand-story__image,
+  .brand-story__row--third .brand-story__image {
+    height: 560px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .brand-story__row,
+  .brand-story__row--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-story__image,
+  .brand-story__row--reverse .brand-story__image,
+  .brand-story__row--third .brand-story__image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .brand-story__image,
+  .brand-story__row--reverse .brand-story__image,
+  .brand-story__row--third .brand-story__image {
+    height: 360px;
+  }
+}
+
+.floating-motion,
+.brand-intro__image img {
+  animation: brandSoftFloat 5.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes brandSoftFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1.02);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
+}
+
+.muse-moment:nth-child(1) { transition-delay: 0.1s; }
+.muse-moment:nth-child(2) { transition-delay: 0.35s; }
+.muse-moment:nth-child(3) { transition-delay: 0.6s; }
+.brand-value:nth-child(1) { transition-delay: 0.05s; }
+.brand-value:nth-child(2) { transition-delay: 0.16s; }
+.brand-value:nth-child(3) { transition-delay: 0.27s; }
+
+.muse-moment figcaption p {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+.muse-moment:nth-child(3) figcaption {
+  justify-content: flex-start;
+}
+
+.muse-moment:nth-child(3) figcaption span {
+  order: -1;
+  text-align: left;
+}
+
+.brand-values {
+  background: #fff7f7;
+  padding-bottom: 140px;
+  overflow: visible;
+}
+
+.brand-values .brand-values__grid {
+  max-width: 1560px;
+  gap: 20px;
+}
+
+.brand-values .brand-value {
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ead4d4;
+}
+
+.brand-values .brand-value,
+.brand-values .brand-value::after,
+.brand-values .brand-value__image {
+  border-radius: 18px;
+}
+
+.brand-values .brand-value__image {
+  height: 500px;
+}
+
+.brand-values .brand-value-video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.brand-footer {
+  margin-top: 0;
+  background: #fff7f7;
+}
+
+@media (max-width: 1099px) {
+  .brand-values {
+    padding-bottom: 112px;
+  }
+
+  .brand-values .brand-value__image {
+    height: 420px;
+  }
+
+  .brand-values .brand-value,
+  .brand-values .brand-value::after,
+  .brand-values .brand-value__image {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 599px) {
+  .brand-intro__image img {
+    animation-duration: 6.4s;
+  }
+
+  .brand-values {
+    padding-bottom: 88px;
+  }
+
+  .brand-values .brand-value__image {
+    height: 320px;
+  }
+
+  .brand-values .brand-value,
+  .brand-values .brand-value::after,
+  .brand-values .brand-value__image {
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .reveal-text,
+  .reveal-photo,
+  .reveal-number {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .floating-motion,
+  .brand-intro__image img,
+  .brand-image-frame img,
+  .brand-value__image img,
+  .brand-value__image video {
+    animation: none;
+    transition: none;
+  }
+}

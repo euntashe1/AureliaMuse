@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelia Muse</title>
+  <link rel="icon" type="image/png" href="img/favicon-am.png">
+  <link rel="shortcut icon" href="img/favicon-am.png">
+  <link rel="apple-touch-icon" href="img/favicon-am.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="top" class="store-visit-page visit-page">
+  <p class="notice" style="font-size:14px">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+
+  <header class="site-header">
+    <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
+      <img src="img/bar.svg" alt="">
+    </button>
+
+    <a class="logo" href="index.html#top">
+      <img src="img/header.svg" alt="Aurelia Muse">
+    </a>
+
+    <div class="header-icons">
+      <a href="login.html" aria-label="로그인"><img src="img/login.svg" alt=""></a>
+      <a class="header-cart-link" href="cart.html" aria-label="장바구니"><img src="img/cart.svg" alt=""><span class="cart-count">0</span></a>
+      <a class="header-wishlist-link" href="wishlist.html" aria-label="찜하기"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden>0</span></a>
+    </div>
+  </header>
+
+  <div class="side-menu-overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="side-menu" aria-hidden="true">
+    <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
+    <nav class="side-menu__nav">
+      <section class="side-menu__group">
+        <h2>Products</h2>
+        <a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+        <a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+        <a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+        <a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+        <a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+        <a href="event-promotion.html"><strong>Event &amp; Promotion</strong><span>이벤트</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>STORY</h2>
+        <a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>WORKSHOP</h2>
+        <a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a>
+        <a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
+      </section>
+    </nav>
+    <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">cart</a></div>
+  </aside>
+
+  <main class="store-visit" aria-label="Aurelia Muse visit guide">
+    <section class="store-visit__hero">
+      <video class="store-visit-video" autoplay muted loop playsinline>
+        <source src="videos/visit-building.mp4" type="video/mp4">
+      </video>
+    </section>
+
+    <section class="visit-store-finder" aria-label="오렐리아 뮤즈 방문 안내">
+      <div class="visit-store-finder__layout">
+        <div class="visit-map" aria-label="Aurelia Muse Flagship Store map">
+          <iframe
+            class="visit-map__iframe"
+            title="Aurelia Muse Flagship Store Google Map"
+            src="https://www.google.com/maps?q=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%A4%91%EA%B5%AC%20%EA%B0%90%EC%84%B1%EB%A1%9C%2024%20Aurelia%20Muse&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="visit-map__marker visit-map__marker--primary" id="visit-map-marker">AM</div>
+          <article class="visit-map__card" id="visit-map-card">
+            <strong id="visit-map-card-title">Aurelia Muse Flagship Store</strong>
+            <span><b>오픈</b> · 오후 8:00까지 영업</span>
+            <span id="visit-map-card-address">부산광역시 중구 감성로 24, Aurelia Muse 1F</span>
+          </article>
+        </div>
+
+        <aside class="visit-store-panel" aria-label="방문 장소 필터와 리스트">
+          <div class="visit-filter-grid">
+            <label class="visit-filter-select">
+              <span>국가/지역</span>
+              <select id="visit-country-filter" aria-label="국가/지역 선택">
+                <option value="대한민국">대한민국</option>
+                <option value="일본">일본</option>
+                <option value="중국">중국</option>
+                <option value="미국">미국</option>
+              </select>
+            </label>
+            <label class="visit-filter-select">
+              <span>시/군/구</span>
+              <select id="visit-city-filter" aria-label="시/군/구 선택"></select>
+            </label>
+          </div>
+
+          <button class="visit-current-location" type="button">현재 위치 사용</button>
+
+          <div class="visit-store-list">
+            <article class="visit-store-card visit-store-card--featured is-active" data-store="flagship">
+              <span class="visit-store-distance">0.3km</span>
+              <h2>Aurelia Muse Flagship Store</h2>
+              <p><strong>오픈</strong> · 오후 8:00까지 영업</p>
+              <p data-store-address>부산광역시 중구 감성로 24, Aurelia Muse 1F</p>
+              <div class="visit-store-tags">
+                <span>클래스 예약</span>
+                <span>도자 오브제</span>
+                <span>선물 포장 가능</span>
+              </div>
+            </article>
+
+            <article class="visit-store-card" data-store="workshop">
+              <span class="visit-store-distance">0.8km</span>
+              <h2>Aurelia Muse Ceramic Workshop</h2>
+              <p><strong>오픈</strong> · 오후 8:00까지 영업</p>
+              <p data-store-address>부산광역시 중구 감성로 24, Aurelia Muse Studio B1F</p>
+              <div class="visit-store-tags">
+                <span>원데이 클래스</span>
+                <span>정규 클래스</span>
+                <span>기업 단체 클래스</span>
+              </div>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer home-site-footer">
+    <a class="site-footer__logo" href="index.html#top">Aurelia Muse</a>
+
+    <div class="site-footer__company">
+      <p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">법적고지</a><a href="#">영상정보처리기기</a><a href="#">운영/관리</a><a href="#">방침</a></p>
+      <p class="site-footer__menu-line"><a href="#">CS</a><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a><a href="custom-bulk-order.html">대량구매</a></p>
+      <p>(주)오렐리아뮤즈코리아 | 대표이사 : 박영은 | 주소 : 04377 서울 용산구 한강대로23길 88 용산역 8층(한강로3가, 아이파크몰) | 사업자등록번호 : 211-86-75820</p>
+      <p>통신판매업신고 : 제 2022-서울용산-1708호 [사업자정보확인] | 개인정보보호책임자 : 박영은 | 대표번호 : 1577-1541 | 제휴/협찬/입점 : rmagml@cj.net | 호스팅 제공자 : 카페24(주)</p>
+    </div>
+
+    <small>© 2026 AURELIA MUSE</small>
+  </footer>
+
+  <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
+  <div class="cart-toast" role="status" aria-live="polite">장바구니에 담았습니다.</div>
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+  <script src="visit.js"></script>
+</body>
+</html>

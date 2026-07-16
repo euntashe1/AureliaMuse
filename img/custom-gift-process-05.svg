@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffaf7"/>
+      <stop offset="0.55" stop-color="#fff0f3"/>
+      <stop offset="1" stop-color="#f8dfdc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#8b4d56" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="820" fill="url(#bg)"/>
+  <circle cx="980" cy="130" r="190" fill="#f4d8dc" opacity="0.32"/>
+  <circle cx="150" cy="670" r="210" fill="#ffffff" opacity="0.52"/>
+  <g filter="url(#shadow)">
+    <ellipse cx="610" cy="420" rx="230" ry="230" fill="#fffefc" stroke="#d9a6a9" stroke-width="3"/>
+    <ellipse cx="610" cy="420" rx="160" ry="160" fill="none" stroke="#f4d8dc" stroke-width="26" opacity="0.62"/>
+    <ellipse cx="610" cy="420" rx="115" ry="115" fill="#fffaf7" stroke="#ead7d8" stroke-width="2"/>
+  </g>
+  <g transform="translate(455 330)" opacity="0.95">
+    <path d="M155 70 C95 20,45 28,24 70 C58 108,108 105,155 70Z" fill="#f4d8dc" stroke="#c78e93" stroke-width="3"/>
+    <path d="M155 70 C215 20,265 28,286 70 C252 108,202 105,155 70Z" fill="#f4d8dc" stroke="#c78e93" stroke-width="3"/>
+    <circle cx="155" cy="70" r="22" fill="#e9a0aa" stroke="#c78e93" stroke-width="3"/>
+    <path d="M132 88 L75 178" stroke="#c78e93" stroke-width="28" stroke-linecap="round" opacity="0.75"/>
+    <path d="M178 88 L235 178" stroke="#c78e93" stroke-width="28" stroke-linecap="round" opacity="0.75"/>
+  </g>
+  <text x="86" y="132" font-family="Arial, sans-serif" font-size="80" font-weight="800" fill="#d9828f" opacity="0.95">05</text>
+  <text x="86" y="188" font-family="Arial, sans-serif" font-size="25" font-weight="700" letter-spacing="6" fill="#9f5f63">MAKING</text>
+  <text x="86" y="635" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="46" font-weight="800" fill="#4a3a34">제작 및 검수</text>
+  <text x="86" y="690" font-family="Pretendard, Noto Sans KR, Arial, sans-serif" font-size="24" font-weight="500" fill="#756866">상품 상태와 각인 위치를 확인합니다.</text>
+</svg>

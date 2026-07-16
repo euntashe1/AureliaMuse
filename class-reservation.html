@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오렐리아 뮤즈 클래스 예약</title>
+  <link rel="icon" type="image/png" href="img/favicon-am.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="class-reservation.css">
+  <style>
+
+    .class-reservation-page .site-header.header--course-visible,
+    .class-reservation-page .site-header.is-products-active.header--course-visible {
+      background-color: rgba(255, 244, 244, 0.5);
+    }
+    @media (max-width: 767px) {
+      .class-reservation-page .class-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: calc(100% - 28px);
+        max-width: 100%;
+        gap: 24px;
+        align-items: stretch;
+        overflow: visible;
+      }
+
+      .class-reservation-page .class-course-card,
+      .class-reservation-page .class-reservation-card {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        transform: none !important;
+        overflow: visible;
+      }
+
+      .class-reservation-page .class-card {
+        box-sizing: border-box;
+      }
+
+      .class-reservation-page .course-list,
+      .class-reservation-page .course-option,
+      .class-reservation-page .class-summary-box,
+      .class-reservation-page .class-reservation-card form,
+      .class-reservation-page .class-field,
+      .class-reservation-page .class-field input,
+      .class-reservation-page .class-field select,
+      .class-reservation-page .class-field textarea,
+      .class-reservation-page .class-date-trigger {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .class-reservation-page .course-option {
+        white-space: normal;
+      }
+
+      .class-reservation-page .course-option strong,
+      .class-reservation-page .course-option em,
+      .class-reservation-page .course-option b,
+      .class-reservation-page .class-card-heading h2,
+      .class-reservation-page .class-card-heading p {
+        overflow-wrap: anywhere;
+        word-break: keep-all;
+      }
+
+      .class-reservation-page .class-form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .class-reservation-page .class-calendar {
+        left: 0;
+        right: auto;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body id="top" class="class-reservation-page">
+  <p class="notice" style="font-size:14px">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+
+  <!-- header: 로고와 주요 메뉴 영역 -->
+  <header class="site-header">
+    <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
+      <img src="img/bar.svg" alt="">
+    </button>
+
+    <a class="logo" href="index.html">
+      <img src="img/header.svg" alt="Aurelia Muse">
+    </a>
+
+    <div class="header-icons">
+      <a href="login.html" aria-label="로그인"><img src="img/login.svg" alt=""></a>
+      <a class="header-cart-link" href="cart.html" aria-label="장바구니"><img src="img/cart.svg" alt=""><span class="cart-count">0</span></a>
+      <a class="header-wishlist-link" href="wishlist.html" aria-label="찜하기"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden>0</span></a>
+    </div>
+  </header>
+
+  <!-- 햄버거 메뉴 시작: 왼쪽에서 열리는 전체 메뉴입니다. 메뉴 링크를 수정할 때는 이 영역을 확인하세요. -->
+  <div class="side-menu-overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="side-menu" aria-hidden="true">
+    <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
+    <nav class="side-menu__nav">
+      <section class="side-menu__group">
+        <h2>Products</h2>
+        <a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+        <a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+        <a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+        <a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+        <a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+        <a href="event-promotion.html"><strong>Event &amp; Promotion</strong><span>이벤트</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>STORY</h2>
+        <a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>WORKSHOP</h2>
+        <a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a>
+        <a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
+      </section>
+    </nav>
+    <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">cart</a></div>
+  </aside>
+  <!-- 햄버거 메뉴 끝 -->
+
+  <main class="class-main">
+    <section class="class-hero reveal-soft" aria-labelledby="class-title">
+      <div class="class-hero__visual" aria-hidden="true">
+        <video class="class-hero__video" autoplay muted loop playsinline>
+          <source src="assets/video/workshop-main.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="class-hero__copy">
+        <p class="class-eyebrow" style="text-transform: none; font-size: 16px;">aurelia muse class</p>
+        <h1 id="class-title">Make Your Moment <span style="color: #f5b1b1; font: 400 clamp(44px, 5.2vw, 80px) / 0.98 &quot;DM Serif Display&quot;, serif;">in Clay</span></h1>
+        <p style="font-size: 18px; font-weight: 500;">흙을 만지고, 형태를 고르며, 나만의 도자 오브제를 만들어보는 조용한 공방 시간을 예약해보세요.</p>
+      </div>
+    </section>
+
+    <section class="class-intro" aria-label="클래스 안내">
+      <article class="class-intro-card class-intro-card--garden reveal-soft">
+        <div class="class-intro-media">
+          <img src="img/class-small-garden.png" alt="소수 정원 클래스 이미지">
+        </div>
+        <h2>소수 정원</h2>
+        <p>한 타임 최대 6명으로 진행되어 제작 과정과 마감 피드백을 차분하게 받을 수 있습니다.</p>
+      </article>
+
+      <article class="class-intro-card class-intro-card--complete reveal-soft reveal-soft--delay-1">
+        <div class="class-intro-media class-intro-media--complete">
+          <img src="img/class-work-complete.png" alt="작품 완성 이미지">
+        </div>
+        <h2>작품 완성</h2>
+        <p>성형, 다듬기, 유약 선택까지 경험하고 완성품은 소성 후 안전하게 전달됩니다.</p>
+      </article>
+
+      <article class="class-intro-card class-intro-card--gift reveal-soft reveal-soft--delay-2">
+        <div class="class-intro-media class-intro-media--pair class-intro-media--single">
+          <img src="img/class-gift-box.png" alt="선물 포장 이미지">
+        </div>
+        <h2>선물 포장</h2>
+        <p>기프트 패키지를 선택하면 완성 작품을 오렐리아 뮤즈 무드로 포장해드립니다.</p>
+      </article>
+    </section>
+
+    <section class="class-layout" aria-label="클래스 예약 폼">
+      <article class="class-card class-course-card class-course-section reveal-soft">
+        <div class="class-card-heading class-card-heading--center reveal-soft">
+          <h2>클래스 코스 선택</h2>
+          <p>원하는 코스를 선택하면 예약 금액이 자동으로 계산됩니다.</p>
+        </div>
+
+        <div class="course-list" id="course-list">
+          <button class="course-option is-selected reveal-soft" type="button" data-course="classic" data-name="원데이 클래식 코스" data-price="50000">
+            <span>클래식</span>
+            <strong>원데이 클래식 코스</strong>
+            <em>도자볼 1개 + 컵 1개 제작</em>
+            <b>50,000원</b>
+          </button>
+          <button class="course-option reveal-soft reveal-soft--delay-1" type="button" data-course="premium" data-name="프리미엄 물레 코스" data-price="75000">
+            <span>프리미엄</span>
+            <strong>프리미엄 물레 코스</strong>
+            <em>물레 활용 맞춤형 화병 1개 제작</em>
+            <b>75,000원</b>
+          </button>
+          <button class="course-option reveal-soft reveal-soft--delay-2" type="button" data-course="gift" data-name="기프트 페인팅 클래스" data-price="62000">
+            <span>기프트</span>
+            <strong>기프트 페인팅 클래스</strong>
+            <em>티컵 또는 플레이트 위 리본 패턴 채색</em>
+            <b>62,000원</b>
+          </button>
+        </div>
+
+        <div class="class-summary-box reveal-soft reveal-soft--delay-2">
+          <dl>
+            <div><dt>선택 코스</dt><dd id="summary-course">원데이 클래식 코스</dd></div>
+            <div>
+              <dt>인원</dt>
+              <dd class="people-control">
+                <button type="button" id="people-minus" aria-label="인원 줄이기">−</button>
+                <strong id="summary-people">1명</strong>
+                <button type="button" id="people-plus" aria-label="인원 늘리기">+</button>
+              </dd>
+            </div>
+            <div><dt>예상 금액</dt><dd id="summary-price">50,000원</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="class-card class-reservation-card class-follow-card">
+        <div class="class-card-heading class-card-heading--center reveal-soft">
+          <h2>예약 정보 입력</h2>
+          <p>날짜와 시간을 선택한 뒤 신청 정보를 남겨주세요.</p>
+        </div>
+
+        <form id="class-reservation-form" class="reveal-soft reveal-soft--delay-1" novalidate>
+          <div class="class-field class-calendar-field">
+            <label for="class-date-trigger">희망 예약일</label>
+            <button id="class-date-trigger" class="class-date-trigger" type="button" aria-haspopup="dialog" aria-expanded="false">예약일 선택</button>
+            <input id="class-date" type="hidden" required>
+            <div class="class-calendar" id="class-calendar" role="dialog" aria-label="클래스 예약 달력" hidden>
+              <div class="class-calendar__head">
+                <button type="button" id="class-calendar-prev" aria-label="이전 달">‹</button>
+                <strong id="class-calendar-title">2026. 07</strong>
+                <button type="button" id="class-calendar-next" aria-label="다음 달">›</button>
+              </div>
+              <div class="class-calendar__week" aria-hidden="true">
+                <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+              </div>
+              <div class="class-calendar__grid" id="class-calendar-grid"></div>
+            </div>
+          </div>
+
+          <div class="class-field">
+            <label for="class-time">희망 시간</label>
+            <select id="class-time" required>
+              <option value="">시간 선택</option>
+              <option>10:30 - 12:30</option>
+              <option>14:00 - 16:00</option>
+              <option>17:00 - 19:00</option>
+            </select>
+          </div>
+
+          <div class="class-form-grid">
+            <div class="class-field">
+              <label for="class-name">예약자명</label>
+              <input id="class-name" type="text" required>
+            </div>
+            <div class="class-field">
+              <label for="class-phone">연락처</label>
+              <input id="class-phone" type="tel" required>
+            </div>
+          </div>
+
+          <div class="class-field">
+            <label for="class-email">이메일</label>
+            <input id="class-email" type="email" required>
+          </div>
+
+          <div class="class-field">
+            <label for="class-message">요청 사항</label>
+            <textarea id="class-message" rows="5" placeholder="동행 인원, 제작하고 싶은 분위기, 포장 요청 등을 적어주세요."></textarea>
+          </div>
+
+          <button class="class-submit-button" type="submit">클래스 신청하기</button>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer home-site-footer">
+    <a class="site-footer__logo" href="#top">Aurelia Muse</a>
+
+    <div class="site-footer__company">
+      <p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">법적고지</a><a href="#">영상정보처리기기</a><a href="#">운영/관리</a><a href="#">방침</a></p>
+      <p class="site-footer__menu-line"><a href="#">CS</a><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a><a href="custom-bulk-order.html">대량구매</a></p>
+      <p>(주)오렐리아뮤즈코리아 | 대표이사 : 박영은 | 주소 : 04377 서울 용산구 한강대로23길 88 용산역 8층(한강로3가, 아이파크몰) | 사업자등록번호 : 211-86-75820</p>
+      <p>통신판매업신고 : 제 2022-서울용산-1708호 [사업자정보확인] | 개인정보보호책임자 : 박영은 | 대표번호 : 1577-1541 | 제휴/협찬/입점 : rmagml@cj.net | 호스팅 제공자 : 카페24(주)</p>
+    </div>
+
+    <small>COPYRIGHT © BRANDWORKSKOREA ALL RIGHTS RESERVED.</small>
+  </footer>
+
+  <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
+  <div class="cart-toast" role="status" aria-live="polite">장바구니에 담았습니다.</div>
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+  <script src="class-reservation.js"></script>
+  <script>
+    (() => {
+      const header = document.querySelector(".site-header");
+      const courseSection = document.querySelector(".class-course-section");
+      if (!header || !courseSection) return;
+
+      const setCourseHeader = (visible) => {
+        header.classList.toggle("header--course-visible", visible);
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          setCourseHeader(entries.some((entry) => entry.isIntersecting));
+        }, { threshold: 0.01 });
+        observer.observe(courseSection);
+        return;
+      }
+
+      const updateCourseHeader = () => {
+        const rect = courseSection.getBoundingClientRect();
+        setCourseHeader(rect.top < window.innerHeight && rect.bottom > 0);
+      };
+
+      window.addEventListener("scroll", updateCourseHeader, { passive: true });
+      window.addEventListener("resize", updateCourseHeader);
+      updateCourseHeader();
+    })();
+  </script>
+</body>
+</html>

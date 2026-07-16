@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="일상에 우아함을 더하는 프리미엄 테이블웨어, Aurelia Muse">
+  <title>Custom &amp; Bulk Order | Aurelia Muse</title>
+<link rel="icon" type="image/png" href="img/favicon-am.png">
+<link rel="shortcut icon" href="img/favicon-am.png">
+<link rel="apple-touch-icon" href="img/favicon-am.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><link rel="stylesheet" href="style.css">
+  <style>
+    .custom-bulk-order-page .workshop-hero::before {
+      background: linear-gradient(90deg, rgba(50, 28, 25, 0.48), rgba(168, 69, 88, 0.18) 46%, transparent 68%);
+    }
+
+    .custom-bulk-order-page .custom-bulk-hero-copy {
+      top: 67%;
+      left: 5%;
+      width: min(760px, 88vw);
+      max-width: min(760px, 88vw);
+      text-align: left;
+      text-shadow: none;
+      transform: translateY(-50%);
+    }
+
+    .custom-bulk-order-page .custom-bulk-kicker {
+      margin: 0 0 10px;
+      color: #fff;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.18em;
+      text-transform: none;
+      text-shadow: none;
+    }
+
+    .custom-bulk-order-page .custom-bulk-hero-copy h1 {
+      margin: 0;
+      color: #fff;
+      font-family: "DM Serif Display", serif;
+      font-size: clamp(44px, 5.2vw, 80px);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: 0;
+      word-break: keep-all;
+      text-shadow: none;
+    }
+
+    .custom-bulk-order-page .custom-bulk-title-mobile-for {
+      display: none;
+    }
+
+    .custom-bulk-order-page .custom-bulk-description {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: #fff;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: 0;
+      word-break: keep-all;
+      text-shadow: none;
+    }
+
+    @media (max-width: 1099px) {
+      .custom-bulk-order-page .custom-bulk-hero-copy {
+        top: 64%;
+        left: 6%;
+        width: min(760px, 88vw);
+        max-width: 88vw;
+      }
+
+      .custom-bulk-order-page .custom-bulk-hero-copy h1 {
+        font-size: clamp(44px, 9vw, 72px);
+      }
+
+      .custom-bulk-order-page .custom-bulk-description {
+        max-width: 620px;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .custom-bulk-order-page .custom-bulk-hero-copy {
+        top: 64%;
+        left: 6%;
+        width: min(88vw, 620px);
+        max-width: 88vw;
+      }
+
+      .custom-bulk-order-page .custom-bulk-kicker {
+        font-size: 12px;
+        letter-spacing: 0.16em;
+      }
+
+      .custom-bulk-order-page .custom-bulk-hero-copy h1 {
+        font-size: clamp(40px, 14vw, 62px);
+      }
+
+      .custom-bulk-order-page .custom-bulk-title-desktop-for {
+        display: none;
+      }
+
+      .custom-bulk-order-page .custom-bulk-title-mobile-for {
+        display: inline;
+      }
+
+      .custom-bulk-order-page .custom-bulk-description {
+        max-width: 84vw;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.75;
+      }
+    }
+  </style>
+</head>
+<body id="top" class="workshop-page custom-bulk-order-page">
+  <p class="notice">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+  <header class="site-header">
+    <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
+      <img src="img/bar.svg" alt="">
+    </button>
+
+    <a class="logo" href="./index.html">
+      <img src="img/header.svg" alt="Aurelia Muse">
+    </a>
+
+    <div class="header-icons">
+      <a href="login.html" aria-label="로그인"><img src="img/login.svg" alt=""></a>
+      <a class="header-cart-link" href="cart.html" aria-label="장바구니"><img src="img/cart.svg" alt=""><span class="cart-count">0</span></a>
+      <a class="header-wishlist-link" href="wishlist.html" aria-label="찜하기"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden>0</span></a>
+    </div>
+  </header>
+  <div class="side-menu-overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="side-menu" aria-hidden="true">
+    <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
+    <nav class="side-menu__nav">
+      <section class="side-menu__group">
+        <h2>Products</h2>
+        <a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+        <a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+        <a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+        <a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+        <a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+        <a href="event-promotion.html"><strong>Event &amp; Promotion</strong><span>이벤트</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>STORY</h2>
+        <a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>WORKSHOP</h2>
+        <a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a>
+        <a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>CONTACT</h2>
+        <a href="contact.html"><strong>Contact</strong><span>문의하기</span></a>
+      </section>
+    </nav>
+    <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">cart</a></div>
+  </aside>
+  <main class="workshop-main">
+    <section class="workshop-hero custom-bulk-hero-video">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/video/upscale-complete.mp4" type="video/mp4">
+        사용 중인 브라우저에서는 동영상을 재생할 수 없습니다.
+      </video>
+      <div class="custom-bulk-hero-copy">
+        <p class="custom-bulk-kicker" style="font-size: 16px;">custom order</p>
+        <h1>Ceramics Made<span class="custom-bulk-title-desktop-for"> For</span><br><span class="custom-bulk-title-mobile-for">For </span><span style="color: #f5b1b1; font: 400 clamp(44px, 5.2vw, 80px) / 0.98 &quot;DM Serif Display&quot;, serif;">Your Story</span></h1>
+        <p class="custom-bulk-description">대량 주문부터 맞춤 제작 상담까지 오렐리아 뮤즈가 정성스럽게 함께합니다.</p>
+      </div>
+    </section>
+    <section class="workshop-content custom-gift-process" aria-labelledby="custom-gift-process-title">
+      <div class="custom-gift-process__layout">
+        <aside class="custom-gift-process__sticky gift-process-reveal">
+          <p class="custom-gift-process__eyebrow">Custom Gift Process</p>
+          <h2 id="custom-gift-process-title" style="font-size: 30px;">손끝의 온기로 완성되는<br>맞춤 답례품</h2>
+          <p>상담부터 포장까지, 오렐리아 뮤즈의 답례품은 받는 사람의 순간까지 생각하며 하나씩 완성됩니다.</p>
+        </aside>
+
+        <div class="custom-gift-process__list">
+          <article class="custom-gift-process__card gift-process-reveal">
+            <span class="custom-gift-process__number">01</span>
+            <figure class="custom-gift-process__media"><img src="assets/images/custom-bulk/page1.jpg" alt="상담 접수 맞춤 답례품 이미지"></figure>
+            <div class="custom-gift-process__copy">
+              <p>Consultation</p>
+              <h3>상담 접수</h3>
+              <span>행사 목적, 예산, 수량, 희망 납기일을 확인해 답례품 방향을 제안합니다.</span>
+            </div>
+          </article>
+
+          <article class="custom-gift-process__card gift-process-reveal">
+            <span class="custom-gift-process__number">02</span>
+            <figure class="custom-gift-process__media"><img src="assets/images/custom-bulk/page2.jpg" alt="상품 큐레이션 기프트 세트 이미지"></figure>
+            <div class="custom-gift-process__copy">
+              <p>Product Curation</p>
+              <h3>상품 큐레이션</h3>
+              <span>티웨어 세트, 미니 플레이트, 케이크 스탠드 등 목적에 맞는 구성을 선별합니다.</span>
+            </div>
+          </article>
+
+          <article class="custom-gift-process__card gift-process-reveal">
+            <span class="custom-gift-process__number">03</span>
+            <figure class="custom-gift-process__media"><img src="assets/images/custom-bulk/page3.jpg" alt="맞춤 옵션 선택 도자기 이미지"></figure>
+            <div class="custom-gift-process__copy">
+              <p>Custom Option</p>
+              <h3>맞춤 옵션 선택</h3>
+              <span>로고 각인, 메시지 카드, 선물 포장 옵션을 선택해 브랜드만의 무드를 더합니다.</span>
+            </div>
+          </article>
+
+          <article class="custom-gift-process__card gift-process-reveal">
+            <span class="custom-gift-process__number">04</span>
+            <figure class="custom-gift-process__media"><img src="assets/images/custom-bulk/page4.jpg" alt="견적 확정 이미지"></figure>
+            <div class="custom-gift-process__copy">
+              <p>Estimate Confirm</p>
+              <h3>견적 확정</h3>
+              <span>수량별 할인율과 옵션 금액을 반영해 최종 예상 견적을 안내합니다.</span>
+            </div>
+          </article>
+
+          <article class="custom-gift-process__card gift-process-reveal">
+            <span class="custom-gift-process__number">05</span>
+            <figure class="custom-gift-process__media"><img src="assets/images/custom-bulk/page5.jpg" alt="제작 및 검수 맞춤 포장 이미지"></figure>
+            <div class="custom-gift-process__copy">
+              <p>Making &amp; Check</p>
+              <h3>제작 및 검수</h3>
+              <span>상품 상태, 포장 구성, 각인 위치를 꼼꼼하게 확인한 뒤 출고를 준비합니다.</span>
+            </div>
+          </article>
+
+          <article class="custom-gift-process__card gift-process-reveal">
+            <span class="custom-gift-process__number">06</span>
+            <figure class="custom-gift-process__media"><img src="assets/images/custom-bulk/page6.jpg" alt="포장 및 배송 선물 포장 이미지"></figure>
+            <div class="custom-gift-process__copy">
+              <p>Gift Delivery</p>
+              <h3>포장 및 배송</h3>
+              <span>받는 순간의 첫인상까지 고려해 고급 포장 후 안전하게 발송합니다.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="workshop-cta"><a class="workshop-button" href="contact.html">맞춤 제작 문의하기</a></div>
+    </section>
+  </main>
+  <footer class="site-footer home-site-footer">
+    <a class="site-footer__logo" href="./index.html">Aurelia Muse</a>
+    <div class="site-footer__company">
+      <p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">법적고지</a><a href="#">영상정보처리기기</a><a href="#">운영/관리</a><a href="#">방침</a></p>
+      <p class="site-footer__menu-line"><a href="#">CS</a><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a><a href="custom-bulk-order.html">대량구매</a></p>
+      <p>(주)오렐리아뮤즈코리아 | 대표이사 : 박영은 | 주소 : 04377 서울 용산구 한강대로23길 88 용산역 8층(한강로3가, 아이파크몰) | 사업자등록번호 : 211-86-75820</p>
+      <p>통신판매업신고 : 제 2022-서울용산-1708호 [사업자정보확인] | 개인정보보호책임자 : 박영은 | 대표번호 : 1577-1541 | 제휴/협찬/입점 : rmagml@cj.net | 호스팅 제공자 : 카페24(주)</p>
+    </div>
+    <small>COPYRIGHT © BRANDWORKSKOREA ALL RIGHTS RESERVED.</small>
+  </footer>
+  <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
+  <div class="cart-toast" role="status" aria-live="polite">장바구니에 담았습니다.</div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>

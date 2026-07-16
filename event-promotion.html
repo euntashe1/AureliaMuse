@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aurelia Muse 이벤트와 프로모션을 확인하세요.">
+  <title>Event &amp; Promotion | Aurelia Muse</title>
+<link rel="icon" type="image/png" href="img/favicon-am.png">
+<link rel="shortcut icon" href="img/favicon-am.png">
+<link rel="apple-touch-icon" href="img/favicon-am.png"><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .event-page .event-hero {
+      box-sizing: border-box;
+      height: calc(100vh - 117px);
+      min-height: 650px;
+      overflow: hidden;
+      background: #fff7f5;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    .event-page .event-hero__video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .event-page .event-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(50, 28, 25, 0.48), rgba(168, 69, 88, 0.18) 46%, transparent 68%);
+    }
+
+    .event-page .event-hero__inner {
+      position: absolute;
+      top: 67%;
+      left: 5%;
+      z-index: 1;
+      width: min(760px, 88vw);
+      color: #fff;
+      text-align: left;
+      text-shadow: none;
+      transform: translateY(-50%);
+    }
+
+    .event-page .event-hero__kicker {
+      display: block;
+      margin: 0 0 10px;
+      color: #fff;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.18em;
+      text-transform: none;
+      text-shadow: none;
+    }
+
+    .event-page .event-hero h1 {
+      margin: 0;
+      color: #fff;
+      font: 400 clamp(44px, 5.2vw, 80px) / 0.98 "DM Serif Display", serif;
+      letter-spacing: 0;
+      text-shadow: none;
+    }
+
+    .event-page .event-hero h1::after {
+      display: none;
+    }
+
+    .event-page .event-hero__description {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: #fff;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: 0.08em;
+      text-shadow: none;
+      word-break: keep-all;
+    }
+
+    .event-page .event-hero .event-hero__inner > .event-hero__description {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 599px) {
+      .event-page .event-hero {
+        height: calc(100vh - 80px);
+        min-height: 360px;
+        max-height: none;
+      }
+
+      .event-page .event-hero__inner {
+        top: 64%;
+        left: 6%;
+        width: min(88vw, 620px);
+      }
+
+      .event-page .event-hero__kicker {
+        font-size: 12px;
+        letter-spacing: 0.16em;
+      }
+
+      .event-page .event-hero h1 {
+        font-size: clamp(40px, 14vw, 62px);
+      }
+
+      .event-page .event-hero__description {
+        max-width: 84vw;
+        font-size: 18px;
+        line-height: 1.75;
+        letter-spacing: 0.04em;
+      }
+    }
+
+    @media (min-width: 600px) and (max-width: 1099px) {
+      .event-page .event-hero__inner {
+        top: 64%;
+        left: 6%;
+        width: min(760px, 88vw);
+      }
+
+      .event-page .event-hero h1 {
+        font-size: clamp(44px, 9vw, 72px);
+      }
+
+      .event-page .event-hero__description {
+        max-width: 620px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body id="top" class="event-page">
+  <p class="notice">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+
+  <header class="site-header">
+    <button class="menu-icon" type="button" aria-label="메뉴 열기" aria-controls="side-menu" aria-expanded="false">
+      <img src="img/bar.svg" alt="">
+    </button>
+
+    <a class="logo" href="index.html">
+      <img src="img/header.svg" alt="Aurelia Muse">
+    </a>
+
+    <div class="header-icons">
+      <a href="login.html" aria-label="로그인"><img src="img/login.svg" alt=""></a>
+      <a class="header-cart-link" href="cart.html" aria-label="장바구니"><img src="img/cart.svg" alt=""><span class="cart-count">0</span></a>
+      <a class="header-wishlist-link" href="wishlist.html" aria-label="찜하기"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden>0</span></a>
+    </div>
+  </header>
+
+  <div class="side-menu-overlay" aria-hidden="true"></div>
+  <aside class="side-menu" id="side-menu" aria-hidden="true">
+    <button class="side-menu__close" type="button" aria-label="메뉴 닫기">×</button>
+    <nav class="side-menu__nav">
+      <section class="side-menu__group">
+        <h2>Products</h2>
+        <a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+        <a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+        <a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+        <a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+        <a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+        <a class="is-active" href="event-promotion.html"><strong>Event &amp; Promotion</strong><span>이벤트</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>STORY</h2>
+        <a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a>
+      </section>
+      <section class="side-menu__group">
+        <h2>WORKSHOP</h2>
+        <a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a>
+        <a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a>
+      </section>
+    </nav>
+    <div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">Cart</a></div>
+  </aside>
+
+  <main class="event-page__main">
+    <section class="event-hero" aria-labelledby="event-page-title">
+      <video class="event-hero__video" autoplay muted loop playsinline>
+        <source src="video/event-promotion-main-video.mp4" type="video/mp4">
+      </video>
+      <div class="event-hero__inner">
+        <p class="event-hero__kicker" style="font-size: 16px;">aurelia muse event</p>
+        <h1 id="event-page-title">Bloom Your Special <span style="color: #f5b1b1; font: 400 clamp(44px, 5.2vw, 80px) / 0.98 &quot;DM Serif Display&quot;, serif;">Moment</span></h1>
+        <p class="event-hero__description">꽃처럼 피어나는 특별한 혜택이 오렐리아 뮤즈의 하루에 부드럽게 머무릅니다.</p>
+      </div>
+    </section>
+
+    <section class="event-board" aria-label="이벤트 목록">
+      <div class="event-board__toolbar">
+        <div class="event-page-tabs" role="tablist" aria-label="이벤트 카테고리">
+          <button class="event-page-tabs__button is-active" type="button" data-event-panel-target="ongoing" role="tab" aria-selected="true">진행중 이벤트</button>
+          <button class="event-page-tabs__button" type="button" data-event-panel-target="ended" role="tab" aria-selected="false">종료 이벤트</button>
+        </div>
+      </div>
+
+      <div class="event-page-panel is-active" data-event-panel="ongoing">
+        <div class="event-ended-grid event-ongoing-grid">
+          <article class="event-ended-card event-ongoing-card">
+            <a href="event-promotion.html" class="event-ended-card__image event-ongoing-card__image">
+              <img src="images/event-premium-free-gift.jpg" alt="구매 금액별 사은품 이벤트">
+              <span class="event-ongoing-card__badge">진행 중</span>
+            </a>
+            <div class="event-ended-card__info">
+              <h2>구매 금액별 사은품 이벤트</h2>
+              <p>2026.06.01 - 2026.07.31</p>
+            </div>
+          </article>
+
+          <article class="event-ended-card event-ongoing-card">
+            <a href="event-promotion.html" class="event-ended-card__image event-ongoing-card__image">
+              <img src="images/event-first-purchase-coupon.jpg" alt="첫 구매 할인 쿠폰 이벤트">
+              <span class="event-ongoing-card__badge">진행 중</span>
+            </a>
+            <div class="event-ended-card__info">
+              <h2>첫 구매 할인 쿠폰 이벤트</h2>
+              <p>2026.06.01 - 2026.07.31</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="event-page-panel" data-event-panel="ended" hidden>
+        <div class="event-ended-grid">
+          <article class="event-ended-card event-ended" aria-disabled="true">
+            <a href="event-promotion.html" class="event-ended-card__image" aria-disabled="true" tabindex="-1">
+              <img src="img/newmainbig.png" alt="로맨틱 티타임 기획전">
+              <span class="event-ended-card__overlay">종료된 이벤트입니다</span>
+            </a>
+            <div class="event-ended-card__info">
+              <h2>로맨틱 티타임 기획전</h2>
+              <p>2026.05.01 - 2026.06.30</p>
+            </div>
+          </article>
+
+          <article class="event-ended-card event-ended" aria-disabled="true">
+            <a href="event-promotion.html" class="event-ended-card__image" aria-disabled="true" tabindex="-1">
+              <img src="img/new-pink-blossom.jpg" alt="핑크 블라썸 컬렉션 스페셜 이벤트">
+              <span class="event-ended-card__overlay">종료된 이벤트입니다</span>
+            </a>
+            <div class="event-ended-card__info">
+              <h2>핑크 블라썸 컬렉션 스페셜 이벤트</h2>
+              <p>2026.04.15 - 2026.05.31</p>
+            </div>
+          </article>
+
+          <article class="event-ended-card event-ended" aria-disabled="true">
+            <a href="event-promotion.html" class="event-ended-card__image" aria-disabled="true" tabindex="-1">
+              <img src="img/Artisan Edition.jpg" alt="Artisan Edition 혜택전">
+              <span class="event-ended-card__overlay">종료된 이벤트입니다</span>
+            </a>
+            <div class="event-ended-card__info">
+              <h2>Artisan Edition 혜택전</h2>
+              <p>2026.04.01 - 2026.05.15</p>
+            </div>
+          </article>
+
+          <article class="event-ended-card event-ended" aria-disabled="true">
+            <a href="event-promotion.html" class="event-ended-card__image" aria-disabled="true" tabindex="-1">
+              <img src="img/pottery-class.png" alt="원데이 클래스 스페셜 이벤트">
+              <span class="event-ended-card__overlay">종료된 이벤트입니다</span>
+            </a>
+            <div class="event-ended-card__info">
+              <h2>원데이 클래스 스페셜 이벤트</h2>
+              <p>2026.03.01 - 2026.04.30</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="event-pagination" aria-label="이벤트 페이지">
+        <button type="button" aria-label="이전 페이지">‹</button>
+        <a href="#" class="active" aria-current="page">1</a>
+        <a href="#">2</a>
+        <button type="button" aria-label="다음 페이지">›</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="site-footer__logo" href="#top">Aurelia Muse</a>
+    <div class="site-footer__company">
+      <p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">법적고지</a></p>
+      <p class="site-footer__menu-line"><a href="#">CS</a><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a></p>
+      <p>Aurelia Muse | Romantic tableware and ceramic objects.</p>
+    </div>
+    <small>COPYRIGHT AURELIA MUSE ALL RIGHTS RESERVED.</small>
+  </footer>
+  <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
+  <div class="cart-toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artisan Edition | Aurelia Muse</title>
+<link rel="icon" type="image/png" href="img/favicon-am.png">
+<link rel="shortcut icon" href="img/favicon-am.png">
+<link rel="apple-touch-icon" href="img/favicon-am.png"><link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Playball&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="product.css" rel="stylesheet"/>
+<style>
+@media (max-width: 599px) {
+  .artisan-page .product-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding-top: 28px;
+  }
+
+  .artisan-page .product-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .artisan-page .product-card__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    background: #fff;
+  }
+
+  .artisan-page .product-card__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .artisan-page .product-card__info {
+    padding-top: 14px;
+  }
+}
+</style>
+</head>
+<body class="product-sub artisan-page" id="top">
+<p class="notice">오렐리아 뮤즈 가입하고 무료배송 쿠폰 받기</p>
+<header class="site-header is-products-active">
+<button aria-controls="side-menu" aria-expanded="false" aria-label="메뉴 열기" class="menu-icon" type="button"><img alt="" src="img/bar.svg"/></button>
+<a class="logo" href="index.html"><img alt="Aurelia Muse" src="img/header.svg"/></a>
+<div class="header-icons">
+<a aria-label="로그인" href="login.html"><img alt="" src="img/login.svg"/></a>
+<a aria-label="장바구니" class="header-cart-link" href="cart.html"><img alt="" src="img/cart.svg"/><span class="cart-count">0</span></a>
+<a aria-label="찜하기" class="header-wishlist-link" href="wishlist.html"><span class="header-wishlist-icon">♡</span><span class="wishlist-count" hidden="">0</span></a>
+</div>
+</header>
+<div aria-hidden="true" class="side-menu-overlay"></div>
+<aside aria-hidden="true" class="side-menu" id="side-menu">
+<button aria-label="메뉴 닫기" class="side-menu__close" type="button">×</button>
+<nav class="side-menu__nav">
+<section class="side-menu__group">
+<h2>Products</h2>
+<a href="all-collection.html"><strong>All Collection</strong><span>모두 보기</span></a>
+<a href="daily-ceramic.html"><strong>Daily Ceramic</strong><span>데일리 세라믹</span></a>
+<a href="artisan-edition.html"><strong>Artisan Edition</strong><span>작가 에디션</span></a>
+<a href="collection.html"><strong>Collection</strong><span>컬렉션 보기</span></a>
+<a href="gift-set.html"><strong>Gift Set</strong><span>기프트 세트</span></a>
+</section>
+<section class="side-menu__group"><h2>STORY</h2><a href="brand-story.html"><strong>Brand Story</strong><span>브랜드 스토리</span></a></section>
+<section class="side-menu__group"><h2>WORKSHOP</h2><a href="class-reservation.html"><strong>Class Reservation</strong><span>클래스 예약</span></a><a href="custom-bulk-order.html"><strong>Custom &amp; Bulk Order</strong><span>맞춤 및 대량 주문</span></a></section>
+</nav>
+<div class="side-menu__bottom"><a href="login.html">Login</a><a href="cart.html">Cart</a></div>
+</aside>
+<main class="product-sub-main">
+<nav aria-label="상품 카테고리" class="product-sub-categories">
+<a class="product-sub-category" href="all-collection.html"><span class="product-sub-category__image"><img alt="" src="img/allcollection.png"/></span><span>All Collection</span></a>
+<a class="product-sub-category" href="daily-ceramic.html"><span class="product-sub-category__image"><img alt="" src="img/Daily Ceramic.png"/></span><span>Daily Ceramic</span></a>
+<a class="product-sub-category is-active" href="artisan-edition.html"><span class="product-sub-category__image"><img alt="Artisan Edition" src="img/artisan-edition-button.jpg"/></span><span>Artisan Edition</span></a>
+<a class="product-sub-category" href="collection.html"><span class="product-sub-category__image"><img alt="Collection" src="img/collection-thumb.jpg"/></span><span>Collection</span></a>
+<a class="product-sub-category" href="gift-set.html"><span class="product-sub-category__image"><img alt="" src="img/Gift Set.png"/></span><span>Gift Set</span></a>
+</nav>
+<section aria-label="상품 필터" class="product-sub-toolbar">
+<div class="product-sub-filters">
+<div class="product-filter" data-filter="type">
+<button aria-expanded="false" class="product-filter__toggle" type="button"><span>티 세트</span></button>
+<div class="product-filter__menu">
+<button class="product-filter__option" data-value="all" type="button">전체</button>
+<button class="product-filter__option" data-value="teapot" type="button">티포트</button>
+<button class="product-filter__option" data-value="cup-saucer" type="button">컵 앤 소서</button>
+<button class="product-filter__option" data-value="plate" type="button">플레이트</button>
+<button class="product-filter__option is-selected" data-value="tea-set" type="button">티 세트</button>
+<button class="product-filter__option" data-value="object" type="button">오브제</button>
+</div>
+</div>
+<div class="product-filter" data-filter="priceRange">
+<button aria-expanded="false" class="product-filter__toggle" type="button"><span>금액별</span></button>
+<div class="product-filter__menu">
+<button class="product-filter__option is-selected" data-value="all" type="button">전체</button>
+<button class="product-filter__option" data-value="under50000" type="button">5만원 이하</button>
+<button class="product-filter__option" data-value="50000-80000" type="button">5만원 ~ 8만원</button>
+<button class="product-filter__option" data-value="80000-100000" type="button">8만원 ~ 10만원</button>
+<button class="product-filter__option" data-value="over100000" type="button">10만원 이상</button>
+</div>
+</div>
+</div>
+<h1 class="product-sub-title">ARTISAN EDITION</h1>
+<div class="sort-dropdown">
+<button aria-expanded="false" class="sort-dropdown__toggle" type="button"><span>추천순</span></button>
+<div class="sort-dropdown__menu">
+<button class="sort-dropdown__option is-selected" data-value="recommend" type="button">추천순</button>
+<button class="sort-dropdown__option" data-value="newest" type="button">신상품순</button>
+<button class="sort-dropdown__option" data-value="priceLow" type="button">낮은 가격순</button>
+<button class="sort-dropdown__option" data-value="priceHigh" type="button">높은 가격순</button>
+<button class="sort-dropdown__option" data-value="discount" type="button">할인율순</button>
+</div>
+</div>
+</section><section aria-label="아르티장 에디션 상품" class="product-grid">
+<article class="product-card" data-available="true" data-category="teapot" data-color="gold" data-date="2026-06-30" data-discount="15" data-id="gold-ribbon-classic-teapot" data-manual="true" data-name="골드 리본 클래식 티포트" data-new="20260630" data-original-price="72000" data-price="61200" data-price-range="50000-80000" data-recommend="1" data-sales="96" data-type="teapot" title="골드 리본 클래식 티포트"><div class="product-card__image"><img alt="골드 리본 클래식 티포트" onerror="this.hidden=true" src="img/artisan-pink-ribbon-classic-teapot.jpeg" title="골드 리본 클래식 티포트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">골드 리본 클래식 티포트</h2><div class="product-price"><span class="price-original">72,000원</span><span class="price-sale">61,200원</span><span class="price-discount">15% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="cup-saucer" data-color="gold" data-date="2026-06-29" data-discount="10" data-id="gold-ribbon-cup-saucer" data-manual="true" data-name="골드 리본 컵 앤 소서" data-new="20260629" data-original-price="42000" data-price="37800" data-price-range="under50000" data-recommend="2" data-sales="92" data-type="cup-saucer" title="골드 리본 컵 앤 소서"><div class="product-card__image"><img alt="골드 리본 컵 앤 소서" onerror="this.hidden=true" src="img/artisan-ivory-ribbon-cup-saucer.jpeg" title="골드 리본 컵 앤 소서"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">골드 리본 컵 앤 소서</h2><div class="product-price"><span class="price-original">42,000원</span><span class="price-sale">37,800원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="plate" data-color="gold" data-date="2026-06-28" data-discount="10" data-id="gold-ribbon-dessert-plate" data-manual="true" data-name="골드 리본 디저트 플레이트" data-new="20260628" data-original-price="43000" data-price="38700" data-price-range="under50000" data-recommend="3" data-sales="90" data-type="plate" title="골드 리본 디저트 플레이트"><div class="product-card__image"><img alt="골드 리본 디저트 플레이트" onerror="this.hidden=true" src="img/artisan-ribbon-dessert-plate.jpeg" title="골드 리본 디저트 플레이트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">골드 리본 디저트 플레이트</h2><div class="product-price"><span class="price-original">43,000원</span><span class="price-sale">38,700원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="plate" data-color="blue" data-date="2026-06-27" data-discount="10" data-id="blue-ribbon-dinner-plate" data-manual="true" data-name="블루 리본 디너 플레이트" data-new="20260627" data-original-price="49000" data-price="44100" data-price-range="under50000" data-recommend="4" data-sales="88" data-type="plate" title="블루 리본 디너 플레이트"><div class="product-card__image"><img alt="블루 리본 디너 플레이트" onerror="this.hidden=true" src="img/artisan-blue-classic-ribbon-plate.jpeg" title="블루 리본 디너 플레이트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">블루 리본 디너 플레이트</h2><div class="product-price"><span class="price-original">49,000원</span><span class="price-sale">44,100원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="teapot" data-color="blue" data-date="2026-06-26" data-discount="15" data-id="blue-ribbon-classic-teapot" data-manual="true" data-name="블루 리본 클래식 티포트" data-new="20260626" data-original-price="72000" data-price="61200" data-price-range="50000-80000" data-recommend="5" data-sales="86" data-type="teapot" title="블루 리본 클래식 티포트"><div class="product-card__image"><img alt="블루 리본 클래식 티포트" onerror="this.hidden=true" src="img/artisan-blue-ribbon-classic-teapot.jpeg" title="블루 리본 클래식 티포트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">블루 리본 클래식 티포트</h2><div class="product-price"><span class="price-original">72,000원</span><span class="price-sale">61,200원</span><span class="price-discount">15% OFF</span></div></div></article>
+<article class="product-card product-item" data-available="true" data-category="cup-saucer" data-collection="artisan" data-color="pink" data-date="2026-07-02" data-discount="10" data-id="pink-ribbon-cup-saucer" data-manual="true" data-name="핑크 리본 컵 앤 소서" data-new="20260702" data-original-price="48000" data-price="43200" data-price-range="under50000" data-recommend="6" data-sales="84" data-type="cup-saucer" title="핑크 리본 컵 앤 소서"><div class="product-card__image"><img alt="핑크 리본 컵 앤 소서" onerror="this.hidden=true" src="images/artisan-pink-ribbon-cup-saucer.jpg" title="핑크 리본 컵 앤 소서"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">핑크 리본 컵 앤 소서</h2><div class="product-price"><span class="price-original">48,000원</span><span class="price-sale">43,200원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="cup-saucer" data-color="blue" data-date="2026-07-01" data-description="은은한 아이보리 도자기에 블루 리본 패턴과 골드 라인이 더해진 로맨틱 티컵앤소서입니다." data-discount="15" data-id="blue-ribbon-teacup-saucer" data-manual="true" data-name="블루 리본 티컵앤소서" data-new="20260701" data-original-price="42000" data-price="35700" data-price-range="under50000" data-recommend="6.5" data-sales="85" data-type="cup-saucer" title="블루 리본 티컵앤소서"><div class="product-card__image"><img alt="블루 리본 티컵앤소서" onerror="this.hidden=true" src="img/artisan-blue-ribbon-teacup-saucer.jpg" title="블루 리본 티컵앤소서"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">블루 리본 티컵앤소서</h2><div class="product-price"><span class="price-original">42,000원</span><span class="price-sale">35,700원</span><span class="price-discount">15% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="teapot" data-color="pink" data-date="2026-06-24" data-discount="15" data-id="pink-ribbon-classic-teapot" data-manual="true" data-name="핑크 리본 클래식 티포트" data-new="20260624" data-original-price="72000" data-price="61200" data-price-range="50000-80000" data-recommend="7" data-sales="82" data-type="teapot" title="핑크 리본 클래식 티포트"><div class="product-card__image"><img alt="핑크 리본 클래식 티포트" onerror="this.hidden=true" src="img/artisan-sweet-pink-ribbon-teapot.jpeg" title="핑크 리본 클래식 티포트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">핑크 리본 클래식 티포트</h2><div class="product-price"><span class="price-original">72,000원</span><span class="price-sale">61,200원</span><span class="price-discount">15% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="cup-saucer" data-color="blue" data-date="2026-06-23" data-discount="10" data-id="blue-ribbon-cup-saucer" data-manual="true" data-name="블루 리본 컵 앤 소서" data-new="20260623" data-original-price="42000" data-price="37800" data-price-range="under50000" data-recommend="8" data-sales="80" data-type="cup-saucer" title="블루 리본 컵 앤 소서"><div class="product-card__image"><img alt="블루 리본 컵 앤 소서" onerror="this.hidden=true" src="images/artisan-blue-ribbon-cup-saucer.jpg" title="블루 리본 컵 앤 소서"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">블루 리본 컵 앤 소서</h2><div class="product-price"><span class="price-original">42,000원</span><span class="price-sale">37,800원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="plate" data-color="pink" data-date="2026-06-22" data-discount="10" data-id="pink-ribbon-dinner-plate" data-manual="true" data-name="핑크 리본 디너 플레이트" data-new="20260622" data-original-price="49000" data-price="44100" data-price-range="under50000" data-recommend="9" data-sales="78" data-type="plate" title="핑크 리본 디너 플레이트"><div class="product-card__image"><img alt="핑크 리본 디너 플레이트" onerror="this.hidden=true" src="img/artisan-pink-classic-ribbon-plate.jpeg" title="핑크 리본 디너 플레이트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">핑크 리본 디너 플레이트</h2><div class="product-price"><span class="price-original">49,000원</span><span class="price-sale">44,100원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="tea-set" data-color="blue" data-date="2026-06-21" data-discount="10" data-id="royal-blue-ribbon-tea-set" data-manual="true" data-name="로열 블루 리본 티 세트" data-new="20260621" data-original-price="124000" data-price="111600" data-price-range="over100000" data-recommend="10" data-sales="76" data-type="tea-set" title="로열 블루 리본 티 세트"><div class="product-card__image"><img alt="로열 블루 리본 티 세트" onerror="this.hidden=true" src="img/artisan-royal-blue-ribbon-set.jpg" title="로열 블루 리본 티 세트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">로열 블루 리본 티 세트</h2><div class="product-price"><span class="price-original">124,000원</span><span class="price-sale">111,600원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="tea-set" data-color="blue" data-date="2026-06-20" data-discount="10" data-id="blue-ribbon-teatime-set" data-manual="true" data-name="블루 리본 티타임 세트" data-new="20260620" data-original-price="118000" data-price="106200" data-price-range="over100000" data-recommend="11" data-sales="74" data-type="tea-set" title="블루 리본 티타임 세트"><div class="product-card__image"><img alt="블루 리본 티타임 세트" onerror="this.hidden=true" src="img/artisan-blue-ribbon-afternoon-tea-set.jpeg" title="블루 리본 티타임 세트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">블루 리본 티타임 세트</h2><div class="product-price"><span class="price-original">118,000원</span><span class="price-sale">106,200원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="plate" data-color="blue" data-date="2026-06-19" data-discount="10" data-id="royal-blue-ribbon-dinner-plate" data-manual="true" data-name="로열 블루 리본 디너 플레이트" data-new="20260619" data-original-price="49000" data-price="44100" data-price-range="under50000" data-recommend="12" data-sales="72" data-type="plate" title="로열 블루 리본 디너 플레이트"><div class="product-card__image"><img alt="로열 블루 리본 디너 플레이트" onerror="this.hidden=true" src="images/gift-royal-blue-ribbon-dinner-plate.jpg" title="로열 블루 리본 디너 플레이트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">로열 블루 리본 디너 플레이트</h2><div class="product-price"><span class="price-original">49,000원</span><span class="price-sale">44,100원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="tea-set" data-color="gold" data-date="2026-06-18" data-description="부드러운 아이보리 컬러와 골드 리본 장식이 돋보이는 클래식한 티타임 세트입니다." data-discount="15" data-id="gold-ribbon-teatime-set" data-manual="true" data-name="골드 리본 티타임 세트" data-new="20260618" data-original-price="76000" data-price="64600" data-price-range="50000-80000" data-recommend="13" data-sales="70" data-type="tea-set" title="골드 리본 티타임 세트"><div class="product-card__image"><img alt="골드 리본 티타임 세트" onerror="this.hidden=true" src="img/artisan-gold-ribbon-teatime-set.jpg" title="골드 리본 티타임 세트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">골드 리본 티타임 세트</h2><div class="product-price"><span class="price-original">76,000원</span><span class="price-sale">64,600원</span><span class="price-discount">15% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="tea-set" data-color="pink" data-date="2026-06-17" data-discount="10" data-id="pink-ribbon-teatime-set" data-manual="true" data-name="핑크 리본 티타임 세트" data-new="20260617" data-original-price="118000" data-price="106200" data-price-range="over100000" data-recommend="14" data-sales="68" data-type="tea-set" title="핑크 리본 티타임 세트"><div class="product-card__image"><img alt="핑크 리본 티타임 세트" onerror="this.hidden=true" src="img/artisan-pink-ribbon-afternoon-tea-set.jpeg" title="핑크 리본 티타임 세트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">핑크 리본 티타임 세트</h2><div class="product-price"><span class="price-original">118,000원</span><span class="price-sale">106,200원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="teapot" data-color="blue" data-date="2026-06-16" data-discount="15" data-id="blue-ribbon-single-teapot" data-manual="true" data-name="블루 리본 싱글 티포트" data-new="20260616" data-original-price="69000" data-price="58650" data-price-range="50000-80000" data-recommend="15" data-sales="66" data-type="teapot" title="블루 리본 싱글 티포트"><div class="product-card__image"><img alt="블루 리본 싱글 티포트" onerror="this.hidden=true" src="img/artisan-royal-blue-ribbon-teapot.jpeg" title="블루 리본 싱글 티포트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">블루 리본 싱글 티포트</h2><div class="product-price"><span class="price-original">69,000원</span><span class="price-sale">58,650원</span><span class="price-discount">15% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="cup-saucer" data-color="pink" data-date="2026-06-15" data-description="핑크 플라워 패턴과 골드 포인트, 토끼 오브제 뚜껑이 어우러진 로맨틱 무드의 컵앤소서입니다." data-discount="10" data-id="pink-bunny-floral-cup-saucer" data-manual="true" data-name="핑크 버니 플로럴 컵앤소서" data-new="20260615" data-original-price="48000" data-price="43200" data-price-range="under50000" data-recommend="16" data-sales="64" data-type="cup-saucer" title="핑크 버니 플로럴 컵앤소서"><div class="product-card__image"><img alt="핑크 버니 플로럴 컵앤소서" onerror="this.hidden=true" src="img/artisan-pink-bunny-floral-cup-saucer.jpg" title="핑크 버니 플로럴 컵앤소서"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">핑크 버니 플로럴 컵앤소서</h2><div class="product-price"><span class="price-original">48,000원</span><span class="price-sale">43,200원</span><span class="price-discount">10% OFF</span></div></div></article>
+<article class="product-card" data-available="true" data-category="object" data-color="pink" data-date="2026-06-14" data-discount="15" data-id="pink-ceramic-candle-holder-set" data-manual="true" data-name="핑크 세라믹 캔들 홀더 세트" data-new="20260614" data-original-price="48000" data-price="40800" data-price-range="under50000" data-recommend="17" data-sales="62" data-type="object" title="핑크 세라믹 캔들 홀더 세트"><div class="product-card__image"><img alt="핑크 세라믹 캔들 홀더 세트" onerror="this.hidden=true" src="img/artisan-pink-ceramic-candle-holder-set.jpg" title="핑크 세라믹 캔들 홀더 세트"/><span class="product-card__badge">ARTISAN</span></div><div class="product-card__info"><h2 class="product-card__name">핑크 세라믹 캔들 홀더 세트</h2><div class="product-price"><span class="price-original">48,000원</span><span class="price-sale">40,800원</span><span class="price-discount">15% OFF</span></div></div></article>
+</section>
+</main>
+<footer class="site-footer">
+<a class="site-footer__logo" href="index.html">Aurelia Muse</a>
+<div class="site-footer__company">
+<p class="site-footer__menu-line"><a href="#">POLICY</a><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">법적고지</a></p>
+<p class="site-footer__menu-line"><a href="#">CS</a><a href="notice.html">공지사항</a><a href="faq.html">FAQ</a><a href="contact.html">1:1 문의</a><a href="custom-bulk-order.html">대량구매</a></p>
+<p>(주)오렐리아뮤즈코리아 | 대표이사: 박영은 | 서울특별시 용산구 한강대로 3길 88</p>
+<p>사업자등록번호: 211-86-75820 | 고객센터: 1577-1541 | 이메일: rmagml@cj.net</p>
+</div>
+<small>COPYRIGHT © AURELIA MUSE ALL RIGHTS RESERVED.</small>
+</footer>
+<a aria-label="맨 위로" class="top-button" href="#top">↑</a>
+<div aria-live="polite" class="cart-toast" role="status">장바구니에 담았습니다.</div>
+<script src="script.js"></script>
+  <script src="cart.js"></script>
+<script src="./product.js"></script>
+</body>
+</html>
