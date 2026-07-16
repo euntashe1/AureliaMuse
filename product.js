@@ -94,15 +94,18 @@ document.querySelectorAll(".product-sub").forEach((page) => {
       id: card.dataset.id,
       name: card.dataset.name || card.querySelector(".product-card__name")?.textContent.trim() || "",
       price: Number(card.dataset.price || 0),
-      image
+      salePrice: Number(card.dataset.salePrice || card.dataset.price || 0),
+      originalPrice: Number(card.dataset.originalPrice || card.dataset.price || 0),
+      image,
+      category: card.dataset.category || ""
     };
   }
 
   function updateInlineWishButtons(id, active) {
-    page.querySelectorAll(`.product-item[data-id="${id}"] .product-inline-wish-btn`).forEach((button) => {
+    page.querySelectorAll(`.product-card[data-id="${id}"] .product-inline-wish-btn`).forEach((button) => {
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", String(active));
-      button.innerHTML = active ? "&#9829;" : "&#9825;";
+      button.setAttribute("aria-label", active ? "찜하기 취소" : "찜하기");
     });
   }
 
@@ -215,6 +218,12 @@ document.querySelectorAll(".product-sub").forEach((page) => {
     card.dataset.recommend = String(card.dataset.recommend || index + 1);
     card.dataset.originalOrder = String(index);
     card.dataset.image = card.dataset.image || card.querySelector("img")?.getAttribute("src") || "";
+    card.dataset.name = card.dataset.name || name;
+    card.dataset.salePrice = card.dataset.salePrice || card.dataset.price;
+    card.dataset.category = card.dataset.category || document.body.dataset.category || (document.body.classList.contains("daily-page") ? "daily-ceramic" : card.dataset.type);
+    if (!card.dataset.id && document.body.classList.contains("daily-page")) {
+      card.dataset.id = `daily-ceramic-${String(index + 1).padStart(2, "0")}`;
+    }
 
     if (isComingSoon) {
       const imageArea = card.querySelector(".product-card__image");
@@ -411,17 +420,21 @@ document.querySelectorAll(".product-sub").forEach((page) => {
 
     if (wishButton) {
       const wishlist = getProductStorage("aureliaWish");
-      const exists = wishlist.some((item) => item?.id === product.id);
-      if (!exists) {
+      const existingIndex = wishlist.findIndex((item) => item?.id === product.id);
+      if (existingIndex === -1) {
         wishlist.push(product);
         setProductStorage("aureliaWish", wishlist);
         updateInlineWishButtons(product.id, true);
         showProductToast("찜하기가 완료되었습니다.");
       } else {
-        showProductToast("이미 찜한 상품입니다.");
-        updateInlineWishButtons(product.id, true);
+        wishlist.splice(existingIndex, 1);
+        setProductStorage("aureliaWish", wishlist);
+        updateInlineWishButtons(product.id, false);
+        showProductToast("찜하기가 취소되었습니다.");
       }
       updateProductHeaderCounts();
+      if (typeof updateWishlistHeader === "function") updateWishlistHeader();
+      if (typeof renderWishlist === "function") renderWishlist();
       return;
     }
 
