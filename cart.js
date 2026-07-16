@@ -61,6 +61,9 @@
       option: item.option || "",
       optionId: item.optionId || "",
       price: Number(item.price || 0),
+      salePrice: Number(item.salePrice || item.price || 0),
+      originalPrice: Number(item.originalPrice || item.price || 0),
+      category: item.category || "",
       qty: Number.isFinite(qty) && qty > 0 ? qty : 0,
       image: item.image || "./img/favicon.png"
     };
