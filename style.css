@@ -473,6 +473,14 @@ body.menu-open {
   font-weight: 700;
 }
 
+/* Keep header count badges out of view until the shared count updater has read storage. */
+.cart-count:not([data-count-ready]),
+.wishlist-count:not([data-count-ready]),
+.cart-count[hidden],
+.wishlist-count[hidden] {
+  display: none !important;
+}
+
 /* ==============================
    3. Main visual
    ============================== */
@@ -4839,37 +4847,30 @@ body.event-page {
 
 @media (max-width: 767px) {
   #products .collection-list {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 10px;
-    width: calc(100% + 18px);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: row;
+    column-gap: 10px;
+    row-gap: 12px;
+    width: calc(100% + 12px);
     max-width: none;
-    margin: 0 -18px 0 0;
-    padding: 2px 18px 8px 0;
+    margin: 0 -6px;
+    padding: 2px 6px 0;
     box-sizing: border-box;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x proximity;
-    scroll-padding-inline: 0 18px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  #products .collection-list::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
   }
 
   #products .collection-item {
     position: relative;
-    display: inline-flex;
-    flex: 0 0 auto;
+    display: flex;
+    align-self: stretch;
     align-items: center;
-    gap: 10px;
-    width: auto;
+    gap: 8px;
+    width: 100%;
     max-width: none;
+    min-width: 0;
     min-height: 60px;
-    padding: 6px 16px 6px 7px;
+    padding: 8px 6px;
     box-sizing: border-box;
     overflow: visible;
     border: 1px solid rgba(235, 145, 144, 0.22);
@@ -4877,7 +4878,10 @@ body.event-page {
     background: #fff8f7;
     color: #4a3a34;
     text-align: left;
-    scroll-snap-align: start;
+  }
+
+  #products .collection-item:last-child {
+    grid-column: 1;
   }
 
   #products .collection-item.is-active {
@@ -4886,9 +4890,10 @@ body.event-page {
   }
 
   #products .collection-item img {
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
+    flex: 0 0 44px;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     object-fit: cover;
@@ -4897,13 +4902,15 @@ body.event-page {
   #products .collection-item h3 {
     position: static;
     display: block;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    min-width: 0;
     margin: 0;
     color: inherit;
     font-family: "Pretendard", "Noto Sans KR", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.2;
+    letter-spacing: -.02em;
     white-space: nowrap;
     text-shadow: none;
     transform: none;

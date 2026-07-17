@@ -108,13 +108,19 @@
     const wishCount = getWishlist().length;
 
     document.querySelectorAll(".cart-count, [data-cart-count]").forEach((badge) => {
-      badge.textContent = String(cartCount);
-      badge.hidden = cartCount === 0;
+      const hasItems = cartCount > 0;
+      badge.textContent = hasItems ? String(cartCount) : "";
+      badge.hidden = !hasItems;
+      badge.setAttribute("aria-hidden", String(!hasItems));
+      badge.setAttribute("data-count-ready", "");
     });
 
     document.querySelectorAll(".wishlist-count, .wish-count, [data-wish-count]").forEach((badge) => {
-      badge.textContent = String(wishCount);
-      badge.hidden = wishCount === 0;
+      const hasItems = wishCount > 0;
+      badge.textContent = hasItems ? String(wishCount) : "";
+      badge.hidden = !hasItems;
+      badge.setAttribute("aria-hidden", String(!hasItems));
+      badge.setAttribute("data-count-ready", "");
     });
   }
 
@@ -334,6 +340,10 @@
     setCart(getCart());
 
     document.querySelector("#cartPageOrderBtn")?.addEventListener("click", goOrderFromCart);
+  });
+
+  window.addEventListener("storage", (event) => {
+    if ([CART_KEY, WISH_KEY, WISH_COMPAT_KEY].includes(event.key)) updateCounts();
   });
 
   window.AureliaCart = {

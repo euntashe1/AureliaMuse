@@ -60,8 +60,11 @@ function formatPrice(price) {
 function updateCartCount() {
   const count = readStorage(CART_KEY).reduce((sum, item) => sum + Number(item.qty || item.quantity || 0), 0);
   document.querySelectorAll(".cart-count").forEach((badge) => {
-    badge.textContent = count;
-    badge.hidden = count === 0;
+    const hasItems = count > 0;
+    badge.textContent = hasItems ? String(count) : "";
+    badge.hidden = !hasItems;
+    badge.setAttribute("aria-hidden", String(!hasItems));
+    badge.setAttribute("data-count-ready", "");
   });
 }
 
@@ -80,8 +83,11 @@ function updateWishlistHeader() {
   const count = favorites.length;
 
   document.querySelectorAll(".wishlist-count").forEach((badge) => {
-    badge.hidden = count === 0;
-    badge.textContent = count;
+    const hasItems = count > 0;
+    badge.hidden = !hasItems;
+    badge.textContent = hasItems ? String(count) : "";
+    badge.setAttribute("aria-hidden", String(!hasItems));
+    badge.setAttribute("data-count-ready", "");
   });
 
   if (!headerWish || !headerWishIcon) return;

@@ -112,14 +112,20 @@ document.querySelectorAll(".product-sub").forEach((page) => {
   function updateProductHeaderCounts() {
     const cartCount = getProductStorage("aureliaCart").reduce((sum, item) => sum + Number(item.quantity || item.qty || 0), 0);
     document.querySelectorAll(".cart-count").forEach((badge) => {
-      badge.textContent = cartCount;
-      badge.hidden = cartCount === 0;
+      const hasItems = cartCount > 0;
+      badge.textContent = hasItems ? String(cartCount) : "";
+      badge.hidden = !hasItems;
+      badge.setAttribute("aria-hidden", String(!hasItems));
+      badge.setAttribute("data-count-ready", "");
     });
 
     const wishCount = getProductStorage("aureliaWish").length;
     document.querySelectorAll(".wishlist-count").forEach((badge) => {
-      badge.textContent = wishCount;
-      badge.hidden = wishCount === 0;
+      const hasItems = wishCount > 0;
+      badge.textContent = hasItems ? String(wishCount) : "";
+      badge.hidden = !hasItems;
+      badge.setAttribute("aria-hidden", String(!hasItems));
+      badge.setAttribute("data-count-ready", "");
     });
     const headerWish = document.querySelector(".header-wishlist-link");
     const headerWishIcon = document.querySelector(".header-wishlist-icon");
@@ -210,8 +216,12 @@ document.querySelectorAll(".product-sub").forEach((page) => {
     card.dataset.new = card.dataset.new || (card.dataset.date || date).replaceAll("-", "");
     card.dataset.price = String(resolvedPrice);
     card.dataset.priceRange = card.dataset.priceRange || getPriceRange(resolvedPrice);
-    card.dataset.originalPrice = String(card.dataset.originalPrice || discount?.originalPrice || resolvedPrice);
-    card.dataset.discount = String(card.dataset.discount || discount?.discount || 0);
+    const discountRate = Number(card.dataset.discount || discount?.discount || 0);
+    const inferredOriginalPrice = discountRate > 0 && discountRate < 100
+      ? Math.round((resolvedPrice / (1 - discountRate / 100)) / 100) * 100
+      : resolvedPrice;
+    card.dataset.originalPrice = String(card.dataset.originalPrice || discount?.originalPrice || inferredOriginalPrice);
+    card.dataset.discount = String(discountRate);
     card.dataset.available = String(card.dataset.available || !isComingSoon);
     card.dataset.sales = String(card.dataset.sales || sales);
     card.dataset.date = card.dataset.date || date;
@@ -251,6 +261,26 @@ document.querySelectorAll(".product-sub").forEach((page) => {
       currentPrice.replaceWith(priceBox);
     }
   
+    if (isManualCard && !isComingSoon) {
+      const priceBox = card.querySelector(".product-price");
+      const salePrice = priceBox?.querySelector(".price-sale");
+      const originalPrice = Number(card.dataset.originalPrice || 0);
+      const hasDiscount = discountRate > 0 && originalPrice > resolvedPrice;
+
+      if (priceBox && salePrice && hasDiscount) {
+        let originalPriceElement = priceBox.querySelector(".price-original");
+        if (!originalPriceElement) {
+          originalPriceElement = document.createElement("span");
+          originalPriceElement.className = "price-original";
+          priceBox.insertBefore(originalPriceElement, salePrice);
+        }
+        originalPriceElement.textContent = `${originalPrice.toLocaleString("ko-KR")}원`;
+      } else if (priceBox && !hasDiscount) {
+        priceBox.querySelector(".price-original")?.remove();
+        priceBox.querySelector(".price-discount")?.remove();
+      }
+    }
+
     addInlineActions(card);
   });
 

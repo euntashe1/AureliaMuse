@@ -502,3 +502,54 @@
     padding:0 clamp(14px,2vw,36px);
   }
 }
+
+/* Collection desktop toolbar: match the All Collection five-cell proportions. */
+@media(min-width:1024px){
+  .collection-page .collection-filter-toolbar{
+    grid-template-columns:repeat(3,190px) minmax(0,1fr) 160px;
+    align-items:stretch;
+    min-height:72px;
+  }
+
+  .collection-page .collection-filter-toolbar .product-sub-filters{
+    display:contents;
+  }
+
+  .collection-page .collection-filter-toolbar .product-filter{
+    min-width:0;
+  }
+
+  .collection-page .collection-filter-toolbar .product-filter__toggle,
+  .collection-page .collection-filter-toolbar .sort-dropdown__toggle{
+    width:100%;
+    min-width:0;
+    height:71px;
+    padding:0 36px;
+    gap:24px;
+    box-sizing:border-box;
+  }
+
+  .collection-page .collection-filter-toolbar .product-sub-title{
+    align-self:stretch;
+    justify-self:stretch;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:0;
+    margin:0;
+    padding:0 30px;
+    box-sizing:border-box;
+    font-family:"Pretendard","Noto Sans KR",sans-serif;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.14em;
+    line-height:1;
+    text-align:center;
+  }
+
+  .collection-page .collection-filter-toolbar .sort-dropdown{
+    align-self:stretch;
+    justify-self:stretch;
+    min-width:0;
+  }
+}
