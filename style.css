@@ -1515,10 +1515,12 @@ body.menu-open {
   justify-content: center;
 }
 
-.curated-product > h3 {
+.curated-product > .curated-product__title {
+  display: block;
+  width: auto;
   height: auto;
   min-height: 0;
-  margin: 10px 8px 0;
+  margin: 9px 8px 0;
   padding: 0;
   overflow: hidden;
   color: #4a3a34;
@@ -1526,9 +1528,10 @@ body.menu-open {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.35;
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
 }
 
 /* ==============================
@@ -2905,10 +2908,6 @@ body.visit-page {
    - 모바일에서는 hover가 어려우므로 NEW 상품 버튼을 항상 보이게 합니다.
    ============================== */
 @media (max-width: 1024px) {
-  .curated-product h3 {
-    font-size: 18px;
-  }
-
   .curated-product__image > img {
     height: 330px;
   }
@@ -3266,8 +3265,7 @@ body.visit-page {
   .new-product-card h3,
   .new-product-card p,
   .video-product-info strong,
-  .video-product-info span,
-  .curated-product h3 {
+  .video-product-info span {
     word-break: keep-all;
     overflow-wrap: break-word;
     white-space: normal;
@@ -3375,10 +3373,6 @@ body.visit-page {
 
   .curated-product__image > img {
     height: 260px;
-  }
-
-  .curated-product h3 {
-    font-size: 16px;
   }
 
   .curated-product__badge {
