@@ -7,6 +7,17 @@
 ========================================================= */
 const brandFadeItems = document.querySelectorAll(".fade-up, .reveal-text, .reveal-photo, .reveal-number");
 
+const mobileMyButton = document.querySelector(".mobile-bottom-nav__my");
+
+mobileMyButton?.addEventListener("click", () => {
+  if (typeof openLoginModal === "function") {
+    openLoginModal();
+    return;
+  }
+
+  window.location.href = "login.html";
+});
+
 if ("IntersectionObserver" in window) {
   const brandFadeObserver = new IntersectionObserver(
     (entries) => {

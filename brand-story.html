@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="brand-story.css">
+  <link rel="stylesheet" href="style.css?v=20260717-bottom-nav-2">
+  <link rel="stylesheet" href="brand-story.css?v=20260717-bottom-nav-2">
   <style>
     .muse-moments .reveal-number,
     .brand-values .reveal-number {
@@ -255,44 +255,44 @@
 
   <a class="top-button" href="#top" aria-label="맨 위로">↑</a>
 
-  <nav class="mobile-bottom-nav" aria-label="모바일 주요 메뉴">
+  <nav class="mobile-bottom-nav" aria-label="모바일 하단 메뉴">
     <a class="mobile-bottom-nav__item" href="index.html#top" aria-label="홈으로 이동">
       <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M3 10.5 12 3l9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-5v-6h-5v6h-5A1.5 1.5 0 0 1 3 19.5z"/>
       </svg>
-      <span>홈</span>
+      <span class="mobile-bottom-nav__label">홈</span>
     </a>
 
-    <button class="mobile-bottom-nav__item" type="button" aria-label="카테고리 메뉴 열기" aria-controls="side-menu" aria-expanded="false" data-side-menu-toggle>
+    <button class="mobile-bottom-nav__item mobile-bottom-nav__category" type="button" aria-label="카테고리 메뉴 열기" aria-controls="side-menu" aria-expanded="false" data-side-menu-toggle>
       <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
         <rect x="3" y="3" width="7" height="7" rx="1"/>
         <rect x="14" y="3" width="7" height="7" rx="1"/>
         <rect x="3" y="14" width="7" height="7" rx="1"/>
         <rect x="14" y="14" width="7" height="7" rx="1"/>
       </svg>
-      <span>카테고리</span>
+      <span class="mobile-bottom-nav__label">카테고리</span>
     </button>
 
-    <a class="mobile-bottom-nav__item" href="login.html" aria-label="마이 메뉴 열기">
+    <button class="mobile-bottom-nav__item mobile-bottom-nav__my" type="button" aria-label="마이 메뉴 열기">
       <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="8" r="4"/>
         <path d="M4.5 21a7.5 7.5 0 0 1 15 0"/>
       </svg>
-      <span>마이</span>
-    </a>
+      <span class="mobile-bottom-nav__label">마이</span>
+    </button>
 
     <a class="mobile-bottom-nav__item mobile-bottom-nav__cart" href="cart.html" aria-label="장바구니 열기">
       <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M5 8h14l1 13H4z"/>
         <path d="M8.5 8V6a3.5 3.5 0 0 1 7 0v2"/>
       </svg>
-      <span>장바구니</span>
+      <span class="mobile-bottom-nav__label">장바구니</span>
       <span class="mobile-bottom-nav__badge cart-count" hidden aria-hidden="true"></span>
     </a>
   </nav>
 
   <div class="cart-toast" role="status" aria-live="polite">장바구니에 담았습니다.</div>
-  <script src="script.js"></script>
-  <script src="brand-story.js"></script>
+  <script src="script.js?v=20260717-bottom-nav-2"></script>
+  <script src="brand-story.js?v=20260717-bottom-nav-2"></script>
 </body>
 </html>

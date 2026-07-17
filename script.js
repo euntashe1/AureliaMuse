@@ -260,6 +260,7 @@ function setFavoriteButton(button, liked) {
   const heartIcon = button?.querySelector(".heart-icon");
   button.classList.toggle("is-favorite", liked);
   button.classList.toggle("is-active", liked);
+  button.setAttribute("aria-pressed", String(liked));
   if (heartIcon) {
     heartIcon.textContent = liked ? "♥" : "♡";
   } else if (button) {
