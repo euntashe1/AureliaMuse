@@ -189,7 +189,6 @@ document.querySelectorAll(".video-box").forEach((videoBox) => {
   - X 버튼, 어두운 배경, 메뉴 링크, ESC 키로 메뉴를 닫을 수 있습니다.
   - 메뉴가 열려 있을 때는 body에 menu-open 클래스를 붙여 배경 스크롤을 막습니다.
 ========================================================= */
-const menuButton = document.querySelector(".menu-icon");
 const sideMenu = document.querySelector(".side-menu");
 const menuOverlay = document.querySelector(".side-menu-overlay");
 const menuCloseButton = document.querySelector(".side-menu__close");
