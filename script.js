@@ -193,19 +193,22 @@ const menuButton = document.querySelector(".menu-icon");
 const sideMenu = document.querySelector(".side-menu");
 const menuOverlay = document.querySelector(".side-menu-overlay");
 const menuCloseButton = document.querySelector(".side-menu__close");
+const sideMenuToggleButtons = document.querySelectorAll(".menu-icon, [data-side-menu-toggle]");
 
 function setSideMenu(open) {
-  if (!sideMenu || !menuOverlay || !menuButton) return;
+  if (!sideMenu || !menuOverlay) return;
   sideMenu.classList.toggle("is-open", open);
   menuOverlay.classList.toggle("is-open", open);
   document.body.classList.toggle("menu-open", open);
   sideMenu.setAttribute("aria-hidden", String(!open));
   menuOverlay.setAttribute("aria-hidden", String(!open));
-  menuButton.setAttribute("aria-expanded", String(open));
+  sideMenuToggleButtons.forEach((button) => button.setAttribute("aria-expanded", String(open)));
 }
 
-if (menuButton && sideMenu && menuOverlay && menuCloseButton) {
-  menuButton.addEventListener("click", () => setSideMenu(true));
+if (sideMenuToggleButtons.length && sideMenu && menuOverlay && menuCloseButton) {
+  sideMenuToggleButtons.forEach((button) => {
+    button.addEventListener("click", () => setSideMenu(true));
+  });
   menuCloseButton.addEventListener("click", () => setSideMenu(false));
   menuOverlay.addEventListener("click", () => setSideMenu(false));
   sideMenu.querySelectorAll("a").forEach((link) => {

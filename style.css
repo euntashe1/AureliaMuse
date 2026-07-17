@@ -4935,3 +4935,90 @@ body.event-page {
     outline-offset: 2px;
   }
 }
+
+/* =========================================================
+   공통 모바일 하단 내비게이션
+   - HTML이 추가된 페이지에서만 표시됩니다.
+========================================================= */
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-bottom-nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 38;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    min-height: calc(68px + env(safe-area-inset-bottom));
+    padding: 5px 6px env(safe-area-inset-bottom);
+    border-top: 1px solid rgba(217, 130, 143, 0.28);
+    background: rgba(255, 250, 248, 0.97);
+    box-shadow: 0 -5px 18px rgba(92, 61, 54, 0.08);
+    box-sizing: border-box;
+    font-family: "Pretendard", "Noto Sans KR", sans-serif;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .mobile-bottom-nav__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-width: 0;
+    min-height: 58px;
+    padding: 4px 2px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #795f59;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-bottom-nav__item:hover,
+  .mobile-bottom-nav__item:focus-visible {
+    background: rgba(239, 154, 154, 0.1);
+    color: #d9828f;
+  }
+
+  .mobile-bottom-nav__item:focus-visible {
+    outline: 2px solid #d9828f;
+    outline-offset: -2px;
+  }
+
+  .mobile-bottom-nav__icon {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .mobile-bottom-nav__badge.cart-count {
+    top: 1px;
+    right: calc(50% - 22px);
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    font-size: 9px;
+    line-height: 16px;
+  }
+}

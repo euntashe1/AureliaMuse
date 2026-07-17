@@ -1430,4 +1430,13 @@ body {
     margin-left: auto;
     text-align: center;
   }
+
+  body.brand-story-page {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom));
+  }
+
+  .brand-story-page .top-button {
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    z-index: 38;
+  }
 }
