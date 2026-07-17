@@ -207,12 +207,6 @@
     padding:10px 4px;
     font-size:13px;
   }
-  .artisan-page .product-grid,
-  .artisan-page.artisan-page .product-grid{
-    grid-template-columns:1fr;
-    gap:44px;
-    padding-top:28px;
-  }
 }
 @media(max-width:599px){
   body.product-sub .product-sub-main{
@@ -351,7 +345,105 @@
   }
 }
 @media(max-width:599px){
-  .daily-page .product-sub-title{font-size:14px!important}
+  .all-collection-page .product-sub-title,
+  .daily-page .product-sub-title{
+    font-family:"Pretendard","Noto Sans KR",sans-serif;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.14em;
+    line-height:normal;
+  }
+
+  .artisan-page .product-grid,
+  .daily-page .product-grid{
+    grid-template-columns:1fr;
+    gap:44px;
+    padding-top:28px;
+  }
+
+  .artisan-page .product-card,
+  .daily-page .product-card{
+    width:100%;
+    min-width:0;
+  }
+
+  .artisan-page .product-card__image,
+  .daily-page .product-card__image{
+    width:100%;
+    aspect-ratio:3 / 4;
+    overflow:hidden;
+    background:#fff;
+  }
+
+  .artisan-page .product-card__image img,
+  .daily-page .product-card__image img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center center;
+  }
+
+  .artisan-page .product-card__info,
+  .daily-page .product-card__info{
+    padding-top:14px;
+  }
+
+  .artisan-page .product-card__name,
+  .daily-page .product-card__name{
+    min-height:46.5px;
+    margin:0;
+    color:#2f2927;
+    font-family:"Pretendard","Noto Sans KR",sans-serif;
+    font-size:15px;
+    font-weight:600;
+    line-height:1.55;
+    letter-spacing:normal;
+  }
+
+  .artisan-page .product-price,
+  .daily-page .product-price{
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:center;
+    gap:4px 6px;
+    width:auto;
+    max-width:100%;
+    margin-top:8px;
+    font-size:14px;
+    line-height:1.35;
+  }
+
+  .artisan-page .price-original,
+  .daily-page .price-original{
+    flex:0 0 auto;
+    font-size:13px;
+    white-space:nowrap;
+  }
+
+  .artisan-page .price-sale,
+  .daily-page .price-sale{
+    flex:0 0 auto;
+    font-size:15px;
+    font-weight:700;
+    white-space:nowrap;
+  }
+
+  .artisan-page .price-discount,
+  .daily-page .price-discount{
+    flex:0 0 auto;
+    font-size:13px;
+    white-space:nowrap;
+  }
+
+  .artisan-page .product-inline-actions,
+  .daily-page .product-inline-actions{
+    flex:0 0 auto;
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    margin-left:6px;
+  }
 }
 @media(min-width:600px){
   .collection-page .product-sub-toolbar{
