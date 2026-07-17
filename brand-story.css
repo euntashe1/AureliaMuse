@@ -1411,3 +1411,23 @@ body {
     transition: none;
   }
 }
+
+@media (max-width: 767px) {
+  .brand-story__row--third .brand-story__content {
+    width: 100%;
+    max-width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+    justify-self: stretch;
+    text-align: center;
+  }
+
+  .brand-story__row--third .brand-story__content > span,
+  .brand-story__row--third .brand-story__content h3,
+  .brand-story__row--third .brand-story__content p {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+}
