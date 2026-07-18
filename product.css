@@ -688,9 +688,22 @@ body.product-sub .all-collection-banner-slider__slide img{
   object-fit:cover;
 }
 body.product-sub .all-collection-banner-slider__caption{
-  top:50%;
+  left:clamp(64px,5vw,96px);
+  top:60%;
   bottom:auto;
-  transform:translateY(-42%);
+  width:min(500px,40vw);
+  max-width:min(500px,40vw);
+  transform:translateY(-50%);
+}
+body.product-sub .all-collection-banner-slider__caption span{
+  margin:0 0 14px;
+}
+body.product-sub .all-collection-banner-slider__caption strong{
+  margin:0;
+}
+body.product-sub .all-collection-banner-slider__description{
+  margin-top:20px;
+  font-family:"Pretendard","Noto Sans KR",sans-serif;
 }
 body.product-sub .all-collection-banner-slider__controls{bottom:26px}
 body.product-sub .all-collection-banner-slider__slide:nth-child(1) img{object-position:56% center}
@@ -732,13 +745,14 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
     object-fit:cover;
   }
   body.product-sub .all-collection-banner-slider__caption{
-    top:50%;
+    left:clamp(40px,5vw,64px);
+    top:58%;
     bottom:auto;
-    left:clamp(40px,7vw,84px);
-    max-width:min(520px,44vw);
-    transform:translateY(-44%);
+    width:min(440px,46vw);
+    max-width:min(440px,46vw);
+    transform:translateY(-50%);
   }
-  body.product-sub .all-collection-banner-slider__description{margin-top:16px;line-height:1.55}
+  body.product-sub .all-collection-banner-slider__description{margin-top:20px;line-height:1.55}
   body.product-sub .all-collection-banner-slider__controls{
     left:clamp(40px,7vw,84px);
     bottom:26px;
@@ -785,14 +799,15 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
     object-fit:cover;
   }
   body.product-sub .all-collection-banner-slider__caption{
-    top:43%;
-    right:22px;
+    top:54%;
+    right:28px;
     bottom:auto;
-    left:42px;
+    left:36px;
     z-index:4;
     display:flex;
     transform:translateY(-50%);
-    max-width:calc(100% - 72px);
+    width:auto;
+    max-width:none;
   }
   body.product-sub .all-collection-banner-slider__caption span{
     font-size:10px;
@@ -800,13 +815,13 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
   }
   body.product-sub .all-collection-banner-slider__caption strong{
     max-width:250px;
-    margin:10px 0 0;
+    margin:0;
     font-size:clamp(29px,9vw,42px);
     line-height:1.03;
   }
   body.product-sub .all-collection-banner-slider__description{
     max-width:260px;
-    margin-top:14px;
+    margin-top:20px;
     font-family:"Pretendard","Noto Sans KR",sans-serif;
     font-size:clamp(12px,3.5vw,15px);
     line-height:1.5;
