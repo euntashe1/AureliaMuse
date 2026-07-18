@@ -97,7 +97,8 @@ document.querySelectorAll(".product-sub").forEach((page) => {
       salePrice: Number(card.dataset.salePrice || card.dataset.price || 0),
       originalPrice: Number(card.dataset.originalPrice || card.dataset.price || 0),
       image,
-      category: card.dataset.category || ""
+      category: card.dataset.category || "",
+      description: card.dataset.description || ""
     };
   }
 
