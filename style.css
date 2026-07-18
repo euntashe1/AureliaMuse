@@ -601,6 +601,42 @@ body.menu-open {
   font-size: 14px;
 }
 
+/* 메인 히어로 전용: 텍스트 영역만 보호하는 좌→우 그라디언트 */
+body.home-page .hero::after {
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(31, 22, 18, 0.46) 0%,
+    rgba(31, 22, 18, 0.28) 22%,
+    rgba(31, 22, 18, 0.08) 40%,
+    rgba(31, 22, 18, 0) 54%
+  );
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  body.home-page .hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba(31, 22, 18, 0.44) 0%,
+      rgba(31, 22, 18, 0.26) 28%,
+      rgba(31, 22, 18, 0.06) 48%,
+      rgba(31, 22, 18, 0) 60%
+    );
+  }
+}
+
+@media (max-width: 767px) {
+  body.home-page .hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba(31, 22, 18, 0.40) 0%,
+      rgba(31, 22, 18, 0.18) 46%,
+      rgba(31, 22, 18, 0) 74%
+    );
+  }
+}
+
 .hero-text .button:hover {
   border-color: var(--deep-pink);
   background: var(--deep-pink);
@@ -4945,6 +4981,9 @@ body.event-page {
   transform: scale(1.08);
 }
 
+#products .collection-item .products-category-label--desktop { display: inline; }
+#products .collection-item .products-category-label--mobile { display: none; }
+
 @media (max-width: 767px) {
   #products .collection-item .product-category-video {
     flex: 0 0 44px;
@@ -5032,6 +5071,9 @@ body.event-page {
     text-shadow: none;
     transform: none;
   }
+
+  #products .collection-item .products-category-label--desktop { display: none; }
+  #products .collection-item .products-category-label--mobile { display: inline; }
 
   #products .collection-item p,
   #products .collection-item::after {
