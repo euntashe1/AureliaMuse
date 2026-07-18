@@ -787,7 +787,7 @@ body.menu-open {
   transform: scale(1.045);
 }
 
-.new-pink-gradient-collection-link {
+.new-collection-link {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
