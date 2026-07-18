@@ -161,6 +161,100 @@ if (document.querySelector(".new-product-slider") && window.Swiper) {
 }
 
 /* =========================================================
+  ALL COLLECTION 배너 슬라이더
+========================================================= */
+(() => {
+  const AUTOPLAY_DELAY = 4000;
+  document.querySelectorAll(".all-collection-banner-slider").forEach((slider) => {
+    if (slider.dataset.initialized === "true") return;
+    slider.dataset.initialized = "true";
+
+    const track = slider.querySelector(".all-collection-banner-slider__track");
+    const slides = Array.from(slider.querySelectorAll(".all-collection-banner-slider__slide"));
+    const dots = Array.from(slider.querySelectorAll(".all-collection-banner-slider__dots button"));
+    const playToggle = slider.querySelector(".all-collection-banner-slider__play-toggle");
+    const currentLabel = slider.querySelector(".all-collection-banner-slider__current");
+    const progressLine = slider.querySelector(".all-collection-banner-slider__progress-line i");
+    if (!track || slides.length < 2 || !playToggle) return;
+
+    let current = 0;
+    let isPaused = false;
+    let timer;
+    let pointerStartX = null;
+    let isDragging = false;
+    let suppressClick = false;
+
+    const render = (index) => {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      slides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === current));
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === current;
+        dot.classList.toggle("is-active", active);
+        dot.setAttribute("aria-selected", String(active));
+      });
+      if (currentLabel) currentLabel.textContent = String(current + 1).padStart(2, "0");
+      if (progressLine) progressLine.style.width = `${((current + 1) / slides.length) * 100}%`;
+    };
+
+    const schedule = () => {
+      clearInterval(timer);
+      if (!isPaused) timer = setInterval(() => render(current + 1), AUTOPLAY_DELAY);
+    };
+
+    dots.forEach((dot, index) => dot.addEventListener("click", () => { render(index); schedule(); }));
+    playToggle.addEventListener("click", () => {
+      isPaused = !isPaused;
+      playToggle.textContent = isPaused ? "▶" : "Ⅱ";
+      playToggle.setAttribute("aria-label", isPaused ? "배너 자동 재생 시작" : "배너 자동 재생 일시정지");
+      playToggle.setAttribute("aria-pressed", String(isPaused));
+      schedule();
+    });
+    slider.addEventListener("mouseenter", () => { if (!isPaused) clearInterval(timer); });
+    slider.addEventListener("mouseleave", schedule);
+    slider.addEventListener("click", (event) => {
+      if (!suppressClick) return;
+      event.preventDefault();
+      event.stopPropagation();
+      suppressClick = false;
+    }, true);
+    slider.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      if (event.target.closest("button")) return;
+      pointerStartX = event.clientX;
+      isDragging = false;
+      slider.setPointerCapture?.(event.pointerId);
+      if (!isPaused) clearInterval(timer);
+    });
+    slider.addEventListener("pointermove", (event) => {
+      if (pointerStartX === null) return;
+      const distance = event.clientX - pointerStartX;
+      if (Math.abs(distance) > 6) isDragging = true;
+      if (!isDragging) return;
+      track.style.transition = "none";
+      track.style.transform = `translateX(calc(-${current * 100}% + ${distance}px))`;
+    });
+    const finishDrag = (event) => {
+      if (pointerStartX === null) return;
+      const distance = event.clientX - pointerStartX;
+      if (isDragging && Math.abs(distance) > 40) {
+        suppressClick = true;
+        render(distance > 0 ? current - 1 : current + 1);
+      } else if (isDragging) {
+        render(current);
+      }
+      pointerStartX = null;
+      isDragging = false;
+      schedule();
+    };
+    slider.addEventListener("pointerup", finishDrag);
+    slider.addEventListener("pointercancel", finishDrag);
+    render(0);
+    schedule();
+  });
+})();
+
+/* =========================================================
   BEST SELLERS 영상 재생/정지 버튼
   - 각 영상 카드의 playbt.png 버튼을 누르면 해당 영상만 멈추거나 다시 재생됩니다.
   - 한 카드의 버튼을 눌러도 다른 영상에는 영향을 주지 않습니다.
@@ -232,10 +326,18 @@ const productsSection = document.querySelector("#products");
 const brandIntroSection = document.querySelector("#brand-intro");
 const customGiftProcessSection = document.querySelector(".custom-gift-process");
 const eventBoardSection = document.querySelector(".event-board");
+const productHeroSlider = document.querySelector(".all-collection-banner-slider");
 const headerBackgroundTrigger = productsSection || brandIntroSection || customGiftProcessSection || eventBoardSection;
 
 function updateHeaderForProducts() {
-  if (!siteHeader || !headerBackgroundTrigger) return;
+  if (!siteHeader) return;
+  if (productHeroSlider) {
+    const heroBottom = productHeroSlider.getBoundingClientRect().bottom;
+    const headerBottom = siteHeader.getBoundingClientRect().bottom;
+    siteHeader.classList.toggle("is-products-active", heroBottom <= headerBottom + 8);
+    return;
+  }
+  if (!headerBackgroundTrigger) return;
   const sectionTop = headerBackgroundTrigger.getBoundingClientRect().top + window.scrollY;
   const triggerOffset = customGiftProcessSection || eventBoardSection ? 8 : 40;
   const triggerLine = sectionTop - siteHeader.offsetHeight - triggerOffset;
