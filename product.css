@@ -664,6 +664,7 @@ body.product-sub .product-sub-main > .all-collection-banner-slider{
   margin-left:-50vw;
 }
 body.product-sub .all-collection-banner-slider{
+  --slider-content-left:clamp(64px,5vw,96px);
   height:auto;
   min-height:0;
   max-height:none;
@@ -688,7 +689,7 @@ body.product-sub .all-collection-banner-slider__slide img{
   object-fit:cover;
 }
 body.product-sub .all-collection-banner-slider__caption{
-  left:clamp(64px,5vw,96px);
+  left:var(--slider-content-left);
   top:60%;
   bottom:auto;
   width:min(500px,40vw);
@@ -705,7 +706,10 @@ body.product-sub .all-collection-banner-slider__description{
   margin-top:20px;
   font-family:"Pretendard","Noto Sans KR",sans-serif;
 }
-body.product-sub .all-collection-banner-slider__controls{bottom:26px}
+body.product-sub .all-collection-banner-slider__controls{
+  left:var(--slider-content-left);
+  bottom:26px;
+}
 body.product-sub .all-collection-banner-slider__slide:nth-child(1) img{object-position:56% center}
 body.product-sub .all-collection-banner-slider__slide:nth-child(2) img{object-position:60% center}
 body.product-sub .all-collection-banner-slider__slide:nth-child(3) img{object-position:50% center}
@@ -723,6 +727,7 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
 @media (min-width:768px) and (max-width:1279px){
   body.product-sub .product-sub-main{padding-top:117px}
   body.product-sub .all-collection-banner-slider{
+    --slider-content-left:clamp(40px,5vw,64px);
     height:clamp(500px,42vw,680px);
     min-height:0;
     aspect-ratio:auto;
@@ -745,7 +750,7 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
     object-fit:cover;
   }
   body.product-sub .all-collection-banner-slider__caption{
-    left:clamp(40px,5vw,64px);
+    left:var(--slider-content-left);
     top:58%;
     bottom:auto;
     width:min(440px,46vw);
@@ -754,7 +759,7 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
   }
   body.product-sub .all-collection-banner-slider__description{margin-top:20px;line-height:1.55}
   body.product-sub .all-collection-banner-slider__controls{
-    left:clamp(40px,7vw,84px);
+    left:var(--slider-content-left);
     bottom:26px;
   }
   body.product-sub .all-collection-banner-slider__slide:nth-child(1) img{object-position:62% 38%}
@@ -773,6 +778,7 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
     margin:0 0 32px;
   }
   body.product-sub .all-collection-banner-slider{
+    --slider-content-left:36px;
     width:100%;
     height:clamp(360px,105vw,520px);
     min-height:0;
@@ -802,7 +808,7 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
     top:54%;
     right:28px;
     bottom:auto;
-    left:36px;
+    left:var(--slider-content-left);
     z-index:4;
     display:flex;
     transform:translateY(-50%);
@@ -837,7 +843,7 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
   body.product-sub .all-collection-banner-slider__prev{left:8px}
   body.product-sub .all-collection-banner-slider__next{right:8px}
   body.product-sub .all-collection-banner-slider__controls{
-    left:38px;
+    left:var(--slider-content-left);
     bottom:24px;
     z-index:6;
   }
@@ -856,4 +862,44 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
   body.product-sub .all-collection-banner-slider__slide:nth-child(5) img{object-position:72% 50%}
   /* 헤더 뒤로 이동한 86px의 문서 공간과 카테고리 padding-top 28px을 보정해 약 48px 유지 */
   body.product-sub .all-collection-banner-slider{margin-bottom:-66px}
+}
+
+/* 03번 PINK TABLE 슬라이드 전용: 왼쪽 문구 영역의 은은한 대비 보정 */
+body.product-sub .all-collection-banner-slider__slide:nth-child(3)::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(
+    90deg,
+    rgba(31,22,18,.14) 0%,
+    rgba(31,22,18,.08) 28%,
+    rgba(31,22,18,.025) 48%,
+    rgba(31,22,18,0) 64%
+  );
+}
+body.product-sub .all-collection-banner-slider__slide:nth-child(3) .all-collection-banner-slider__caption{
+  z-index:3;
+}
+@media(max-width:767px){
+  body.product-sub .all-collection-banner-slider__slide:nth-child(3)::before{
+    display:none;
+  }
+  body.product-sub .all-collection-banner-slider__slide:nth-child(3)::after{
+    background:linear-gradient(
+      90deg,
+      rgba(31,22,18,.18) 0%,
+      rgba(31,22,18,.08) 28%,
+      rgba(31,22,18,.025) 48%,
+      rgba(31,22,18,0) 64%
+    );
+  }
+}
+
+body.product-sub .all-collection-banner-slider__slide img{
+  cursor:pointer;
+  user-select:none;
+  -webkit-user-drag:none;
+  touch-action:pan-y;
 }

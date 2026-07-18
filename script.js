@@ -175,13 +175,16 @@ if (document.querySelector(".new-product-slider") && window.Swiper) {
     const playToggle = slider.querySelector(".all-collection-banner-slider__play-toggle");
     const currentLabel = slider.querySelector(".all-collection-banner-slider__current");
     const progressLine = slider.querySelector(".all-collection-banner-slider__progress-line i");
+    const mediaImages = slides.flatMap((slide) => Array.from(slide.querySelectorAll("img")));
     if (!track || slides.length < 2 || !playToggle) return;
 
     let current = 0;
     let isPaused = false;
     let timer;
     let pointerStartX = null;
+    let pointerStartY = null;
     let isDragging = false;
+    let hasPointerMoved = false;
     let suppressClick = false;
 
     const render = (index) => {
@@ -201,6 +204,20 @@ if (document.querySelector(".new-product-slider") && window.Swiper) {
       clearInterval(timer);
       if (!isPaused) timer = setInterval(() => render(current + 1), AUTOPLAY_DELAY);
     };
+
+    mediaImages.forEach((image) => {
+      image.addEventListener("click", (event) => {
+        if (suppressClick || hasPointerMoved || isDragging) {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        render(current + 1);
+        schedule();
+      });
+    });
 
     dots.forEach((dot, index) => dot.addEventListener("click", () => { render(index); schedule(); }));
     playToggle.addEventListener("click", () => {
@@ -222,14 +239,18 @@ if (document.querySelector(".new-product-slider") && window.Swiper) {
       if (event.pointerType === "mouse" && event.button !== 0) return;
       if (event.target.closest("button")) return;
       pointerStartX = event.clientX;
+      pointerStartY = event.clientY;
       isDragging = false;
+      hasPointerMoved = false;
       slider.setPointerCapture?.(event.pointerId);
       if (!isPaused) clearInterval(timer);
     });
     slider.addEventListener("pointermove", (event) => {
       if (pointerStartX === null) return;
       const distance = event.clientX - pointerStartX;
-      if (Math.abs(distance) > 6) isDragging = true;
+      const distanceY = event.clientY - pointerStartY;
+      if (Math.abs(distance) > 8 || Math.abs(distanceY) > 8) hasPointerMoved = true;
+      if (Math.abs(distance) > 6 && Math.abs(distance) >= Math.abs(distanceY)) isDragging = true;
       if (!isDragging) return;
       track.style.transition = "none";
       track.style.transform = `translateX(calc(-${current * 100}% + ${distance}px))`;
@@ -241,10 +262,15 @@ if (document.querySelector(".new-product-slider") && window.Swiper) {
         suppressClick = true;
         render(distance > 0 ? current - 1 : current + 1);
       } else if (isDragging) {
+        suppressClick = true;
         render(current);
+      } else if (hasPointerMoved) {
+        suppressClick = true;
       }
       pointerStartX = null;
+      pointerStartY = null;
       isDragging = false;
+      hasPointerMoved = false;
       schedule();
     };
     slider.addEventListener("pointerup", finishDrag);
