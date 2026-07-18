@@ -397,6 +397,17 @@ document.querySelectorAll(".product-sub").forEach((page) => {
 
         if (filterName) {
           state[filterName] = value;
+          if (filterName === "collection") {
+            const url = new URL(window.location.href);
+            if (!value || value === "all") {
+              url.searchParams.delete("collection");
+              url.searchParams.delete("filter");
+            } else {
+              url.searchParams.set("collection", value);
+              url.searchParams.delete("filter");
+            }
+            window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+          }
           const filterLabels = { priceRange: "금액별", type: "제품 보기", collection: "컬렉션별" };
           const baseLabel = filterLabels[filterName] || "필터";
           const selectedText = option.textContent.trim();

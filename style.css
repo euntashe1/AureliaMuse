@@ -787,6 +787,12 @@ body.menu-open {
   transform: scale(1.045);
 }
 
+.new-pink-gradient-collection-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .new-card-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -4869,22 +4875,22 @@ body.event-page {
 }
 
 @media (max-width: 767px) {
-  #pottery .pottery-section__small-cards > .pottery-card:nth-child(2) .pottery-card__overlay {
-    min-width: 0;
+  #pottery .pottery-card__overlay {
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+    align-items: flex-end;
   }
 
-  #pottery .pottery-section__small-cards > .pottery-card:nth-child(2) .pottery-card__overlay h3 {
-    font-size: 17px !important;
-    width: 100%;
-    max-width: 100%;
+  #pottery .pottery-card__overlay h3 {
     min-width: 0;
-    padding-left: 12px;
-    padding-right: 12px;
-    box-sizing: border-box;
-    white-space: normal;
+    max-width: calc(100% - 110px);
+    margin: 0;
+    padding: 0;
+    line-height: 1.35;
+    text-align: left;
     word-break: keep-all;
     overflow-wrap: break-word;
-    text-align: center;
   }
 }
 
