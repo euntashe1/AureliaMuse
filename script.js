@@ -321,7 +321,9 @@ function setSideMenu(open) {
   document.body.classList.toggle("menu-open", open);
   sideMenu.setAttribute("aria-hidden", String(!open));
   menuOverlay.setAttribute("aria-hidden", String(!open));
-  sideMenuToggleButtons.forEach((button) => button.setAttribute("aria-expanded", String(open)));
+  document.querySelectorAll(".menu-icon, [data-side-menu-toggle], .mobile-bottom-nav__category").forEach((button) => {
+    button.setAttribute("aria-expanded", String(open));
+  });
 }
 
 if (sideMenuToggleButtons.length && sideMenu && menuOverlay && menuCloseButton) {
@@ -815,10 +817,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-5v-6h-5v6h-5A1.5 1.5 0 0 1 3 19.5z"/></svg>
       <span class="mobile-bottom-nav__label">홈</span>
     </a>
-    <a class="mobile-bottom-nav__item" data-mobile-nav="category" href="all-collection.html" aria-label="카테고리 보기">
-      <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <button class="mobile-bottom-nav__item mobile-bottom-nav__category" data-mobile-nav="category" type="button" aria-label="카테고리 메뉴 열기" aria-controls="side-menu" aria-expanded="false" data-side-menu-toggle>
+      <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h8M3 12h8M3 17h6"/><circle cx="16" cy="11" r="4"/><path d="m19 14 3 3"/></svg>
       <span class="mobile-bottom-nav__label">카테고리</span>
-    </a>
+    </button>
     <a class="mobile-bottom-nav__item" data-mobile-nav="my" href="login.html" aria-label="마이페이지">
       <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
       <span class="mobile-bottom-nav__label">마이</span>
@@ -830,6 +832,14 @@ document.addEventListener("DOMContentLoaded", () => {
     </a>
   `;
   document.body.appendChild(nav);
+  const categoryButton = nav.querySelector(".mobile-bottom-nav__category");
+  if (categoryButton && !categoryButton.dataset.menuBound) {
+    categoryButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      setSideMenu(!sideMenu?.classList.contains("is-open"));
+    });
+    categoryButton.dataset.menuBound = "true";
+  }
   updateMobileBottomNav();
 })();
 

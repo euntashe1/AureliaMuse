@@ -5163,6 +5163,11 @@ body.event-page {
     -webkit-tap-highlight-color: transparent;
   }
 
+  .mobile-bottom-nav__category {
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
   .mobile-bottom-nav__item:hover,
   .mobile-bottom-nav__item:focus-visible {
     background: rgba(239, 154, 154, 0.1);
