@@ -3305,6 +3305,10 @@ body.visit-page {
     width: 100%;
   }
 
+  .bestsellers {
+    padding-bottom: 26px;
+  }
+
   .new-collection-visual {
     min-height: 0;
     height: min(118vw, 520px);
@@ -3362,11 +3366,13 @@ body.visit-page {
   }
 
   .new-slider-prev {
-    left: 0;
+    left: calc(50% - 52px);
+    right: auto;
   }
 
   .new-slider-next {
-    right: 0;
+    left: calc(50% + 8px);
+    right: auto;
   }
 
   .new-slider-prev:hover {
