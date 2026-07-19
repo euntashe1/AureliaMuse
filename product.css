@@ -1,7 +1,7 @@
 /* Aurelia Muse 상품 서브 페이지 */
 .product-sub{background:#fff;color:#222;font-family:"Pretendard","Noto Sans KR",sans-serif}
 .product-sub .site-header{
-  background:transparent;
+  background:#fff;
   backdrop-filter:none;
   -webkit-backdrop-filter:none;
   box-shadow:none;
@@ -903,4 +903,133 @@ body.product-sub .all-collection-banner-slider__slide img{
   user-select:none;
   -webkit-user-drag:none;
   touch-action:pan-y;
+}
+
+/* 상품 검색: 공통 슬라이더와 카테고리 내비게이션 사이 */
+body.product-sub{
+  --search-primary:#ED8D91;
+  --search-primary-dark:#C96F76;
+  --search-border:#F0B8BA;
+  --search-background:rgba(255,250,250,.96);
+  --search-text:#5E4442;
+  --search-placeholder:#A98986;
+}
+body.product-sub .products-search{
+  width:min(560px,calc(100% - 48px));
+  margin:32px auto 24px;
+  position:relative;
+  z-index:4;
+}
+body.product-sub .products-search__field{
+  display:flex;
+  align-items:center;
+  width:100%;
+  height:48px;
+  overflow:hidden;
+  border:1px solid var(--search-border);
+  border-radius:999px;
+  background:var(--search-background);
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+body.product-sub .products-search__field:focus-within{
+  border-color:var(--search-primary);
+  box-shadow:0 0 0 3px rgba(237,141,145,.14);
+}
+body.product-sub .products-search__input{
+  min-width:0;
+  flex:1;
+  height:100%;
+  padding:0 18px;
+  border:0;
+  outline:0;
+  background:#fff;
+  color:var(--search-text);
+  font:inherit;
+  font-size:14px;
+}
+body.product-sub .products-search__input::placeholder{color:var(--search-placeholder)}
+body.product-sub .products-search__submit{
+  display:grid;
+  place-items:center;
+  flex:0 0 40px;
+  width:40px;
+  height:40px;
+  margin-right:3px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:var(--search-primary);
+  color:#fff;
+  cursor:pointer;
+  font-family:Arial,sans-serif;
+  font-size:22px;
+  line-height:1;
+  transition:background-color .2s ease,transform .2s ease;
+}
+body.product-sub .products-search__submit:hover,
+body.product-sub .products-search__submit:focus-visible{
+  background:var(--search-primary-dark);
+}
+body.product-sub .products-search__submit:active{transform:scale(.96)}
+body.product-sub .product-sub-categories{padding-top:0}
+
+/* 모바일 상품 카테고리 원형 버튼 공통 크기 */
+@media (max-width:767px){
+  body.product-sub .products-search{
+    width:calc(100% - 72px);
+    max-width:360px;
+    margin:28px auto 32px;
+  }
+  body.product-sub .products-search__field{height:42px}
+  body.product-sub .products-search__input{
+    padding:0 14px;
+    font-size:13px;
+    background:#fff;
+  }
+  body.product-sub .products-search__submit{
+    flex-basis:34px;
+    width:34px;
+    height:34px;
+    margin-right:3px;
+    font-size:19px;
+  }
+  body.product-sub .product-sub-categories{padding-top:0}
+  body.product-sub .product-sub-categories{
+    --category-circle-size:96px;
+    --category-item-width:96px;
+  }
+  body.product-sub .product-sub-category{
+    flex:0 0 var(--category-item-width);
+    width:var(--category-item-width);
+    min-width:var(--category-item-width);
+  }
+  body.product-sub .product-sub-category__image{
+    box-sizing:border-box;
+    width:var(--category-circle-size);
+    height:var(--category-circle-size);
+    aspect-ratio:1 / 1;
+    flex:0 0 var(--category-circle-size);
+  }
+  body.product-sub .product-sub-category__image img,
+  body.product-sub .product-sub-category__image .product-category-video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+}
+
+/* 모바일 상품 목록: 모든 Products 서브 페이지를 2열로 통일 */
+@media (max-width:767px){
+  body.product-sub .product-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:12px;
+    row-gap:36px;
+    padding-bottom:calc(104px + env(safe-area-inset-bottom));
+    box-sizing:border-box;
+  }
+  body.product-sub .product-card{
+    min-width:0;
+    width:100%;
+  }
 }

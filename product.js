@@ -22,6 +22,9 @@ document.querySelectorAll(".product-sub").forEach((page) => {
     emptyMessage.textContent = "조건에 맞는 상품이 없습니다.";
     grid.insertAdjacentElement("afterend", emptyMessage);
   }
+  const searchForm = page.querySelector("[data-products-search]");
+  const searchInput = searchForm?.querySelector(".products-search__input");
+  let activeSearchKeyword = "";
   const legacyColorFilter = page.querySelector('[data-filter="color"]');
   if (legacyColorFilter) {
     legacyColorFilter.dataset.filter = "priceRange";
@@ -335,7 +338,21 @@ document.querySelectorAll(".product-sub").forEach((page) => {
       const typeMatch = state.type === "all" || card.dataset.type === state.type || card.dataset.category === state.type || card.dataset.mainCategory === state.type || (state.type === "premium-gift" && price >= 100000 && card.dataset.available !== "false");
       const collectionValues = String(card.dataset.collection || "").split(/\s+/);
       const collectionMatch = state.collection === "all" || collectionValues.includes(state.collection);
-      const isVisible = priceMatch && typeMatch && collectionMatch;
+      const normalizedKeyword = activeSearchKeyword.toLocaleLowerCase("ko-KR");
+      const searchableText = [
+        card.dataset.name,
+        card.dataset.description,
+        card.dataset.collection,
+        card.dataset.collectionName,
+        card.dataset.category,
+        card.dataset.mainCategory,
+        card.dataset.type,
+        card.dataset.tags,
+        card.getAttribute("title"),
+        card.textContent
+      ].filter(Boolean).join(" ").toLocaleLowerCase("ko-KR");
+      const searchMatch = !normalizedKeyword || searchableText.includes(normalizedKeyword);
+      const isVisible = priceMatch && typeMatch && collectionMatch && searchMatch;
       card.hidden = !isVisible;
       return isVisible;
     });
@@ -376,7 +393,23 @@ document.querySelectorAll(".product-sub").forEach((page) => {
       pagination.innerHTML = "";
     }
 
+    emptyMessage.textContent = activeSearchKeyword
+      ? "검색 결과가 없습니다. 다른 검색어를 입력해 보세요."
+      : "조건에 맞는 상품이 없습니다.";
     emptyMessage.hidden = visibleCards.length > 0;
+  }
+
+  if (searchForm && searchInput) {
+    const applySearch = () => {
+      activeSearchKeyword = searchInput.value.trim();
+      applyProducts(true);
+    };
+
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      applySearch();
+    });
+    searchInput.addEventListener("input", applySearch);
   }
 
   dropdowns.forEach((dropdown) => {
