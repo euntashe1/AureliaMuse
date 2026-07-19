@@ -11,6 +11,10 @@
   font-family: "Pretendard", "Noto Sans KR", sans-serif;
 }
 
+.cart-page [hidden] {
+  display: none !important;
+}
+
 .cart-main {
   padding: 170px 0 120px;
 }

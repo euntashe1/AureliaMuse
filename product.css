@@ -861,7 +861,8 @@ body.product-sub .all-collection-banner-slider__track{cursor:grab;user-select:no
   body.product-sub .all-collection-banner-slider__slide:nth-child(4) img{object-position:68% 35%}
   body.product-sub .all-collection-banner-slider__slide:nth-child(5) img{object-position:72% 50%}
   /* 헤더 뒤로 이동한 86px의 문서 공간과 카테고리 padding-top 28px을 보정해 약 48px 유지 */
-  body.product-sub .all-collection-banner-slider{margin-bottom:-66px}
+  body.product-sub .all-collection-banner-slider{margin-bottom:-86px}
+  body.product-sub .product-sub-categories{padding-top:40px}
 }
 
 /* 03번 PINK TABLE 슬라이드 전용: 왼쪽 문구 영역의 은은한 대비 보정 */

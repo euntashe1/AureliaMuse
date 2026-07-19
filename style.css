@@ -5104,6 +5104,14 @@ body.event-page {
 }
 
 @media (max-width: 767px) {
+  body:has(.mobile-bottom-nav) {
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+
+  body:has(.mobile-bottom-nav) .top-button {
+    bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+
   .mobile-bottom-nav {
     position: fixed;
     right: 0;

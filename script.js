@@ -799,3 +799,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
   revealItems.forEach((item) => observer.observe(item));
 });
+
+/* 공통 모바일 하단 내비게이션 */
+(function initializeMobileBottomNav() {
+  if (document.querySelector(".mobile-bottom-nav")) {
+    updateMobileBottomNav();
+    return;
+  }
+
+  const nav = document.createElement("nav");
+  nav.className = "mobile-bottom-nav";
+  nav.setAttribute("aria-label", "모바일 하단 메뉴");
+  nav.innerHTML = `
+    <a class="mobile-bottom-nav__item" data-mobile-nav="home" href="index.html#top" aria-label="홈으로 이동">
+      <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-5v-6h-5v6h-5A1.5 1.5 0 0 1 3 19.5z"/></svg>
+      <span class="mobile-bottom-nav__label">홈</span>
+    </a>
+    <a class="mobile-bottom-nav__item" data-mobile-nav="category" href="all-collection.html" aria-label="카테고리 보기">
+      <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      <span class="mobile-bottom-nav__label">카테고리</span>
+    </a>
+    <a class="mobile-bottom-nav__item" data-mobile-nav="my" href="login.html" aria-label="마이페이지">
+      <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>
+      <span class="mobile-bottom-nav__label">마이</span>
+    </a>
+    <a class="mobile-bottom-nav__item mobile-bottom-nav__cart" data-mobile-nav="cart" href="cart.html" aria-label="장바구니 열기">
+      <svg class="mobile-bottom-nav__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l1 13H4z"/><path d="M8.5 8V6a3.5 3.5 0 0 1 7 0v2"/></svg>
+      <span class="mobile-bottom-nav__label">장바구니</span>
+      <span class="mobile-bottom-nav__badge cart-count" hidden aria-hidden="true"></span>
+    </a>
+  `;
+  document.body.appendChild(nav);
+  updateMobileBottomNav();
+})();
+
+function updateMobileBottomNav() {
+  const nav = document.querySelector(".mobile-bottom-nav");
+  if (!nav) return;
+
+  const page = (window.location.pathname.split(/[\\/]/).pop() || "index.html").toLowerCase();
+  const categoryPages = new Set([
+    "all-collection.html",
+    "daily-ceramic.html",
+    "artisan-edition.html",
+    "collection.html",
+    "gift-set.html",
+    "shop.html",
+    "product.html"
+  ]);
+  const activeKey = page === "index.html" ? "home" : page === "cart.html" ? "cart" : categoryPages.has(page) ? "category" : page === "login.html" ? "my" : "";
+
+  nav.querySelectorAll("[data-mobile-nav]").forEach((item) => {
+    const active = item.dataset.mobileNav === activeKey;
+    item.classList.toggle("is-active", active);
+    if (active) item.setAttribute("aria-current", "page");
+    else item.removeAttribute("aria-current");
+  });
+
+  let total = 0;
+  try {
+    const parsed = JSON.parse(localStorage.getItem("aureliaCart") || "[]");
+    if (Array.isArray(parsed)) total = parsed.reduce((sum, item) => sum + Math.max(0, Number(item?.qty || item?.quantity || 0)), 0);
+  } catch (error) {
+    total = 0;
+  }
+
+  nav.querySelectorAll(".mobile-bottom-nav__badge").forEach((badge) => {
+    badge.textContent = total > 0 ? String(total) : "";
+    badge.hidden = total === 0;
+    badge.setAttribute("aria-hidden", String(total === 0));
+  });
+}
+
+window.addEventListener("storage", (event) => {
+  if (event.key === "aureliaCart") updateMobileBottomNav();
+});

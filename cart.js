@@ -256,12 +256,22 @@
       ? cart.map((item, index) => cartItemMarkup(item, index, "page")).join("")
       : "";
 
-    if (empty) empty.hidden = cart.length > 0;
-    if (summary) summary.hidden = cart.length === 0;
+    updateCartPageState(cart);
 
     document.querySelector("#cartPageProductTotal").textContent = formatWon(totals.productTotal);
     document.querySelector("#cartPageDelivery").textContent = totals.delivery === 0 ? "무료" : formatWon(totals.delivery);
     document.querySelector("#cartPageFinalTotal").textContent = formatWon(totals.finalTotal);
+  }
+
+  function updateCartPageState(cart = getCart()) {
+    const hasItems = Array.isArray(cart) && cart.length > 0;
+    const empty = document.querySelector("#cartPageEmpty");
+    const list = document.querySelector("#cartPageItems");
+    const summary = document.querySelector("#cartPageSummary");
+
+    if (empty) empty.hidden = hasItems;
+    if (list) list.hidden = !hasItems;
+    if (summary) summary.hidden = !hasItems;
   }
 
   function changeCartItem(index, action) {
@@ -355,6 +365,7 @@
     setCart,
     getTotals,
     updateCounts,
-    renderCartPage
+    renderCartPage,
+    updateCartPageState
   };
 })();
