@@ -1,7 +1,7 @@
 /* Aurelia Muse 상품 서브 페이지 */
 .product-sub{background:#fff;color:#222;font-family:"Pretendard","Noto Sans KR",sans-serif}
 .product-sub .site-header{
-  background:#fff;
+  background:transparent;
   backdrop-filter:none;
   -webkit-backdrop-filter:none;
   box-shadow:none;
@@ -978,7 +978,9 @@ body.product-sub .product-sub-categories{padding-top:0}
     body.product-sub .products-search{
       width:calc(100% - 72px);
       max-width:360px;
-      margin:44px auto 48px;
+      position:static;
+      transform:none;
+      margin:78px auto 52px;
   }
   body.product-sub .products-search__field{height:42px}
   body.product-sub .products-search__input{
@@ -1001,7 +1003,10 @@ body.product-sub .product-sub-categories{padding-top:0}
       max-width:100%;
       overflow-x:auto;
       overflow-y:visible;
-      padding-top:0;
+      position:relative;
+      height:auto;
+      max-height:none;
+      padding-top:4px;
       padding-right:16px;
       padding-left:16px;
       scroll-padding-inline:16px;
@@ -1065,4 +1070,90 @@ body.product-sub .product-sub-categories{padding-top:0}
     margin-left:0;
     gap:4px;
   }
+}
+
+/* 모바일 상품 카테고리: 메인 PRODUCTS와 같은 2열 캡슐형 버튼 */
+@media (max-width:767px){
+  body.product-sub .product-sub-categories{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px 10px;
+    width:100%;
+    max-width:100%;
+    padding:0 20px 24px;
+    overflow:visible;
+    box-sizing:border-box;
+  }
+
+  body.product-sub .product-sub-category{
+    display:flex;
+    flex:initial;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-start;
+    width:100%;
+    min-width:0;
+    min-height:72px;
+    padding:8px 14px 8px 8px;
+    gap:12px;
+    border:1px solid #f3c7c7;
+    border-radius:999px;
+    background:#fffafa;
+    box-sizing:border-box;
+    color:#777;
+    letter-spacing:normal;
+    text-align:left;
+    text-transform:none;
+    text-decoration:none;
+  }
+
+  body.product-sub .product-sub-category.is-active{
+    border-color:#ee8e93;
+    background:#fff1f1;
+    color:#222;
+  }
+
+  body.product-sub .product-sub-category__image{
+    flex:0 0 44px;
+    width:44px;
+    height:44px;
+    padding:3px;
+    margin:0;
+    border:1px solid #eadcdc;
+    border-radius:50%;
+    background:#f8eeee;
+    box-sizing:border-box;
+    transform:none;
+  }
+
+  body.product-sub .product-sub-category.is-active .product-sub-category__image,
+  body.product-sub .product-sub-category:hover .product-sub-category__image{
+    border-color:#ef9a9a;
+    transform:none;
+  }
+
+  body.product-sub .product-sub-category > span:last-child{
+    display:block;
+    min-width:0;
+    overflow:visible;
+    font-family:"Pretendard","Noto Sans KR",sans-serif;
+    font-size:0;
+    font-weight:600;
+    line-height:1.25;
+    white-space:normal;
+    word-break:keep-all;
+  }
+
+  body.product-sub .product-sub-category > span:last-child::after{
+    display:block;
+    font-size:13px;
+  }
+
+  body.product-sub .product-sub-category:nth-child(1) > span:last-child::after{content:"모두 보기"}
+  body.product-sub .product-sub-category:nth-child(2) > span:last-child::after{content:"데일리 세라믹"}
+  body.product-sub .product-sub-category:nth-child(3) > span:last-child::after{content:"작가 에디션"}
+  body.product-sub .product-sub-category:nth-child(4) > span:last-child::after{content:"컬렉션"}
+  body.product-sub .product-sub-category:nth-child(5) > span:last-child::after{content:"기프트 세트"}
+
+  body.product-sub .product-sub-category:last-child{margin-right:0}
 }
