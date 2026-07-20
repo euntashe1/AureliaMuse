@@ -558,7 +558,7 @@ body.menu-open {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(50, 28, 25, 0.48), transparent 60%);
+  background: none;
 }
 
 .hero-video {
@@ -639,35 +639,18 @@ body.menu-open {
 body.home-page .hero::after {
   z-index: 0;
   pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    rgba(31, 22, 18, 0.46) 0%,
-    rgba(31, 22, 18, 0.28) 22%,
-    rgba(31, 22, 18, 0.08) 40%,
-    rgba(31, 22, 18, 0) 54%
-  );
+  background: none;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
   body.home-page .hero::after {
-    background: linear-gradient(
-      90deg,
-      rgba(31, 22, 18, 0.44) 0%,
-      rgba(31, 22, 18, 0.26) 28%,
-      rgba(31, 22, 18, 0.06) 48%,
-      rgba(31, 22, 18, 0) 60%
-    );
+    background: none;
   }
 }
 
 @media (max-width: 767px) {
   body.home-page .hero::after {
-    background: linear-gradient(
-      90deg,
-      rgba(31, 22, 18, 0.40) 0%,
-      rgba(31, 22, 18, 0.18) 46%,
-      rgba(31, 22, 18, 0) 74%
-    );
+    background: none;
   }
 }
 
