@@ -88,7 +88,7 @@
   position: relative;
   display: block;
   border-radius: 0;
-  background: #fff4f4;
+  background: #fff4f4 url("assets/images/contact/contact-main.jpg") center / cover no-repeat;
   box-shadow: none;
 }
 

@@ -53,7 +53,7 @@ const OLD_FAVORITES_KEY = "aureliaMuseFavorites";
 /* Page-specific hero videos: never fall back to the home-page hero. */
 (() => {
   const pageHeroVideos = document.querySelectorAll(
-    ".contact-main-hero-video, .event-hero__video, .brand-hero-video, " +
+    ".event-hero__video, .brand-hero-video, " +
       ".class-hero__video, .custom-bulk-order-page .hero-video, .store-visit-video"
   );
   if (!pageHeroVideos.length) return;

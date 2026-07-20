@@ -1,3 +1,77 @@
+/* Contact hero video: keep this page-specific so it never reuses the home hero. */
+(function () {
+  const hero = document.querySelector("[data-contact-hero]");
+  const video = document.querySelector("[data-contact-video]");
+  if (!hero || !video) return;
+
+  let hasWarned = false;
+  let hasPlayed = false;
+
+  const playContactVideo = () => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("defaultmuted", "");
+    video.setAttribute("autoplay", "");
+    video.setAttribute("loop", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
+    const playPromise = video.play();
+    if (!playPromise || typeof playPromise.then !== "function") {
+      hasPlayed = !video.paused;
+      if (hasPlayed) hero.classList.add("is-video-ready");
+      return Promise.resolve(hasPlayed);
+    }
+
+    return playPromise
+      .then(() => {
+        hasPlayed = true;
+        hero.classList.add("is-video-ready");
+        return true;
+      })
+      .catch((error) => {
+        if (!hasWarned) {
+          console.warn("Contact hero autoplay was blocked:", error);
+          hasWarned = true;
+        }
+        return false;
+      });
+  };
+
+  const attemptPlayback = () => {
+    if (hasPlayed && !video.paused) return Promise.resolve(true);
+    return playContactVideo();
+  };
+
+  const retryOnFirstInteraction = () => {
+    attemptPlayback();
+    window.removeEventListener("touchstart", retryOnFirstInteraction);
+    window.removeEventListener("pointerdown", retryOnFirstInteraction);
+    window.removeEventListener("click", retryOnFirstInteraction);
+  };
+
+  video.addEventListener("loadedmetadata", attemptPlayback, { once: true });
+  video.addEventListener("loadeddata", attemptPlayback, { once: true });
+  video.addEventListener("canplay", attemptPlayback, { once: true });
+  video.addEventListener("playing", () => {
+    hasPlayed = true;
+    hero.classList.add("is-video-ready");
+  }, { once: true });
+  window.addEventListener("pageshow", attemptPlayback, { once: true });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden && video.paused) attemptPlayback();
+  });
+  window.addEventListener("touchstart", retryOnFirstInteraction, { once: true, passive: true });
+  window.addEventListener("pointerdown", retryOnFirstInteraction, { once: true, passive: true });
+  window.addEventListener("click", retryOnFirstInteraction, { once: true });
+
+  attemptPlayback();
+})();
+
 (function () {
   const productSelect = document.getElementById("bulk-product");
   const quantityRange = document.getElementById("bulk-quantity");
