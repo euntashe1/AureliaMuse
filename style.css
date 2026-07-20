@@ -9,6 +9,33 @@
   --text: #4a3a34;
 }
 
+/* NEW 모바일 컨트롤은 제목 아래에 표시하고, 데스크톱에서는 기존 위치를 사용합니다. */
+.new-slider-controls{display:none}
+
+@media (max-width:767px){
+  .new-title{margin-bottom:0}
+
+  .new-title .new-slider-controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-top:24px;
+    margin-bottom:32px;
+  }
+
+  .new-title .new-slider-controls .new-slider-prev,
+  .new-title .new-slider-controls .new-slider-next{
+    position:static;
+    top:auto;
+    right:auto;
+    bottom:auto;
+    left:auto;
+    flex:0 0 auto;
+    transform:none;
+  }
+}
+
 /* Shared All Collection banner slider */
 .all-collection-banner-slider{position:relative;width:100vw;margin:0 0 64px 0;margin-left:calc(50% - 50vw);overflow:hidden;background:#edf3f5}
 .all-collection-banner-slider__viewport{width:100%;overflow:hidden}

@@ -160,6 +160,31 @@ if (document.querySelector(".new-product-slider") && window.Swiper) {
   });
 }
 
+/* NEW 화살표는 모바일에서 제목 아래, 데스크톱에서는 기존 슬라이더 양옆에 배치합니다. */
+(() => {
+  const controls = document.querySelector(".new-slider-controls");
+  const showcase = document.querySelector(".new-showcase");
+  const sliderArea = document.querySelector(".new-slider-area");
+  const prev = document.querySelector(".new-slider-prev");
+  const next = document.querySelector(".new-slider-next");
+  if (!controls || !showcase || !sliderArea || !prev || !next) return;
+
+  const syncNewSliderControls = () => {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (isMobile) {
+      if (prev.parentElement !== controls) controls.append(prev);
+      if (next.parentElement !== controls) controls.append(next);
+      return;
+    }
+
+    if (prev.parentElement !== showcase) showcase.insertBefore(prev, showcase.firstElementChild);
+    if (next.parentElement !== sliderArea) sliderArea.append(next);
+  };
+
+  window.addEventListener("resize", syncNewSliderControls);
+  syncNewSliderControls();
+})();
+
 /* =========================================================
   ALL COLLECTION 배너 슬라이더
 ========================================================= */
