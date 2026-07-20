@@ -916,7 +916,7 @@ body.product-sub{
 }
 body.product-sub .products-search{
   width:min(560px,calc(100% - 48px));
-  margin:32px auto 24px;
+  margin:90px auto 80px;
   position:relative;
   z-index:4;
 }
@@ -978,7 +978,7 @@ body.product-sub .product-sub-categories{padding-top:0}
     body.product-sub .products-search{
       width:calc(100% - 72px);
       max-width:360px;
-      margin:16px auto 32px;
+      margin:44px auto 48px;
   }
   body.product-sub .products-search__field{height:42px}
   body.product-sub .products-search__input{
@@ -997,12 +997,15 @@ body.product-sub .product-sub-categories{padding-top:0}
       box-sizing:border-box;
       display:flex;
       flex-wrap:nowrap;
+      width:100%;
+      max-width:100%;
       overflow-x:auto;
-      overflow-y:hidden;
+      overflow-y:visible;
       padding-top:0;
       padding-right:16px;
       padding-left:16px;
       scroll-padding-inline:16px;
+      -webkit-overflow-scrolling:touch;
   }
   body.product-sub .product-sub-categories{
     --category-circle-size:96px;
@@ -1014,7 +1017,7 @@ body.product-sub .product-sub-categories{padding-top:0}
     min-width:var(--category-item-width);
     flex-shrink:0;
   }
-  body.product-sub .product-sub-category:last-child{margin-right:16px}
+  body.product-sub .product-sub-category:last-child{margin-right:20px}
   body.product-sub .product-sub-category__image{
     box-sizing:border-box;
     width:var(--category-circle-size);
@@ -1043,5 +1046,23 @@ body.product-sub .product-sub-categories{padding-top:0}
   body.product-sub .product-card{
     min-width:0;
     width:100%;
+  }
+
+  /* 모바일 상품 카드: 가격 아래에 찜하기·장바구니 액션을 별도 줄로 배치 */
+  body.product-sub .product-price{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    width:100%;
+    max-width:100%;
+  }
+  body.product-sub .product-inline-actions{
+    display:flex;
+    flex:0 0 100%;
+    align-items:center;
+    width:100%;
+    margin-top:8px;
+    margin-left:0;
+    gap:4px;
   }
 }
