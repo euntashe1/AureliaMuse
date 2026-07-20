@@ -11,7 +11,7 @@ const OLD_FAVORITES_KEY = "aureliaMuseFavorites";
 
 /* Main hero video: keep muted inline autoplay reliable on mobile browsers. */
 (() => {
-  const heroVideo = document.querySelector(".hero-video");
+  const heroVideo = document.querySelector(".hero > .hero-video");
   if (!heroVideo) return;
 
   let autoplayFailed = false;
@@ -48,6 +48,41 @@ const OLD_FAVORITES_KEY = "aureliaMuseFavorites";
   document.addEventListener("touchstart", retryPlayback, { passive: true });
   document.addEventListener("click", retryPlayback);
   playHeroVideo();
+})();
+
+/* Page-specific hero videos: never fall back to the home-page hero. */
+(() => {
+  const pageHeroVideos = document.querySelectorAll(
+    ".contact-main-hero-video, .event-hero__video, .brand-hero-video, " +
+      ".class-hero__video, .custom-bulk-order-page .hero-video, .store-visit-video"
+  );
+  if (!pageHeroVideos.length) return;
+
+  const playPageHeroVideo = (video) => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {});
+    }
+  };
+
+  pageHeroVideos.forEach((video) => {
+    const play = () => playPageHeroVideo(video);
+    video.addEventListener("loadedmetadata", play, { once: true });
+    video.addEventListener("canplay", play, { once: true });
+    window.addEventListener("pageshow", play, { once: true });
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) play();
+    });
+    play();
+  });
 })();
 
 /* =========================================================

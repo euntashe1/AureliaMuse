@@ -576,6 +576,28 @@ body.menu-open {
   -webkit-appearance: none;
 }
 
+.contact-main-hero-video::-webkit-media-controls,
+.contact-main-hero-video::-webkit-media-controls-start-playback-button,
+.contact-main-hero-video::-webkit-media-controls-overlay-play-button,
+.event-hero__video::-webkit-media-controls,
+.event-hero__video::-webkit-media-controls-start-playback-button,
+.event-hero__video::-webkit-media-controls-overlay-play-button,
+.brand-hero-video::-webkit-media-controls,
+.brand-hero-video::-webkit-media-controls-start-playback-button,
+.brand-hero-video::-webkit-media-controls-overlay-play-button,
+.class-hero__video::-webkit-media-controls,
+.class-hero__video::-webkit-media-controls-start-playback-button,
+.class-hero__video::-webkit-media-controls-overlay-play-button,
+.custom-bulk-order-page .hero-video::-webkit-media-controls,
+.custom-bulk-order-page .hero-video::-webkit-media-controls-start-playback-button,
+.custom-bulk-order-page .hero-video::-webkit-media-controls-overlay-play-button,
+.store-visit-video::-webkit-media-controls,
+.store-visit-video::-webkit-media-controls-start-playback-button,
+.store-visit-video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .hero-text {
   position: absolute;
   top: 67%;

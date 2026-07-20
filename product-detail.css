@@ -125,11 +125,6 @@
 .qna-list article{display:grid;grid-template-columns:80px 1fr 100px;align-items:center;gap:20px;padding:23px 15px;border-bottom:1px solid var(--detail-line);font-size:13px}
 .qna-list span{color:#aaa;font-size:11px}.qna-list strong{font-weight:500}.qna-list em{color:#a18e8a;font-style:normal;text-align:right}.qna-list em.is-complete{color:var(--detail-pink)}
 .qna-list small{display:block;margin-top:10px;color:#756866;font-size:12px;font-weight:400;line-height:1.7}
-.recommend-products{padding:110px 5%;background:var(--detail-cream)}
-.recommend-heading{text-align:center}.recommend-heading p{margin:0 0 12px;color:var(--detail-pink);font-size:11px;font-weight:700;letter-spacing:.22em}.recommend-heading h2{margin:0;font-size:28px}
-.recommend-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1320px;margin:50px auto 0}
-.recommend-grid a{color:var(--detail-brown)}.recommend-grid img{width:100%;aspect-ratio:4/5;display:block;object-fit:cover;background:#f8eeee}
-.recommend-grid h3{margin:16px 0 7px;font-size:14px;font-weight:500}.recommend-grid p{margin:0;font-size:13px;font-weight:700}
 .product-detail-page.is-daily-detail .product-detail-top{gap:72px;padding-top:64px;padding-bottom:112px}
 .product-detail-page.is-daily-detail .product-gallery-layout{gap:34px}
 .product-detail-page.is-daily-detail .product-main-slider .product-main-image{aspect-ratio:4/5;background:#fff}
@@ -189,5 +184,4 @@ body.is-modal-open{overflow:hidden}
   .detail-image-stack{padding:0 20px}.detail-image-stack img{max-width:100%}.product-detail-page.is-daily-detail .detail-image-stack{gap:30px;padding:0}.product-detail-page.is-daily-detail .detail-image-stack img{max-width:100%}
   .product-spec div{grid-template-columns:90px 1fr;padding:15px 8px}.review-summary,.qna-heading{align-items:flex-start;flex-direction:column;padding:28px 22px}
   .review-summary button,.qna-heading button{width:100%}.review-list article div{flex-direction:column;gap:7px}.qna-list article{grid-template-columns:55px 1fr}.qna-list em{grid-column:2;text-align:left}
-  .recommend-products{padding:80px 14px}.recommend-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 10px}.recommend-grid h3{font-size:12px}
 }
