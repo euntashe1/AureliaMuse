@@ -9,6 +9,47 @@ const CART_KEY = "aureliaCart";
 const FAVORITES_KEY = "aureliaWish";
 const OLD_FAVORITES_KEY = "aureliaMuseFavorites";
 
+/* Main hero video: keep muted inline autoplay reliable on mobile browsers. */
+(() => {
+  const heroVideo = document.querySelector(".hero-video");
+  if (!heroVideo) return;
+
+  let autoplayFailed = false;
+
+  const removeRetryListeners = () => {
+    document.removeEventListener("touchstart", retryPlayback);
+    document.removeEventListener("click", retryPlayback);
+  };
+
+  const playHeroVideo = () => {
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.playsInline = true;
+
+    const playPromise = heroVideo.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        autoplayFailed = true;
+      });
+    }
+  };
+
+  const retryPlayback = () => {
+    if (!autoplayFailed) return;
+    playHeroVideo();
+    autoplayFailed = false;
+    removeRetryListeners();
+  };
+
+  heroVideo.addEventListener("loadeddata", playHeroVideo, { once: true });
+  heroVideo.addEventListener("canplay", playHeroVideo, { once: true });
+  heroVideo.addEventListener("playing", removeRetryListeners, { once: true });
+  document.addEventListener("DOMContentLoaded", playHeroVideo, { once: true });
+  document.addEventListener("touchstart", retryPlayback, { passive: true });
+  document.addEventListener("click", retryPlayback);
+  playHeroVideo();
+})();
+
 /* =========================================================
   localStorage 읽기 함수
   - key 이름에 해당하는 데이터를 배열로 읽어옵니다.

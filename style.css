@@ -569,6 +569,13 @@ body.menu-open {
   object-position: center center;
 }
 
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-start-playback-button,
+.hero-video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .hero-text {
   position: absolute;
   top: 67%;
